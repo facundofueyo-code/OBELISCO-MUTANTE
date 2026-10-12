@@ -1,9 +1,9 @@
 # Obelisco Mutante — Registro de versiones
 
 **Versión actual: v2.1.0**
-Archivo del juego (única fuente de verdad): `C:\Dev_Videogame\obelisco-mutante.html`
-Repositorio: https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages)
-Mapa del juego: `C:\Dev_Videogame\mapa.html` (página aparte, no es parte del juego; ver la regla 7)
+Fuente de verdad: el repositorio https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
+Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
+Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
 
 ## Cómo se numera (MAYOR.MENOR.PARCHE)
 - **MAYOR**: cambio grande (mapa nuevo hasta Av. de Mayo, multiplayer, etc.) → 1.x.x a 2.0.0
@@ -11,14 +11,15 @@ Mapa del juego: `C:\Dev_Videogame\mapa.html` (página aparte, no es parte del ju
 - **PARCHE**: arreglos y ajustes chicos → 1.1.0 a 1.1.1
 
 ## Reglas para cada chat
-1. El chat tiene que tener conectada la carpeta `C:\Dev_Videogame`. Si no la tiene, pedirla antes de tocar el juego.
-2. Al empezar: leer `C:\Dev_Videogame\obelisco-mutante.html` y este CHANGELOG (`C:\Dev_Videogame\CHANGELOG.md`).
-3. Al terminar un cambio: subir la versión en `<title>`, en `GAME_VERSION` y en `#ver` (esquina del HUD); agregar una entrada acá arriba; sobrescribir `C:\Dev_Videogame\obelisco-mutante.html` (siempre con ese nombre, así GitHub Pages lo sirve). No se crean copias `_vX.Y.Z`: las versiones viejas quedan en el historial de git.
-4. Facu hace el commit y el push. Mensaje sugerido: `vX.Y.Z: <resumen>`, y tag `vX.Y.Z`.
-5. Copia espejo: actualizar también `claude/obelisco-mutante.html` y `claude/CHANGELOG.md` en el proyecto, para poder consultarlo desde chats sin acceso a la PC. Esa copia no se edita directamente.
+1. Se trabaja sobre el repo de GitHub, no sobre la PC de Facu: el chat tiene que tener acceso de escritura a `facundofueyo-code/OBELISCO-MUTANTE`. Si no lo tiene, pedirlo antes de tocar el juego. Plan B, solo si no hay acceso al repo: trabajar sobre la carpeta `C:\Dev_Videogame` conectada y pasarle a Facu los comandos de commit, push y tag.
+2. Al empezar: traer la última versión de `main` (clonar o `git pull`) y leer `obelisco-mutante.html` y este CHANGELOG.
+3. Al terminar un cambio: subir la versión en `<title>`, en `GAME_VERSION` y en `#ver` (esquina del HUD); agregar una entrada acá arriba; sobrescribir `obelisco-mutante.html` (siempre con ese nombre, así GitHub Pages lo sirve). No se crean copias `_vX.Y.Z`: las versiones viejas quedan en el historial de git.
+4. Claude hace el commit en `main` (mensaje `vX.Y.Z: <resumen>`), crea el tag `vX.Y.Z` y sube los dos. Con eso GitHub Pages publica la versión web y GitHub Actions arma la versión de escritorio en Releases. Comprobar que el workflow terminó bien y pasarle a Facu el link de la release.
+5. Copia espejo: actualizar también `claude/obelisco-mutante.html`, `claude/CHANGELOG.md` y `claude/mapa.html` en el proyecto, para poder consultarlos desde chats sin acceso al repo. Esa copia no se edita directamente.
 6. Los `*-concepto.html` son solo referencia: no se aplican al juego sin aprobación de Facu.
-7. Mapa: `mapa.html` dibuja el mapa leyendo los datos de `obelisco-mutante.html` y no modifica el juego. Publicado con GitHub Pages lee el juego solo; abierto con doble clic muestra la copia de datos que lleva adentro. Al terminar un cambio, actualizar esa copia con el script que está en el encabezado de `mapa.html`, abrirlo para comprobar que no muestre avisos, y subir la copia espejo `claude/mapa.html`. Si el cambio suma un edificio modelado a mano o una sección, agregar su nombre en las tablas `HITOS` y `NOMBRE_SEC` de `mapa.html`. El mapa no lleva número de versión propio: va en el mismo commit que el juego.
+7. Mapa: `mapa.html` dibuja el mapa leyendo los datos de `obelisco-mutante.html` y no modifica el juego. Publicado con GitHub Pages lee el juego solo; abierto con doble clic muestra la copia de datos que lleva adentro. Al terminar un cambio, actualizar esa copia con el script que está en el encabezado de `mapa.html`, abrirlo para comprobar que no muestre avisos, y actualizar la copia espejo `claude/mapa.html`. Si el cambio suma un edificio modelado a mano o una sección, agregar su nombre en las tablas `HITOS` y `NOMBRE_SEC` de `mapa.html`. El mapa no lleva número de versión propio: va en el mismo commit que el juego.
 8. Versión de escritorio: `desktop/` envuelve el juego con Electron para jugarlo como programa de Windows, sin navegador. No se edita el juego para eso: `desktop/preparar.js` copia `obelisco-mutante.html` tal cual y toma la versión de `GAME_VERSION`. Al pushear el tag `vX.Y.Z`, GitHub Actions arma el portable y el instalador y los publica en Releases; no hace falta tocar `desktop/` en cada versión. El juego tiene que seguir funcionando sin internet: nada nuevo que se cargue desde un CDN (fuentes, librerías, sonidos, imágenes): todo va dentro del HTML o, si es una fuente, en `desktop/preparar.js`.
+9. PC de Facu: para jugar o editar en `C:\Dev_Videogame`, primero `git -C C:\Dev_Videogame pull`. Si Facu cambia algo a mano, hace commit y push antes de pedirle un cambio a Claude, para no pisarse. Claude no escribe en `C:\Dev_Videogame` salvo que Facu lo pida.
 
 ## Versión de escritorio (`desktop/`)
 - Hecha el 2026-10-12 sobre la v2.1.0, a pedido de Facu, para tener el juego descargable. No cambia la versión del juego.
@@ -27,6 +28,7 @@ Mapa del juego: `C:\Dev_Videogame\mapa.html` (página aparte, no es parte del ju
 - Los guardados del navegador (récord, opciones, FPS, semáforos) siguen funcionando, pero quedan dentro de la app y no se comparten con los del navegador.
 - Comprobado: la v2.1.0 arranca en la app con las fuentes locales (en un equipo sin placa de video).
 - Comandos en `desktop/README.md`. El workflow es `.github/workflows/escritorio.yml`.
+- 2026-10-12: primera release publicada por GitHub Actions (v2.1.0). Desde ese día el repo de GitHub pasa a ser la fuente de verdad y Claude sube los cambios directo (reglas 1 a 4 y 9).
 
 ## Mapa del juego (`mapa.html`)
 - Hecho el 2026-10-03 sobre la v1.14.0, a pedido de Facu, para ver cómo va el mapa y planear ampliaciones. No cambia la versión del juego.

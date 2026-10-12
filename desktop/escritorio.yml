@@ -1,0 +1,53 @@
+# Arma la versión de escritorio de Windows en la nube de GitHub y la publica en Releases.
+# Se dispara solo al pushear un tag vX.Y.Z (el mismo que ya se hace en cada versión).
+# También se puede correr a mano desde la pestaña Actions ("Run workflow").
+name: Versión de escritorio
+
+on:
+  push:
+    tags: ['v*.*.*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: desktop
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Armar el .exe
+        run: npm run build
+
+      - name: Guardar como artefacto del workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: obelisco-mutante-windows
+          path: |
+            desktop/dist/*.exe
+          if-no-files-found: error
+
+      - name: Publicar en Releases
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Obelisco Mutante ${{ github.ref_name }}
+          files: desktop/dist/*.exe
+          body: |
+            Versión de escritorio para Windows.
+            - **ObeliscoMutante-X.Y.Z-instalador.exe**: lo instala con acceso directo en el menú Inicio.
+            - **ObeliscoMutante-X.Y.Z-portable.exe**: se abre con doble clic, sin instalar.
+            Los cambios de esta versión están en CHANGELOG.md.

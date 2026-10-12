@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Obelisco Mutante v2.1.0</title>
+<title>Obelisco Mutante v2.2.0</title>
 <meta name="game-version" content="1.0.0">
 </head><body style="margin:0">
 
@@ -311,7 +311,7 @@ body:not(.playing) .coop-tag{display:none}
 </style>
 
 <div id="game"></div>
-<div id="ver">v2.1.0</div>
+<div id="ver">v2.2.0</div>
 <div id="coopHud" hidden></div>
 <div id="fps" aria-live="off"><b>--</b> FPS · <span>--</span> ms · peor <i>--</i> ms<u id="fpsA"></u></div>
 
@@ -538,7 +538,7 @@ body:not(.playing) .coop-tag{display:none}
     isBrowserSupported:${this.isBrowserSupported()}
     isUnifiedPlanSupported:${this.isUnifiedPlanSupported()}`}constructor(){this.isIOS="undefined"!=typeof navigator&&["iPad","iPhone","iPod"].includes(navigator.platform),this.supportedBrowsers=["firefox","chrome","safari"],this.minFirefoxVersion=59,this.minChromeVersion=72,this.minSafariVersion=605}},el=e=>!e||/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/.test(e),eh=()=>Math.random().toString(36).slice(2),eu={iceServers:[{urls:"stun:stun.l.google.com:19302"},{urls:["turn:eu-0.turn.peerjs.com:3478","turn:us-0.turn.peerjs.com:3478"],username:"peerjs",credential:"peerjsp"}],sdpSemantics:"unified-plan"},ef=new class extends n{noop(){}blobToArrayBuffer(e,t){let n=new FileReader;return n.onload=function(e){e.target&&t(e.target.result)},n.readAsArrayBuffer(e),n}binaryStringToArrayBuffer(e){let t=new Uint8Array(e.length);for(let n=0;n<e.length;n++)t[n]=255&e.charCodeAt(n);return t.buffer}isSecure(){return"https:"===location.protocol}constructor(...e){super(...e),this.CLOUD_HOST="0.peerjs.com",this.CLOUD_PORT=443,this.chunkedBrowsers={Chrome:1,chrome:1},this.defaultConfig=eu,this.browser=ed.getBrowser(),this.browserVersion=ed.getVersion(),this.pack=s,this.unpack=i,this.supports=function(){let e,t={browser:ed.isBrowserSupported(),webRTC:ed.isWebRTCSupported(),audioVideo:!1,data:!1,binaryBlob:!1,reliable:!1};if(!t.webRTC)return t;try{let n;e=new RTCPeerConnection(eu),t.audioVideo=!0;try{n=e.createDataChannel("_PEERJSTEST",{ordered:!0}),t.data=!0,t.reliable=!!n.ordered;try{n.binaryType="blob",t.binaryBlob=!ed.isIOS}catch(e){}}catch(e){}finally{n&&n.close()}}catch(e){}finally{e&&e.close()}return t}(),this.validateId=el,this.randomToken=eh}};"use strict";var em=new class{get logLevel(){return this._logLevel}set logLevel(e){this._logLevel=e}log(...e){this._logLevel>=3&&this._print(3,...e)}warn(...e){this._logLevel>=2&&this._print(2,...e)}error(...e){this._logLevel>=1&&this._print(1,...e)}setLogFunction(e){this._print=e}_print(e,...t){let n=["PeerJS: ",...t];for(let e in n)n[e]instanceof Error&&(n[e]="("+n[e].name+") "+n[e].message);e>=3?console.log(...n):e>=2?console.warn("WARNING",...n):e>=1&&console.error("ERROR",...n)}constructor(){this._logLevel=0}},e_={},eg=Object.prototype.hasOwnProperty,ey="~";function eC(){}function ev(e,t,n){this.fn=e,this.context=t,this.once=n||!1}function eb(e,t,n,r,i){if("function"!=typeof n)throw TypeError("The listener must be a function");var s=new ev(n,r||e,i),o=ey?ey+t:t;return e._events[o]?e._events[o].fn?e._events[o]=[e._events[o],s]:e._events[o].push(s):(e._events[o]=s,e._eventsCount++),e}function eT(e,t){0==--e._eventsCount?e._events=new eC:delete e._events[t]}function eS(){this._events=new eC,this._eventsCount=0}Object.create&&(eC.prototype=Object.create(null),new eC().__proto__||(ey=!1)),eS.prototype.eventNames=function(){var e,t,n=[];if(0===this._eventsCount)return n;for(t in e=this._events)eg.call(e,t)&&n.push(ey?t.slice(1):t);return Object.getOwnPropertySymbols?n.concat(Object.getOwnPropertySymbols(e)):n},eS.prototype.listeners=function(e){var t=ey?ey+e:e,n=this._events[t];if(!n)return[];if(n.fn)return[n.fn];for(var r=0,i=n.length,s=Array(i);r<i;r++)s[r]=n[r].fn;return s},eS.prototype.listenerCount=function(e){var t=ey?ey+e:e,n=this._events[t];return n?n.fn?1:n.length:0},eS.prototype.emit=function(e,t,n,r,i,s){var o=ey?ey+e:e;if(!this._events[o])return!1;var a,c,p=this._events[o],d=arguments.length;if(p.fn){switch(p.once&&this.removeListener(e,p.fn,void 0,!0),d){case 1:return p.fn.call(p.context),!0;case 2:return p.fn.call(p.context,t),!0;case 3:return p.fn.call(p.context,t,n),!0;case 4:return p.fn.call(p.context,t,n,r),!0;case 5:return p.fn.call(p.context,t,n,r,i),!0;case 6:return p.fn.call(p.context,t,n,r,i,s),!0}for(c=1,a=Array(d-1);c<d;c++)a[c-1]=arguments[c];p.fn.apply(p.context,a)}else{var l,h=p.length;for(c=0;c<h;c++)switch(p[c].once&&this.removeListener(e,p[c].fn,void 0,!0),d){case 1:p[c].fn.call(p[c].context);break;case 2:p[c].fn.call(p[c].context,t);break;case 3:p[c].fn.call(p[c].context,t,n);break;case 4:p[c].fn.call(p[c].context,t,n,r);break;default:if(!a)for(l=1,a=Array(d-1);l<d;l++)a[l-1]=arguments[l];p[c].fn.apply(p[c].context,a)}}return!0},eS.prototype.on=function(e,t,n){return eb(this,e,t,n,!1)},eS.prototype.once=function(e,t,n){return eb(this,e,t,n,!0)},eS.prototype.removeListener=function(e,t,n,r){var i=ey?ey+e:e;if(!this._events[i])return this;if(!t)return eT(this,i),this;var s=this._events[i];if(s.fn)s.fn!==t||r&&!s.once||n&&s.context!==n||eT(this,i);else{for(var o=0,a=[],c=s.length;o<c;o++)(s[o].fn!==t||r&&!s[o].once||n&&s[o].context!==n)&&a.push(s[o]);a.length?this._events[i]=1===a.length?a[0]:a:eT(this,i)}return this},eS.prototype.removeAllListeners=function(e){var t;return e?(t=ey?ey+e:e,this._events[t]&&eT(this,t)):(this._events=new eC,this._eventsCount=0),this},eS.prototype.off=eS.prototype.removeListener,eS.prototype.addListener=eS.prototype.on,eS.prefixed=ey,eS.EventEmitter=eS,e_=eS;var ek=function(e){return e.Data="data",e.Media="media",e}({}),eR=function(e){return e.BrowserIncompatible="browser-incompatible",e.Disconnected="disconnected",e.InvalidID="invalid-id",e.InvalidKey="invalid-key",e.Network="network",e.PeerUnavailable="peer-unavailable",e.SslUnavailable="ssl-unavailable",e.ServerError="server-error",e.SocketError="socket-error",e.SocketClosed="socket-closed",e.UnavailableID="unavailable-id",e.WebRTC="webrtc",e}({}),eP=function(e){return e.NegotiationFailed="negotiation-failed",e.ConnectionClosed="connection-closed",e}({}),ew=function(e){return e.NotOpenYet="not-open-yet",e.MessageToBig="message-too-big",e}({}),eE=function(e){return e.Binary="binary",e.BinaryUTF8="binary-utf8",e.JSON="json",e.None="raw",e}({}),ex=function(e){return e.Message="message",e.Disconnected="disconnected",e.Error="error",e.Close="close",e}({}),eD=function(e){return e.Heartbeat="HEARTBEAT",e.Candidate="CANDIDATE",e.Offer="OFFER",e.Answer="ANSWER",e.Open="OPEN",e.Error="ERROR",e.IdTaken="ID-TAKEN",e.InvalidKey="INVALID-KEY",e.Leave="LEAVE",e.Expire="EXPIRE",e}({});let eI="1.5.5";class eM extends e_.EventEmitter{start(e,t){this._id=e;let n=`${this._baseUrl}&id=${e}&token=${t}`;!this._socket&&this._disconnected&&(this._socket=new WebSocket(n+"&version="+eI),this._disconnected=!1,this._socket.onmessage=e=>{let t;try{t=JSON.parse(e.data),em.log("Server message received:",t)}catch(t){em.log("Invalid server message",e.data);return}this.emit(ex.Message,t)},this._socket.onclose=e=>{this._disconnected||(em.log("Socket closed.",e),this._cleanup(),this._disconnected=!0,this.emit(ex.Disconnected))},this._socket.onopen=()=>{this._disconnected||(this._sendQueuedMessages(),em.log("Socket open"),this._scheduleHeartbeat())})}_scheduleHeartbeat(){this._wsPingTimer=setTimeout(()=>{this._sendHeartbeat()},this.pingInterval)}_sendHeartbeat(){if(!this._wsOpen())return void em.log("Cannot send heartbeat, because socket closed");let e=JSON.stringify({type:eD.Heartbeat});this._socket.send(e),this._scheduleHeartbeat()}_wsOpen(){return!!this._socket&&1===this._socket.readyState}_sendQueuedMessages(){let e=[...this._messagesQueue];for(let t of(this._messagesQueue=[],e))this.send(t)}send(e){if(this._disconnected)return;if(!this._id)return void this._messagesQueue.push(e);if(!e.type)return void this.emit(ex.Error,"Invalid message");if(!this._wsOpen())return;let t=JSON.stringify(e);this._socket.send(t)}close(){this._disconnected||(this._cleanup(),this._disconnected=!0)}_cleanup(){this._socket&&(this._socket.onopen=this._socket.onmessage=this._socket.onclose=null,this._socket.close(),this._socket=void 0),clearTimeout(this._wsPingTimer)}constructor(e,t,n,r,i,s=5e3){super(),this.pingInterval=s,this._disconnected=!0,this._messagesQueue=[],this._baseUrl=(e?"wss://":"ws://")+t+":"+n+r+"peerjs?key="+i}}class eO{startConnection(e){let t=this._startPeerConnection();if(this.connection.peerConnection=t,this.connection.type===ek.Media&&e._stream&&this._addTracksToConnection(e._stream,t),e.originator){let n=this.connection,r={ordered:!!e.reliable},i=t.createDataChannel(n.label,r);n._initializeDataChannel(i),this._makeOffer()}else this.handleSDP("OFFER",e.sdp)}_startPeerConnection(){em.log("Creating RTCPeerConnection.");let e=new RTCPeerConnection(this.connection.provider.options.config);return this._setupListeners(e),e}_setupListeners(e){let t=this.connection.peer,n=this.connection.connectionId,r=this.connection.type,i=this.connection.provider;em.log("Listening for ICE candidates."),e.onicecandidate=e=>{e.candidate&&e.candidate.candidate&&(em.log(`Received ICE candidates for ${t}:`,e.candidate),i.socket.send({type:eD.Candidate,payload:{candidate:e.candidate,type:r,connectionId:n},dst:t}))},e.oniceconnectionstatechange=()=>{switch(e.iceConnectionState){case"failed":em.log("iceConnectionState is failed, closing connections to "+t),this.connection.emitError(eP.NegotiationFailed,"Negotiation of connection to "+t+" failed."),this.connection.close();break;case"closed":em.log("iceConnectionState is closed, closing connections to "+t),this.connection.emitError(eP.ConnectionClosed,"Connection to "+t+" closed."),this.connection.close();break;case"disconnected":em.log("iceConnectionState changed to disconnected on the connection with "+t);break;case"completed":e.onicecandidate=()=>{}}this.connection.emit("iceStateChanged",e.iceConnectionState)},em.log("Listening for data channel"),e.ondatachannel=e=>{em.log("Received data channel");let r=e.channel;i.getConnection(t,n)._initializeDataChannel(r)},em.log("Listening for remote stream"),e.ontrack=e=>{em.log("Received remote stream");let r=e.streams[0],s=i.getConnection(t,n);s.type===ek.Media&&this._addStreamToMediaConnection(r,s)}}cleanup(){em.log("Cleaning up PeerConnection to "+this.connection.peer);let e=this.connection.peerConnection;if(!e)return;this.connection.peerConnection=null,e.onicecandidate=e.oniceconnectionstatechange=e.ondatachannel=e.ontrack=()=>{};let t="closed"!==e.signalingState,n=!1,r=this.connection.dataChannel;r&&(n=!!r.readyState&&"closed"!==r.readyState),(t||n)&&e.close()}async _makeOffer(){let e=this.connection.peerConnection,t=this.connection.provider;try{let n=await e.createOffer(this.connection.options.constraints);em.log("Created offer."),this.connection.options.sdpTransform&&"function"==typeof this.connection.options.sdpTransform&&(n.sdp=this.connection.options.sdpTransform(n.sdp)||n.sdp);try{await e.setLocalDescription(n),em.log("Set localDescription:",n,`for:${this.connection.peer}`);let r={sdp:n,type:this.connection.type,connectionId:this.connection.connectionId,metadata:this.connection.metadata};if(this.connection.type===ek.Data){let e=this.connection;r={...r,label:e.label,reliable:e.reliable,serialization:e.serialization}}t.socket.send({type:eD.Offer,payload:r,dst:this.connection.peer})}catch(e){"OperationError: Failed to set local offer sdp: Called in wrong state: kHaveRemoteOffer"!=e&&(t.emitError(eR.WebRTC,e),em.log("Failed to setLocalDescription, ",e))}}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to createOffer, ",e)}}async _makeAnswer(){let e=this.connection.peerConnection,t=this.connection.provider;try{let n=await e.createAnswer();em.log("Created answer."),this.connection.options.sdpTransform&&"function"==typeof this.connection.options.sdpTransform&&(n.sdp=this.connection.options.sdpTransform(n.sdp)||n.sdp);try{await e.setLocalDescription(n),em.log("Set localDescription:",n,`for:${this.connection.peer}`),t.socket.send({type:eD.Answer,payload:{sdp:n,type:this.connection.type,connectionId:this.connection.connectionId},dst:this.connection.peer})}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to setLocalDescription, ",e)}}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to create answer, ",e)}}async handleSDP(e,t){t=new RTCSessionDescription(t);let n=this.connection.peerConnection,r=this.connection.provider;em.log("Setting remote description",t);try{await n.setRemoteDescription(t),em.log(`Set remoteDescription:${e} for:${this.connection.peer}`),"OFFER"===e&&await this._makeAnswer()}catch(e){r.emitError(eR.WebRTC,e),em.log("Failed to setRemoteDescription, ",e)}}async handleCandidate(e){em.log("handleCandidate:",e);try{await this.connection.peerConnection.addIceCandidate(e),em.log(`Added ICE candidate for:${this.connection.peer}`)}catch(e){this.connection.provider.emitError(eR.WebRTC,e),em.log("Failed to handleCandidate, ",e)}}_addTracksToConnection(e,t){if(em.log(`add tracks from stream ${e.id} to peer connection`),!t.addTrack)return em.error("Your browser does't support RTCPeerConnection#addTrack. Ignored.");e.getTracks().forEach(n=>{t.addTrack(n,e)})}_addStreamToMediaConnection(e,t){em.log(`add stream ${e.id} to media connection ${t.connectionId}`),t.addStream(e)}constructor(e){this.connection=e}}class eL extends e_.EventEmitter{emitError(e,t){em.error("Error:",t),this.emit("error",new eA(`${e}`,t))}}class eA extends Error{constructor(e,t){"string"==typeof t?super(t):(super(),Object.assign(this,t)),this.type=e}}class ej extends eL{get open(){return this._open}constructor(e,t,n){super(),this.peer=e,this.provider=t,this.options=n,this._open=!1,this.metadata=n.metadata}}class eB extends ej{get type(){return ek.Media}get localStream(){return this._localStream}get remoteStream(){return this._remoteStream}_initializeDataChannel(e){this.dataChannel=e,this.dataChannel.onopen=()=>{em.log(`DC#${this.connectionId} dc connection success`),this.emit("willCloseOnRemote")},this.dataChannel.onclose=()=>{em.log(`DC#${this.connectionId} dc closed for:`,this.peer),this.close()}}addStream(e){em.log("Receiving stream",e),this._remoteStream=e,super.emit("stream",e)}handleMessage(e){let t=e.type,n=e.payload;switch(e.type){case eD.Answer:this._negotiator.handleSDP(t,n.sdp),this._open=!0;break;case eD.Candidate:this._negotiator.handleCandidate(n.candidate);break;default:em.warn(`Unrecognized message type:${t} from peer:${this.peer}`)}}answer(e,t={}){if(this._localStream)return void em.warn("Local stream already exists on this MediaConnection. Are you answering a call twice?");for(let n of(this._localStream=e,t&&t.sdpTransform&&(this.options.sdpTransform=t.sdpTransform),this._negotiator.startConnection({...this.options._payload,_stream:e}),this.provider._getMessages(this.connectionId)))this.handleMessage(n);this._open=!0}close(){this._negotiator&&(this._negotiator.cleanup(),this._negotiator=null),this._localStream=null,this._remoteStream=null,this.provider&&(this.provider._removeConnection(this),this.provider=null),this.options&&this.options._stream&&(this.options._stream=null),this.open&&(this._open=!1,super.emit("close"))}constructor(e,t,n){super(e,t,n),this._localStream=this.options._stream,this.connectionId=this.options.connectionId||eB.ID_PREFIX+ef.randomToken(),this._negotiator=new eO(this),this._localStream&&this._negotiator.startConnection({_stream:this._localStream,originator:!0})}}eB.ID_PREFIX="mc_";class eU{_buildRequest(e){let t=this._options.secure?"https":"http",{host:n,port:r,path:i,key:s}=this._options,o=new URL(`${t}://${n}:${r}${i}${s}/${e}`);return o.searchParams.set("ts",`${Date.now()}${Math.random()}`),o.searchParams.set("version",eI),fetch(o.href,{referrerPolicy:this._options.referrerPolicy})}async retrieveId(){try{let e=await this._buildRequest("id");if(200!==e.status)throw Error(`Error. Status:${e.status}`);return e.text()}catch(t){em.error("Error retrieving ID",t);let e="";throw"/"===this._options.path&&this._options.host!==ef.CLOUD_HOST&&(e=" If you passed in a `path` to your self-hosted PeerServer, you'll also need to pass in that same path when creating a new Peer."),Error("Could not get an ID from the server."+e)}}async listAllPeers(){try{let e=await this._buildRequest("peers");if(200!==e.status){if(401===e.status){let e="";throw e=this._options.host===ef.CLOUD_HOST?"It looks like you're using the cloud server. You can email team@peerjs.com to enable peer listing for your API key.":"You need to enable `allow_discovery` on your self-hosted PeerServer to use this feature.",Error("It doesn't look like you have permission to list peers IDs. "+e)}throw Error(`Error. Status:${e.status}`)}return e.json()}catch(e){throw em.error("Error retrieving list peers",e),Error("Could not get list peers from the server."+e)}}constructor(e){this._options=e}}class eF extends ej{get type(){return ek.Data}_initializeDataChannel(e){this.dataChannel=e,this.dataChannel.onopen=()=>{em.log(`DC#${this.connectionId} dc connection success`),this._open=!0,this.emit("open")},this.dataChannel.onmessage=e=>{em.log(`DC#${this.connectionId} dc onmessage:`,e.data)},this.dataChannel.onclose=()=>{em.log(`DC#${this.connectionId} dc closed for:`,this.peer),this.close()}}close(e){if(e?.flush)return void this.send({__peerData:{type:"close"}});this._negotiator&&(this._negotiator.cleanup(),this._negotiator=null),this.provider&&(this.provider._removeConnection(this),this.provider=null),this.dataChannel&&(this.dataChannel.onopen=null,this.dataChannel.onmessage=null,this.dataChannel.onclose=null,this.dataChannel=null),this.open&&(this._open=!1,super.emit("close"))}send(e,t=!1){return this.open?this._send(e,t):void this.emitError(ew.NotOpenYet,"Connection is not open. You should listen for the `open` event before sending messages.")}async handleMessage(e){let t=e.payload;switch(e.type){case eD.Answer:await this._negotiator.handleSDP(e.type,t.sdp);break;case eD.Candidate:await this._negotiator.handleCandidate(t.candidate);break;default:em.warn("Unrecognized message type:",e.type,"from peer:",this.peer)}}constructor(e,t,n){super(e,t,n),this.connectionId=this.options.connectionId||eF.ID_PREFIX+eh(),this.label=this.options.label||this.connectionId,this.reliable=!!this.options.reliable,this._negotiator=new eO(this),this._negotiator.startConnection(this.options._payload||{originator:!0,reliable:this.reliable})}}eF.ID_PREFIX="dc_",eF.MAX_BUFFERED_AMOUNT=8388608;class eN extends eF{get bufferSize(){return this._bufferSize}_initializeDataChannel(e){super._initializeDataChannel(e),this.dataChannel.binaryType="arraybuffer",this.dataChannel.addEventListener("message",e=>this._handleDataMessage(e))}_bufferedSend(e){(this._buffering||!this._trySend(e))&&(this._buffer.push(e),this._bufferSize=this._buffer.length)}_trySend(e){if(!this.open)return!1;if(this.dataChannel.bufferedAmount>eF.MAX_BUFFERED_AMOUNT)return this._buffering=!0,setTimeout(()=>{this._buffering=!1,this._tryBuffer()},50),!1;try{this.dataChannel.send(e)}catch(e){return em.error(`DC#:${this.connectionId} Error when sending:`,e),this._buffering=!0,this.close(),!1}return!0}_tryBuffer(){if(!this.open||0===this._buffer.length)return;let e=this._buffer[0];this._trySend(e)&&(this._buffer.shift(),this._bufferSize=this._buffer.length,this._tryBuffer())}close(e){if(e?.flush)return void this.send({__peerData:{type:"close"}});this._buffer=[],this._bufferSize=0,super.close()}constructor(...e){super(...e),this._buffer=[],this._bufferSize=0,this._buffering=!1}}class ez extends eN{close(e){super.close(e),this._chunkedData={}}_handleDataMessage({data:e}){let t=i(e),n=t.__peerData;if(n)return"close"===n.type?void this.close():void this._handleChunk(t);this.emit("data",t)}_handleChunk(e){let t=e.__peerData,n=this._chunkedData[t]||{data:[],count:0,total:e.total};if(n.data[e.n]=new Uint8Array(e.data),n.count++,this._chunkedData[t]=n,n.total===n.count){delete this._chunkedData[t];let e=function(e){let t=0;for(let n of e)t+=n.byteLength;let n=new Uint8Array(t),r=0;for(let t of e)n.set(t,r),r+=t.byteLength;return n}(n.data);this._handleDataMessage({data:e})}}_send(e,t){let n=s(e);return n instanceof Promise?this._send_blob(n):!t&&n.byteLength>this.chunker.chunkedMTU?void this._sendChunks(n):void this._bufferedSend(n)}async _send_blob(e){let t=await e;if(t.byteLength>this.chunker.chunkedMTU)return void this._sendChunks(t);this._bufferedSend(t)}_sendChunks(e){let t=this.chunker.chunk(e);for(let e of(em.log(`DC#${this.connectionId} Try to send ${t.length} chunks...`),t))this.send(e,!0)}constructor(e,t,r){super(e,t,r),this.chunker=new n,this.serialization=eE.Binary,this._chunkedData={}}}class e$ extends eN{_handleDataMessage({data:e}){super.emit("data",e)}_send(e,t){this._bufferedSend(e)}constructor(...e){super(...e),this.serialization=eE.None}}class eV extends eN{_handleDataMessage({data:e}){let t=this.parse(this.decoder.decode(e)),n=t.__peerData;if(n&&"close"===n.type)return void this.close();this.emit("data",t)}_send(e,t){let n=this.encoder.encode(this.stringify(e));if(n.byteLength>=ef.chunkedMTU)return void this.emitError(ew.MessageToBig,"Message too big for JSON channel");this._bufferedSend(n)}constructor(...e){super(...e),this.serialization=eE.JSON,this.encoder=new TextEncoder,this.decoder=new TextDecoder,this.stringify=JSON.stringify,this.parse=JSON.parse}}class eG extends eL{get id(){return this._id}get options(){return this._options}get open(){return this._open}get socket(){return this._socket}get connections(){let e=Object.create(null);for(let[t,n]of this._connections)e[t]=n;return e}get destroyed(){return this._destroyed}get disconnected(){return this._disconnected}_createServerConnection(){let e=new eM(this._options.secure,this._options.host,this._options.port,this._options.path,this._options.key,this._options.pingInterval);return e.on(ex.Message,e=>{this._handleMessage(e)}),e.on(ex.Error,e=>{this._abort(eR.SocketError,e)}),e.on(ex.Disconnected,()=>{this.disconnected||(this.emitError(eR.Network,"Lost connection to server."),this.disconnect())}),e.on(ex.Close,()=>{this.disconnected||this._abort(eR.SocketClosed,"Underlying socket is already closed.")}),e}_initialize(e){this._id=e,this.socket.start(e,this._options.token)}_handleMessage(e){let t=e.type,n=e.payload,r=e.src;switch(t){case eD.Open:this._lastServerId=this.id,this._open=!0,this.emit("open",this.id);break;case eD.Error:this._abort(eR.ServerError,n.msg);break;case eD.IdTaken:this._abort(eR.UnavailableID,`ID "${this.id}" is taken`);break;case eD.InvalidKey:this._abort(eR.InvalidKey,`API KEY "${this._options.key}" is invalid`);break;case eD.Leave:em.log(`Received leave message from ${r}`),this._cleanupPeer(r),this._connections.delete(r);break;case eD.Expire:this.emitError(eR.PeerUnavailable,`Could not connect to peer ${r}`);break;case eD.Offer:{let e=n.connectionId,t=this.getConnection(r,e);if(t&&(t.close(),em.warn(`Offer received for existing Connection ID:${e}`)),n.type===ek.Media){let i=new eB(r,this,{connectionId:e,_payload:n,metadata:n.metadata});t=i,this._addConnection(r,t),this.emit("call",i)}else{if(n.type!==ek.Data)return void em.warn(`Received malformed connection type:${n.type}`);let i=new this._serializers[n.serialization](r,this,{connectionId:e,_payload:n,metadata:n.metadata,label:n.label,serialization:n.serialization,reliable:n.reliable});t=i,this._addConnection(r,t),this.emit("connection",i)}for(let n of this._getMessages(e))t.handleMessage(n);break}default:{if(!n)return void em.warn(`You received a malformed message from ${r} of type ${t}`);let i=n.connectionId,s=this.getConnection(r,i);s&&s.peerConnection?s.handleMessage(e):i?this._storeMessage(i,e):em.warn("You received an unrecognized message:",e)}}}_storeMessage(e,t){this._lostMessages.has(e)||this._lostMessages.set(e,[]),this._lostMessages.get(e).push(t)}_getMessages(e){let t=this._lostMessages.get(e);return t?(this._lostMessages.delete(e),t):[]}connect(e,t={}){if(t={serialization:"default",...t},this.disconnected){em.warn("You cannot connect to a new Peer because you called .disconnect() on this Peer and ended your connection with the server. You can create a new Peer to reconnect, or call reconnect on this peer if you believe its ID to still be available."),this.emitError(eR.Disconnected,"Cannot connect to new Peer after disconnecting from server.");return}let n=new this._serializers[t.serialization](e,this,t);return this._addConnection(e,n),n}call(e,t,n={}){if(this.disconnected){em.warn("You cannot connect to a new Peer because you called .disconnect() on this Peer and ended your connection with the server. You can create a new Peer to reconnect."),this.emitError(eR.Disconnected,"Cannot connect to new Peer after disconnecting from server.");return}if(!t)return void em.error("To call a peer, you must provide a stream from your browser's `getUserMedia`.");let r=new eB(e,this,{...n,_stream:t});return this._addConnection(e,r),r}_addConnection(e,t){em.log(`add connection ${t.type}:${t.connectionId} to peerId:${e}`),this._connections.has(e)||this._connections.set(e,[]),this._connections.get(e).push(t)}_removeConnection(e){let t=this._connections.get(e.peer);if(t){let n=t.indexOf(e);-1!==n&&t.splice(n,1)}this._lostMessages.delete(e.connectionId)}getConnection(e,t){let n=this._connections.get(e);if(!n)return null;for(let e of n)if(e.connectionId===t)return e;return null}_delayedAbort(e,t){setTimeout(()=>{this._abort(e,t)},0)}_abort(e,t){em.error("Aborting!"),this.emitError(e,t),this._lastServerId?this.disconnect():this.destroy()}destroy(){this.destroyed||(em.log(`Destroy peer with ID:${this.id}`),this.disconnect(),this._cleanup(),this._destroyed=!0,this.emit("close"))}_cleanup(){for(let e of this._connections.keys())this._cleanupPeer(e),this._connections.delete(e);this.socket.removeAllListeners()}_cleanupPeer(e){let t=this._connections.get(e);if(t)for(let e of t)e.close()}disconnect(){if(this.disconnected)return;let e=this.id;em.log(`Disconnect peer with ID:${e}`),this._disconnected=!0,this._open=!1,this.socket.close(),this._lastServerId=e,this._id=null,this.emit("disconnected",e)}reconnect(){if(this.disconnected&&!this.destroyed)em.log(`Attempting reconnection to server with ID ${this._lastServerId}`),this._disconnected=!1,this._initialize(this._lastServerId);else if(this.destroyed)throw Error("This peer cannot reconnect to the server. It has already been destroyed.");else if(this.disconnected||this.open)throw Error(`Peer ${this.id} cannot reconnect because it is not disconnected from the server!`);else em.error("In a hurry? We're still trying to make the initial connection!")}listAllPeers(e=e=>{}){this._api.listAllPeers().then(t=>e(t)).catch(e=>this._abort(eR.ServerError,e))}constructor(e,t){let n;if(super(),this._serializers={raw:e$,json:eV,binary:ez,"binary-utf8":ez,default:ez},this._id=null,this._lastServerId=null,this._destroyed=!1,this._disconnected=!1,this._open=!1,this._connections=new Map,this._lostMessages=new Map,e&&e.constructor==Object?t=e:e&&(n=e.toString()),t={debug:0,host:ef.CLOUD_HOST,port:ef.CLOUD_PORT,path:"/",key:eG.DEFAULT_KEY,token:ef.randomToken(),config:ef.defaultConfig,referrerPolicy:"strict-origin-when-cross-origin",serializers:{},...t},this._options=t,this._serializers={...this._serializers,...this.options.serializers},"/"===this._options.host&&(this._options.host=window.location.hostname),this._options.path&&("/"!==this._options.path[0]&&(this._options.path="/"+this._options.path),"/"!==this._options.path[this._options.path.length-1]&&(this._options.path+="/")),void 0===this._options.secure&&this._options.host!==ef.CLOUD_HOST?this._options.secure=ef.isSecure():this._options.host==ef.CLOUD_HOST&&(this._options.secure=!0),this._options.logFunction&&em.setLogFunction(this._options.logFunction),em.logLevel=this._options.debug||0,this._api=new eU(t),this._socket=this._createServerConnection(),!ef.supports.audioVideo&&!ef.supports.data)return void this._delayedAbort(eR.BrowserIncompatible,"The current browser does not support WebRTC");if(n&&!ef.validateId(n))return void this._delayedAbort(eR.InvalidID,`ID "${n}" is invalid`);n?this._initialize(n):this._api.retrieveId().then(e=>this._initialize(e)).catch(e=>this._abort(eR.ServerError,e))}}eG.DEFAULT_KEY="peerjs",window.peerjs={Peer:eG,util:ef},window.Peer=eG})();
 </script>
-<script>const GAME_VERSION="2.1.0";
+<script>const GAME_VERSION="2.2.0";
 /* v1.22.0 · opciones del jugador (pantalla Opciones). Se guardan en este navegador. */
 const OPC_DEF={sens:1,invY:false,vGen:1,vMus:1,vFx:1,res:'alta',nombre:''};
 const OPC=Object.assign({},OPC_DEF);
@@ -12459,10 +12459,10 @@ function spawnEnemy(type,at,op){
 function pickType(){const w=[['bagayo',2.6],['rata',3],['baboso',4],['escupidor',wave>=2?2.2:0],['mole',wave>=3?.8+wave*.15:0]];const tot=w.reduce((a,b)=>a+b[1],0);let r=Math.random()*tot;for(const [t,v] of w){if((r-=v)<=0)return t;}return 'baboso';}
 function startWave(){
   wave++;sfx.wave();CABILDO.ring(6);CATEDRAL.ring(4);
-  if(wave===3&&!NET.on){toSpawn=0;waveMusic.stop(.6);SHJ.spawn();alienMusic.start();spawnT=1;hudWave();return;}
-  if(wave%5===0&&!NET.on){bossCount++;toSpawn=3+wave;const e=spawnEnemy('boss');bossAlive=e;$('#bossbar').hidden=false;$('#bossfill').style.width='100%';sfx.roar();waveMusic.stop(.6);music.start();shake=1;if(STAGE==='B')announce('El Engendro del Congreso','Salió de la plaza, frente a la cúpula. Apuntale a los ojos.',true,3800);else announce('El Engendro del Riachuelo','Rompió la vereda al lado del Obelisco. Apuntale a los ojos.',true,3800);}
+  if(wave===3){toSpawn=0;waveMusic.stop(.6);SHJ.spawn();alienMusic.start();spawnT=1;hudWave();COOP.alOleada({sh:1});return;}
+  if(wave%5===0){bossCount++;toSpawn=3+wave;const e=spawnEnemy('boss');bossAlive=e;$('#bossbar').hidden=false;$('#bossfill').style.width='100%';sfx.roar();waveMusic.stop(.6);music.start();shake=1;if(STAGE==='B')announce('El Engendro del Congreso','Salió de la plaza, frente a la cúpula. Apuntale a los ojos.',true,3800);else announce('El Engendro del Riachuelo','Rompió la vereda al lado del Obelisco. Apuntale a los ojos.',true,3800);COOP.alOleada({boss:1});spawnT=1;hudWave();return;}
   else{toSpawn=Math.round((5+wave*3)*(NET.on?COOP.mulOleada():1));if(!waveMusic.on)waveMusic.start();announce(`Oleada ${wave}`,WAVE_TXT[wave]||'No paran de salir');}
-  spawnT=1;hudWave();COOP.alOleada();
+  spawnT=1;hudWave();COOP.alOleada({});
 }
 
 /* ---------- player actions ---------- */
@@ -12515,7 +12515,7 @@ function fire(){const w=W[wi];
       for(const p of e.parts){if(!p.alive||!p.rad)continue;const tp=raySphere(ray.o,d,p.c,p.rad);if(tp<best+.2&&tp<Infinity){best=Math.min(best,tp);hitE=e;hitP=p;}}}
     let wall=Infinity,glB=null,glT=Infinity;for(const b of obstacles){const t=rayBox(ray.o,d,b);if(b.glass){if(t<glT){glT=t;glB=b;}continue;}if(t<wall)wall=t;}wall=Math.min(wall,rayWalls(ray.o,d,range));
     if(glB&&glT<wall&&glT<range&&(!hitE||glT<best))mbGlassBreak(glB.gl,d.x,d.z);
-    {const sh=SHJ.ray(ray.o,d);if(sh&&sh.t<wall&&sh.t<range&&(!hitE||sh.t<best)){const chT=(rayCars(ray.o,d,Math.min(wall,range))||{t:Infinity}).t;if(sh.t<chT){if(sh.dodge){SHJ.dodged();continue;}const fall=w.fall?w.fall(sh.t):/*UE:R*/w.rays>1?(sh.t<12?1:Math.max(.3,1-(sh.t-12)/40)):(sh.t<30?1:Math.max(.55,1-(sh.t-30)/80));SHJ.hit(w.dmg*fall*sh.mul,d,sh.head);anyHit=true;if(sh.head)eyeHit=true;_v.copy(ray.o).addScaledVector(d,sh.t);for(let k=0;k<4;k++)spawnPart(_v,_w.set(rand(-2,2)-d.x*3,rand(1,4),rand(-2,2)-d.z*3),rand(.04,.1),pick(GOO),rand(1,2.2));continue;}}}
+    {const sh=SHJ.ray(ray.o,d);if(sh&&sh.t<wall&&sh.t<range&&(!hitE||sh.t<best)){const chT=(rayCars(ray.o,d,Math.min(wall,range))||{t:Infinity}).t;if(sh.t<chT){if(sh.dodge){SHJ.dodged();continue;}const fall=w.fall?w.fall(sh.t):/*UE:R*/w.rays>1?(sh.t<12?1:Math.max(.3,1-(sh.t-12)/40)):(sh.t<30?1:Math.max(.55,1-(sh.t-30)/80));if(COOP.cliente)COOP.golpeShajar(w.dmg*fall*sh.mul,d,sh.head);else SHJ.hit(w.dmg*fall*sh.mul,d,sh.head);anyHit=true;if(sh.head)eyeHit=true;_v.copy(ray.o).addScaledVector(d,sh.t);for(let k=0;k<4;k++)spawnPart(_v,_w.set(rand(-2,2)-d.x*3,rand(1,4),rand(-2,2)-d.z*3),rand(.04,.1),pick(GOO),rand(1,2.2));continue;}}}
     if(!NET.on&&UEG.balaJugador(ray.o,d,w,hitE?best:Infinity,wall,range,i)){anyHit=true;continue;}/*UE:rayo-jugador*/
     {const ch=rayCars(ray.o,d,Math.min(wall,range));if(ch&&(!hitE||ch.t<best)){carShot(ch.car,_v.copy(ray.o).addScaledVector(d,ch.t),d,dbl);continue;}}
     if(hitE&&best<wall&&best<range){const fall=w.fall?w.fall(best):/*UE:R*/w.rays>1?(best<12?1:Math.max(.3,1-(best-12)/40)):(best<30?1:Math.max(.55,1-(best-30)/80));const dm=w.dmg*fall;
@@ -12535,7 +12535,7 @@ let painLast=-9;
 function painSound(e){if(!running||!AC)return;const cd=e.type==='boss'?1.1:e.type==='mole'?.7:.45;if(T-(e.painAt||-9)<cd||T-painLast<.06)return;e.painAt=T;painLast=T;
   const d=Math.hypot(e.obj.position.x-P.pos.x,e.obj.position.z-P.pos.z);
   if(mvox(e,'dolor')){e.bite=Math.max(e.bite,.7);if(e.type==='bagayo'){e.scream=Math.max(e.scream||0,.7);bagCd=Math.max(bagCd,.5);}}}
-function damageEnemy(e,dm,dir,de){/*UE:M de==='soldado': la bala es de la unidad especial*/if(e.hp<=0)return;if(COOP.cliente){e.flash=.12;return;}/* v2.1.0: en co-op el daño lo decide el host */lastDir.copy(dir);e.hp-=dm;e.flash=.12;if(e.rig){e.rig.spas=Math.max(e.rig.spas,.6);e.rig.twY.v+=rand(-3,3);}e.kb.addScaledVector(_w.set(dir.x,0,dir.z).normalize(),dm*.35/Math.max(.6,e.c.r*e.c.r));
+function damageEnemy(e,dm,dir,de){/*UE:M de==='soldado': la bala es de la unidad especial*/if(e.hp<=0)return;if(COOP.cliente){e.flash=.12;return;}/* v2.1.0: en co-op el daño lo decide el host */lastDir.copy(dir);e.hp-=dm;if(e.type==='boss'&&NET.on)COOP.agro(e,de,dm);e.flash=.12;if(e.rig){e.rig.spas=Math.max(e.rig.spas,.6);e.rig.twY.v+=rand(-3,3);}e.kb.addScaledVector(_w.set(dir.x,0,dir.z).normalize(),dm*.35/Math.max(.6,e.c.r*e.c.r));
   if(e.state==='rise'&&e.rise<.5)e.rise=.5;
   if(e===bossAlive)$('#bossfill').style.width=Math.max(0,e.hp/e.maxHp*100)+'%';
   if(e.hp<=0)COOP.matar(e,de);else painSound(e);}
@@ -12563,7 +12563,7 @@ function killEnemy(e,de){
   /* cadáver entero (cuerpo + miembros que le quedan) que se desploma */
   makeCorpse(e,boss);
 }
-function hurtPlayer(n,gooHit=false,red=false){if(!running)return;if(!COOP.puedeHerir(red))return;/* v2.1.0: caído no recibe; en co-op al que no es host el daño se lo manda el host */P.hp-=n;hurt=1;shake=Math.max(shake,.45);if(gooHit)goo=1;sfx.hurt();hudHP();if(P.hp<=0)gameOver();}
+function hurtPlayer(n,gooHit=false,red=false){if(!running)return;if(COOP.proxy>=0){COOP.herirProxy(n,gooHit);return;}if(!COOP.puedeHerir(red))return;/* v2.1.0: caído no recibe; en co-op al que no es host el daño se lo manda el host */P.hp-=n;hurt=1;shake=Math.max(shake,.45);if(gooHit)goo=1;sfx.hurt();hudHP();if(P.hp<=0)gameOver();}
 
 
 /* ---------- desmembramiento ---------- */
@@ -13344,7 +13344,7 @@ function aimWatch(dt){if(!S_.sees||busy()||S_.rollCd>0||S_.react){S_.aimHold=0;r
   else{S_.aimHold=0;S_.aimArmed=true;}}
 function spitAt(){const s=S_.arm;S_.arm*=-1;S_.lastArm=s;S_.fireAnim=.2;const w=s>0?J.wrL:J.wrR;w.updateMatrixWorld(true);const o=new V3(0,-.05,.06).applyMatrix4(w.matrixWorld);
   const tgt=_v.set(P.pos.x+P.vel.x*.5,P.pos.y+MOV.alt(1.1-.5*P.ch,.22),P.pos.z+P.vel.z*.5);tgt.x+=rand(-.5,.5);tgt.z+=rand(-.5,.5);const dist=o.distanceTo(tgt);const Tt=clamp(dist/22,.3,1.8);
-  const vel=new V3().subVectors(tgt,o).divideScalar(Tt);vel.y+=.5*14*Tt;const m=new THREE.Mesh(projGeo,bileMat);m.scale.setScalar(.7);m.position.copy(o);scene.add(m);projs.push({m,v:vel,dmg:10});sfx.spit();S_.eyes=1;sacK[s]=1;}
+  const vel=new V3().subVectors(tgt,o).divideScalar(Tt);vel.y+=.5*14*Tt;const m=new THREE.Mesh(projGeo,bileMat);m.scale.setScalar(.7);m.position.copy(o);scene.add(m);projs.push({m,v:vel,dmg:10});sfx.spit();COOP.alEscupirSh(o,vel,s);S_.eyes=1;sacK[s]=1;}
 function knock(dx,dz,f,up){const l=Math.hypot(dx,dz)||1;P.vel.x+=dx/l*f;P.vel.z+=dz/l*f;if(up&&P.onGround){P.vel.y=Math.max(P.vel.y,up);P.onGround=false;}}
 function strike(){const dx=P.pos.x-S_.x,dz=P.pos.z-S_.z,d=Math.hypot(dx,dz),da=Math.abs(Math.atan2(Math.sin(yawTo(P.pos.x,P.pos.z)-S_.face),Math.cos(yawTo(P.pos.x,P.pos.z)-S_.face)));
   if(AC)noise(.16,'bandpass',1800,5200,.3,1.2);if(d<2.8&&da<1.25&&Math.abs(P.pos.y-S_.y)<2.2){hurtPlayer(18);shake=Math.max(shake,.6);knock(dx,dz,4);}}
@@ -13549,10 +13549,28 @@ function update(dt){if(!built||!S_.alive)return;
   think(dt);physics(dt);
   {const dx=P.pos.x-S_.x,dz=P.pos.z-S_.z,d=Math.hypot(dx,dz);if(d<.9&&d>1e-3&&Math.abs(P.pos.y-S_.y)<2){P.pos.x+=dx/d*(.9-d);P.pos.z+=dz/d*(.9-d);}}
   animate(dt);}
+/* v2.2.0 · co-op: lo que el host manda del Shajar (foto) y cómo lo muestran los demás (títere, solo anima) */
+const STC={cubierto:1,asomarse:2},LPH={wind:1,air:2,land:3},q2_=v=>Math.round(v*100)/100,q3_=v=>Math.round(v*1000)/1000;
+function foto(){const s=S_;return [q2_(s.x),q2_(s.y),q2_(s.z),q3_(s.face),q2_(s.spd||0),q3_(s.mdir||0),q2_(s.acc||0),STC[s.state]||0,q3_(s.roll||0),s.rside||1,q2_(s.stun||0),
+  s.leap?LPH[s.leap.ph]||1:0,s.dash?(s.dash.ph==='wind'?1:2):0,s.air?1:0,q2_(s.vaultH||0),q2_(s.land||0),q3_(s.melee),s.burst>0?1:0,q2_(s.fireAnim||0),s.lastArm||1,s.arm||1,q2_(s.eyes||0),s.dead?1:0,Math.round(Math.max(0,s.hp)/HPMAX*100),s.iframe?1:0,q2_(s.vy||0)];}
+const STN=['buscar','cubierto','asomarse'],LPN=[null,'wind','air','land'];
+function titere(A,dt){if(!built||!S_.alive)return;const s=S_;
+  if(A){s.x=A[0];s.y=A[1];s.z=A[2];s.face=A[3];s.spd=A[4];s.mdir=A[5];s.acc=A[6];s.state=STN[A[7]]||'buscar';s.roll=A[8];s.rside=A[9];s.stun=A[10];
+    s.leap=A[11]?{ph:LPN[A[11]],t:0}:null;s.dash=A[12]?{ph:A[12]===1?'wind':'run',t:0}:null;s.air=!!A[13];s.vaultH=A[14];s.land=A[15];s.melee=A[16];s.burst=A[17];
+    if(A[18]>s.fireAnim)s.fireAnim=A[18];s.lastArm=A[19];s.arm=A[20];s.eyes=A[21];s.iframe=!!A[24];s.vy=A[25];
+    const hp=A[23]/100*HPMAX;if(hp<s.hp-.5)s.flash=.12;s.hp=hp;if(!s.dead)$('#bossfill').style.width=A[23]+'%';
+    if(A[22]&&!s.dead)morirTitere();}
+  s.fireAnim=Math.max(0,(s.fireAnim||0)-dt);
+  if(s.dead){s.deadT+=dt;if(s.deadT>14){s.alive=false;char.visible=false;}}
+  animate(dt);}
+/* la muerte vista desde otra PC: lo mismo que die(), sin puntos ni cajas (eso lo pone el host) */
+function morirTitere(){alienMusic.stop(3);S_.dead=1;S_.deadT=0;S_.melee=-1;S_.roll=0;vox('muerte');sfx.splat(2);shake=Math.max(shake,.8);
+  S_.leap=null;S_.dash=null;S_.stun=0;S_.air=false;const c=_v.set(S_.x,S_.y+1.2,S_.z);burst(c,null,70,8,.16,GOO,3);addDecal(S_.x,S_.z,4,'#5f9a1a');feed('<b>Shajar abatido</b>');
+  $('#bossbar').hidden=true;$('#bossbar span').textContent=bossLabel;announce('¡Cayó el Shajar!','Era uno solo. Si vienen más, vamos a tener un problema.',false,3600);hudWave();}
 function warm(v){if(char)char.visible=v?true:!!S_.alive;}
 function reset(){S_.alive=false;S_.dead=0;if(char)char.visible=false;$('#bossbar span').textContent=bossLabel;}
 function init(){if(!built){buildShajar();char.visible=false;char.traverse(o=>{if(o.isMesh){o.castShadow=true;if(o.isSkinnedMesh)skinMat=o.material;}});if(skinMat)skinMat.emissive=new THREE.Color(0,0,0);}}
-return {init,spawn,update,reset,warm,ray,hit,dodged,notice,get alive(){return S_.alive&&!S_.dead;},get busy(){return S_.alive;},get st(){return S_.state+(S_.roll>0?"+rueda":"")+(S_.melee>=0?"+garras":"")+(S_.leap?"+salto:"+S_.leap.ph:"")+(S_.dash?"+embestida:"+S_.dash.ph:"")+(S_.stun>0?"+aturdido":"")+(S_.air?"+aire":"")+(S_.sees?"":" (no ve)");},get dbg(){return S_;}};
+return {init,spawn,update,reset,warm,ray,hit,dodged,notice,foto,titere,get alive(){return S_.alive&&!S_.dead;},get busy(){return S_.alive;},get st(){return S_.state+(S_.roll>0?"+rueda":"")+(S_.melee>=0?"+garras":"")+(S_.leap?"+salto:"+S_.leap.ph:"")+(S_.dash?"+embestida:"+S_.dash.ph:"")+(S_.stun>0?"+aturdido":"")+(S_.air?"+aire":"")+(S_.sees?"":" (no ve)");},get dbg(){return S_;}};
 
 })();
 setTimeout(()=>{try{SHJ.init();}catch(err){console.error('Shajar',err);}},1200);
@@ -14413,11 +14431,11 @@ function updateEnemies(dt){
       if(e.type==='escupidor'){if(dist<11){mx=-mx;mz=-mz;sp*=.8;}else if(dist<24){const t=mx;mx=-mz*e.strafe;mz=t*e.strafe;sp*=.6;if(Math.random()<dt*.3)e.strafe*=-1;}}
       if(e.atkS){const ph=atkPh(e);sp*=ph.p===0?.2:ph.p===1?1.2:.45;}
       if(dist<c.r+.8)sp=0;
-      if(e.type==='boss'&&running&&bossThrow(e,dt,dist))sp=0;
+      if(e.type==='boss'&&running&&!NET.on&&bossThrow(e,dt,dist))sp=0;
       {const vf=running?enVert(e,mx,mz,sp,dt):1;if(vf===2)sp*=.1;else if(vf===3&&dist>c.r+.8)sp=Math.max(sp,2.4);}
       o.position.x+=(mx*sp+e.kb.x)*dt;o.position.z+=(mz*sp+e.kb.z)*dt;e.kb.multiplyScalar(Math.exp(-dt*7));
       for(const f of enemies){if(f===e)continue;const ex=o.position.x-f.obj.position.x,ez=o.position.z-f.obj.position.z,d=Math.hypot(ex,ez),mn=(c.r+f.c.r)*.9;if(d<mn&&d>1e-4){const push=(mn-d)*.5;o.position.x+=ex/d*push;o.position.z+=ez/d*push;}}
-      if(e.type==='boss'&&running)bossSmash(e,mx,mz);collide(o.position,c.r*.8,e.gy,e.type==='boss',true,true);if(e.type==='mole'&&running)molePush(e,mx,mz,sp,dt);if(e.leapT<=0&&e.dropT===undefined)o.position.y=e.gy;
+      if(e.type==='boss'&&running&&!NET.on)bossSmash(e,mx,mz);collide(o.position,c.r*.8,e.gy,e.type==='boss',true,true);if(e.type==='mole'&&running)molePush(e,mx,mz,sp,dt);if(e.leapT<=0&&e.dropT===undefined)o.position.y=e.gy;
       e.skT=(e.skT||0)+dt;if(e.skT>=1){const mv=Math.hypot(o.position.x-(e.skX||0),o.position.z-(e.skZ||0));
         if(running&&sp>.3&&dist>c.r+2&&!e.atkS&&e.leapT<=0&&!e.clb&&mv<c.speed*e.slow*.35){e.stk=(e.stk||0)+1;enUnstick(e,mx,mz);}else e.stk=0;
         e.skT=0;e.skX=o.position.x;e.skZ=o.position.z;}
@@ -14646,7 +14664,7 @@ function prewarmSections(){pinLights();if(_prewarmed||!SECG.built)return;_prewar
   /* muestras: un bicho de cada tipo, el Shajar y todos los materiales cargados que todavía no usa nadie */
   try{SHJ.init();}catch(e){}pinLights();
   const vmv=vm.visible;vm.visible=true;MOV.show(true);
-  const samples=Object.keys(TYPES).map((t,i)=>{try{return spawnEnemy(t,[P.pos.x+(i-3)*8,P.pos.z+900]);}catch(e){return null;}}).filter(Boolean);
+  COOP.calla=true;const samples=Object.keys(TYPES).map((t,i)=>{try{return spawnEnemy(t,[P.pos.x+(i-3)*8,P.pos.z+900]);}catch(e){return null;}}).filter(Boolean);COOP.calla=false;/* v2.2.0: las muestras no van a los demás */
   try{SHJ.warm(true);}catch(e){}UEG.warm(true);FUSIL.warm(true);/*UE:warm-on*/
   const used=new Set();scene.traverse(o=>{if(o.material)(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>used.add(m));});
   const WG=new THREE.Group(),bx=new THREE.BoxGeometry(1,1,1),pg=new THREE.BufferGeometry();
@@ -15887,7 +15905,7 @@ function bchObjs(){
 function bchBlanco(e,dt){
   bchObjs();
   if(!BCH.n){if(e.tg)e.tg=null;return null;}       // sin soldados (la partida de siempre): no cambia nada
-  if(e.type==='boss')return null;                   // el Engendro va siempre por el jugador
+  if(e.type==='boss'){if(!NET.on)return null;e.tg=COOP.blancoBoss(e,dt);return e.tg;}   // el Engendro va siempre por el jugador (v2.2.0: en co-op, por el que más lo lastima)
   const K=BCH_TUNE;let g=e.tg||null;
   if(g){
     if(g.vivo===false){if(e.atkS)return g;g=null;e.tgL=1;e.tgT=0;}   // se lo mataron: termina el golpe en el lugar (bchPega ya no
@@ -21697,7 +21715,7 @@ function updateCompass(){if(!CMP.el)compassInit();const w=CMP.el.clientWidth;if(
   for(const [id,e] of CMP.marks)if(!seen.has(id)){e.remove();CMP.marks.delete(id);}}
 function frame(now){requestAnimationFrame(frame);const _bt0=performance.now();const dt=Math.min(.05,(now-last)/1000);last=now;
   if(!paused){T+=dt;ambientAnim(dt);
-    if(running){if(COOP.caido())COOP.quieto(dt);else updatePlayer(dt);updateWeapon(dt);MOV.draw(dt);updateTorch(dt);if(NET.on)NET.oleadas(dt);else updateWaves(dt);updateCompass();if(COOP.cliente)COOP.titeres(dt);else{enTick(dt);updateEnemies(dt);}SHJ.update(dt);updateProjs(dt);updatePickups(dt);GRAN.update(dt);if(!NET.on)UEG.update(dt);FUSIL.update(dt);GJ.update(dt);BOTIN.update(dt);/*UE:update*/}
+    if(running){if(COOP.caido())COOP.quieto(dt);else updatePlayer(dt);updateWeapon(dt);MOV.draw(dt);updateTorch(dt);if(NET.on)NET.oleadas(dt);else updateWaves(dt);updateCompass();if(COOP.cliente)COOP.titeres(dt);else{enTick(dt);updateEnemies(dt);}COOP.shajar(dt);updateProjs(dt);updatePickups(dt);GRAN.update(dt);if(!NET.on)UEG.update(dt);FUSIL.update(dt);GJ.update(dt);BOTIN.update(dt);/*UE:update*/}
     else if(!over)attract(dt);
     else{orbit+=dt*.03;}
     if(!running)idleRigs(dt);
@@ -21969,7 +21987,7 @@ const NET=(()=>{
     const n=sala.filter(Boolean).length;
     if(modo==='libre')announce('Cooperativo',n>1?`${n} en la sala · recorrido libre, sin bichos`:'Recorrido libre, sin bichos. Los demás pueden entrar cuando quieran.',false,3400);
     else announce('Cooperativo',n>1?`${n} en la sala · aguanten juntos`:'Los demás pueden entrar cuando quieran.',false,3400);}
-  function oleadas(dt){if(modo==='libre')libre(dt);else if(rol==='host')updateWaves(dt);}
+  function oleadas(dt){if(modo==='libre')libre(dt);else if(rol==='host')updateWaves(dt);else if(STAGE==='walk')walkObjective(dt);}
   function libre(dt){   /* la caminata hasta Av. de Mayo, sin oleadas */
     if(STAGE==='walk'){walkObjective(dt);if(P.pos.z>470){STAGE='B';announce('Avenida de Mayo','A la derecha el Congreso. A la izquierda, la Casa Rosada.',false,4200);}}}
   function morir(){
@@ -22134,11 +22152,50 @@ const COOP=(()=>{
     get x(){if(k===NET.yo)return P.pos.x;const a=NET.av[k];return a?a.u.root.position.x:P.pos.x;},
     get y(){if(k===NET.yo)return P.pos.y;const a=NET.av[k];return a?a.u.root.position.y:P.pos.y;},
     get z(){if(k===NET.yo)return P.pos.z;const a=NET.av[k];return a?a.u.root.position.z:P.pos.z;}}));
+  /* ---------- el Engendro: va por el que más daño le hizo en los últimos segundos ---------- */
+  function agro(e,de,dm){const a=e.agro||(e.agro=[0,0,0,0]);const k=de&&de.k!==undefined?de.k:0;a[k]+=dm;}
+  function blancoBoss(e,dt){const a=e.agro||(e.agro=[0,0,0,0]);const f=Math.exp(-dt/6);for(let k=0;k<4;k++)a[k]*=f;
+    e.bossK=e.bossK||0;e.bossT=(e.bossT||0)+dt;
+    const vivo=k=>k===0?!P.caido:!!(NET.sala[k]&&BL[k].vivo&&lista.indexOf(BL[k])>=0);
+    let best=e.bossK,bv=vivo(best)?a[best]:-1;
+    for(let k=0;k<4;k++){if(k===best||!vivo(k))continue;if(a[k]>bv*1.3+5&&(e.bossT>4||bv<0)){best=k;bv=a[k];}}
+    if(!vivo(best)){best=0;for(let k=1;k<4;k++)if(vivo(k)){best=k;break;}}
+    if(best!==e.bossK){e.bossK=best;e.bossT=0;}
+    return best===0?null:BL[best];}
+  /* ---------- el Shajar ---------- */
+  const SH={k:0,t:0,buf:[],proxy:-1};let shPend=false;const _pp={x:0,y:0,z:0},_pv={x:0,y:0,z:0};
+  /* host: elige a quién cazar (el más cercano en pie, sin cambiar a cada rato) y, si no es el host, lo juega contra la posición de ese compañero */
+  function shajar(dt){
+    if(cliente()){shTitere(dt);return;}
+    if(!host()||!SHJ.busy){SHJ.update(dt);return;}
+    const S=SHJ.dbg;SH.t+=dt;blancos();
+    const dist=k=>{if(k===0)return P.caido?1e9:Math.hypot(P.pos.x-S.x,P.pos.z-S.z);const b=BL[k];return b.vivo&&lista.indexOf(b)>=0?Math.hypot(b.x-S.x,b.z-S.z):1e9;};
+    let k0=SH.k,d0=dist(k0);for(let k=0;k<4;k++){const d=dist(k);if(d<d0*.75&&SH.t>3||d0>=1e9&&d<1e9){k0=k;d0=d;}}
+    if(k0!==SH.k){SH.k=k0;SH.t=0;}
+    if(SH.k===0||d0>=1e9){SHJ.update(dt);}
+    else{const a=NET.av[SH.k],B=a&&a.buf;if(!B||!B.length){SHJ.update(dt);}
+      else{const s1=B[B.length-1].s,s0=B.length>1?B[B.length-2].s:s1,dtb=B.length>1?Math.max(.03,B[B.length-1].t-B[B.length-2].t):1;
+        _pp.x=P.pos.x;_pp.y=P.pos.y;_pp.z=P.pos.z;_pv.x=P.vel.x;_pv.y=P.vel.y;_pv.z=P.vel.z;const ch0=P.ch,og0=P.onGround;
+        P.pos.set(s1[0],s1[1],s1[2]);const vx=(s1[0]-s0[0])/dtb,vz=(s1[2]-s0[2])/dtb;P.vel.set(vx,0,vz);P.ch=s1[5]||0;P.onGround=true;
+        SH.proxy=SH.k;try{SHJ.update(dt);}finally{SH.proxy=-1;
+          const kx=P.vel.x-vx,kz=P.vel.z-vz,ky=P.vel.y;if(Math.abs(kx)+Math.abs(kz)>.5||ky>.5)NET.aUno(SH.k,{t:'kn',x:r2(kx),y:r2(ky),z:r2(kz)});
+          P.pos.set(_pp.x,_pp.y,_pp.z);P.vel.set(_pv.x,_pv.y,_pv.z);P.ch=ch0;P.onGround=og0;}}}
+    SH.snapT=(SH.snapT||0)-dt;if(SH.snapT<=0){SH.snapT=SNAP;NET.aTodos({t:'sh',f:SHJ.foto()});}}
+  function herirProxy(n){NET.aUno(SH.proxy,{t:'h',d:Math.round(n*10)/10});}
+  function alEscupirSh(o,v){if(host())NET.aTodos({t:'sp',id:-1,o:[r2(o.x),r2(o.y),r2(o.z)],v:[r2(v.x),r2(v.y),r2(v.z)],b:0,sc:.7});}
+  function golpeShajar(dm,d,head){NET.alHost({t:'gs',dm:Math.round(dm*100)/100,d:[r3(d.x),r3(d.y),r3(d.z)],h:head?1:0});}
+  /* los demás: el Shajar es un títere que solo anima */
+  function shTitere(dt){if(shPend&&!SHJ.busy){SHJ.spawn();shPend=false;}
+    const B=SH.buf;let A=null;
+    if(B.length){const rt=performance.now()/1000-ATRAS;let s0=B[0],s1=B[0],f=0;
+      if(rt>=B[B.length-1].t)s0=s1=B[B.length-1];else for(let j=B.length-1;j>0;j--){if(B[j-1].t<=rt){s0=B[j-1];s1=B[j];f=Math.min(1,(rt-s0.t)/Math.max(1e-3,s1.t-s0.t));break;}}
+      A=s1.f.slice();const a0=s0.f;for(const i of [0,1,2])A[i]=a0[i]+(A[i]-a0[i])*f;let dy=A[3]-a0[3];dy=Math.atan2(Math.sin(dy),Math.cos(dy));A[3]=a0[3]+dy*f;}
+    SHJ.titere(A,dt);}
   const jugadores=()=>{let n=0;for(let k=0;k<4;k++)if(NET.sala[k])n++;return Math.max(1,n);};
 
   /* ---------- el host avisa ---------- */
   function nacerMsg(e){const o=e.obj.position;return {t:'ns',id:e.id,ty:e.type,x:r2(o.x),z:r2(o.z),y:r2(o.y),sd:e.sd,src:e.state==='climb'?e.srcI:-1};}
-  function alNacer(e,sd,srcI){e.sd=sd;e.srcI=srcI;if(!NET.on)return;porId.set(e.id,e);if(host())NET.aTodos(nacerMsg(e));}
+  function alNacer(e,sd,srcI){e.sd=sd;e.srcI=srcI;if(!NET.on||COOP.calla)return;porId.set(e.id,e);if(host())NET.aTodos(nacerMsg(e));}
   function alAtacar(e){if(host())NET.aTodos({t:'ea',id:e.id,k:e.tg&&e.tg.k!==undefined?e.tg.k:0});}
   function alEscupir(e,o,v,big){if(host())NET.aTodos({t:'sp',id:e.id,o:[r2(o.x),r2(o.y),r2(o.z)],v:[r2(v.x),r2(v.y),r2(v.z)],b:big?1:0});}
   /* corte de un miembro y muerte: el host sortea una semilla y los demás repiten la misma cuenta (los mismos pedazos) */
@@ -22149,11 +22206,11 @@ const COOP=(()=>{
     const sd=(Math.random()*4294967296)>>>0;porId.delete(e.id);
     NET.aTodos({t:'ek',id:e.id,sd,h:r2(e.hp),d:[r3(lastDir.x),r3(lastDir.y),r3(lastDir.z)],k:de&&de.k!==undefined?de.k:0});
     conSemilla(sd,()=>killEnemy(e,de));}
-  function alOleada(){if(!host())return;NET.aTodos({t:'wv',w:wave,ts:toSpawn});volverMuerto();}
+  function alOleada(o){if(!host())return;NET.aTodos({t:'wv',w:wave,ts:toSpawn,sh:o&&o.sh?1:0,boss:o&&o.boss?1:0,st:STAGE});volverMuerto();}
   function alLimpiar(){if(host())NET.aTodos({t:'wc',w:wave});}
-  function estadoOleada(){return {t:'ow',w:wave,ts:toSpawn,in:intermission>0?1:0,sc:score,k:kills,l:limbs,c:combo};}
+  function estadoOleada(){return {t:'ow',w:wave,ts:toSpawn,in:intermission>0?1:0,sc:score,k:kills,l:limbs,c:combo,st:STAGE};}
   function snap(){const L=[];
-    for(const e of enemies){if(e.id===undefined||e.type==='boss')continue;const o=e.obj.position;
+    for(const e of enemies){if(e.id===undefined)continue;const o=e.obj.position;
       L.push([e.id,r2(o.x),r2(o.y),r2(o.z),r2(e.obj.rotation.y),e.state==='climb'?0:e.state==='rise'?1:2,Math.round(Math.max(0,e.hp)/e.maxHp*100),Math.round((e.bite||0)*10),(e.leapT>0?1:0)|(e.blind?2:0),Math.round((e.spitW||0)*10)]);}
     NET.aTodos({t:'es',l:L});}
   /* ---------- empanadas y cajas: son del host ---------- */
@@ -22178,7 +22235,8 @@ const COOP=(()=>{
   /* ---------- títeres (los bichos en la PC de los demás) ---------- */
   function nacer(d){if(porId.has(d.id))return;
     const e=spawnEnemy(d.ty,[d.x,d.z],{sd:d.sd,src:d.src,id:d.id});
-    if(d.ch&&e){e.state='chase';e.rise=1;e.obj.position.set(d.x,d.y||0,d.z);e.gy=d.y||0;}}
+    if(d.ch&&e){e.state='chase';e.rise=1;e.obj.position.set(d.x,d.y||0,d.z);e.gy=d.y||0;}
+    if(e&&d.ty==='boss'){bossAlive=e;$('#bossbar').hidden=false;if(d.boss){music.start();}}}
   function quitarTitere(e){const i=enemies.indexOf(e);if(i>=0)enemies.splice(i,1);porId.delete(e.id);scene.remove(e.obj);if(e.rig)scene.remove(e.rig.group);}
   function recibirSnap(L){const t=performance.now()/1000;
     for(const s of L){const e=porId.get(s[0]);if(!e)continue;const B=e.nb||(e.nb=[]);B.push({t,s});if(B.length>16)B.splice(0,B.length-16);e.visto=t;}}
@@ -22192,7 +22250,7 @@ const COOP=(()=>{
         o.position.set(A[1]+(C[1]-A[1])*f,A[2]+(C[2]-A[2])*f,A[3]+(C[3]-A[3])*f);
         let dy=C[4]-A[4];dy=Math.atan2(Math.sin(dy),Math.cos(dy));o.rotation.y=A[4]+dy*f;
         const st=C[5];e.state=st===0?'climb':st===1?'rise':'chase';if(st===2)e.gy=o.position.y+(e.drop||0);
-        const hp=C[6];if(e.hpPct!==undefined&&hp<e.hpPct){e.flash=.12;if(e.rig)e.rig.spas=Math.max(e.rig.spas,.6);painSound(e);}
+        const hp=C[6];if(e.hpPct!==undefined&&hp<e.hpPct){e.flash=.12;if(e.rig)e.rig.spas=Math.max(e.rig.spas,.6);painSound(e);}if(e===bossAlive)$('#bossfill').style.width=hp+'%';
         e.hpPct=hp;e.hp=Math.max(.01,e.maxHp*hp/100);
         e.bite=Math.max(e.bite||0,C[7]/10);const lp=(C[8]&1)>0;if(lp&&!e.lp){e.scream=1.5;e.leapDur=.55;e.leapV.set(Math.sin(o.rotation.y),0,Math.cos(o.rotation.y)).multiplyScalar(6);rLeap(e);}e.lp=lp;e.leapT=lp?.3:0;
         e.blind=(C[8]&2)>0;e.spitW=C[9]/10;}
@@ -22205,7 +22263,7 @@ const COOP=(()=>{
       e.px=o.position.x;e.pz=o.position.z;e.spitK=Math.max(0,(e.spitK||0)-dt*3);
       enAnim(e,dt,distP);}}
   function escupitajo(d){const e=porId.get(d.id);if(e)e.spitK=1;
-    const m=new THREE.Mesh(projGeo,bileMat);m.position.set(d.o[0],d.o[1],d.o[2]);if(d.b)m.scale.setScalar(1.6);scene.add(m);
+    const m=new THREE.Mesh(projGeo,bileMat);m.position.set(d.o[0],d.o[1],d.o[2]);if(d.b)m.scale.setScalar(1.6);else if(d.sc)m.scale.setScalar(d.sc);scene.add(m);
     projs.push({m,v:new V3(d.v[0],d.v[1],d.v[2]),dmg:0,de:e||null});sfx.spit();}
 
   /* ---------- caído, levantar y volver ---------- */
@@ -22267,39 +22325,52 @@ const COOP=(()=>{
       case 'sp':escupitajo(d);break;
       case 'ec':{const e=porId.get(d.id);if(!e)break;const p=e.parts[d.pi];if(p&&p.alive){_d.set(d.d[0],d.d[1],d.d[2]);conSemilla(d.sd,()=>sever(e,p,_d.clone()));}break;}
       case 'ek':{const e=porId.get(d.id);if(!e)break;porId.delete(d.id);lastDir.set(d.d[0],d.d[1],d.d[2]);e.hp=d.h<0?d.h:-.01;conSemilla(d.sd,()=>killEnemy(e,{k:d.k}));break;}
-      case 'ow':wave=d.w;toSpawn=d.ts;intermission=d.in?1:0;score=d.sc;kills=d.k;limbs=d.l;combo=d.c;hudScore();hudWave();break;
-      case 'wv':wave=d.w;toSpawn=d.ts;intermission=0;sfx.wave();try{CABILDO.ring(6);CATEDRAL.ring(4);}catch(e){}if(!waveMusic.on)waveMusic.start();
-        announce(`Oleada ${wave}`,WAVE_TXT[wave]||'No paran de salir');hudWave();volverMuerto();break;
+      case 'ow':wave=d.w;toSpawn=d.ts;intermission=d.in?1:0;score=d.sc;kills=d.k;limbs=d.l;combo=d.c;
+        if(d.st==='walk'&&STAGE==='A')openGate();
+        if(d.st==='B'&&STAGE!=='B'){if(!GATE.open){GATE.open=true;}STAGE='B';announce('Avenida de Mayo','A la derecha el Congreso. A la izquierda, la Casa Rosada.',false,4200);}
+        hudScore();hudWave();break;
+      case 'wv':wave=d.w;toSpawn=d.ts;intermission=0;sfx.wave();try{CABILDO.ring(6);CATEDRAL.ring(4);}catch(e){}
+        if(d.sh){waveMusic.stop(.6);SHJ.spawn();alienMusic.start();shPend=true;}
+        else if(d.boss){bossCount++;waveMusic.stop(.6);music.start();sfx.roar();shake=1;$('#bossbar').hidden=false;$('#bossfill').style.width='100%';
+          if(d.st==='B')announce('El Engendro del Congreso','Salió de la plaza, frente a la cúpula. Apuntale a los ojos.',true,3800);else announce('El Engendro del Riachuelo','Rompió la vereda al lado del Obelisco. Apuntale a los ojos.',true,3800);}
+        else{if(!waveMusic.on)waveMusic.start();announce(`Oleada ${wave}`,WAVE_TXT[wave]||'No paran de salir');}
+        hudWave();volverMuerto();break;
       case 'wc':intermission=5;if(!P.caido){P.hp=Math.min(100,P.hp+10);hudHP();}announce(`Oleada ${d.w} limpia`,'+10 de salud. Tomá aire que se vienen más.');hudWave();break;
       case 'pu':if(!pkPorId.has(d.id)){creando=true;try{if(d.kd)addAmmo(d.x,d.z,d.kd);else addPickup(d.x,d.z);}finally{creando=false;}const p=pickups[pickups.length-1];if(p){p.id=d.id;pkPorId.set(d.id,p);}}break;
       case 'pr':quitarPickupLocal(d.id);break;
       case 'pg':darPickup(d.kd);break;
       case 'h':hurtPlayer(d.d,false,true);break;
       case 'rv':levantado(d.por);break;
-      case 'fin':score=d.sc;wave=d.w;kills=d.k;limbs=d.l;terminar();break;}}
+      case 'fin':score=d.sc;wave=d.w;kills=d.k;limbs=d.l;terminar();break;
+      case 'shs':if(!SHJ.busy){SHJ.spawn();alienMusic.start();}break;
+      case 'sh':{if(!SHJ.busy&&!d.f[22]){SHJ.spawn();shPend=false;}const t=performance.now()/1000;SH.buf.push({t,f:d.f});if(SH.buf.length>16)SH.buf.splice(0,SH.buf.length-16);break;}
+      case 'kn':P.vel.x+=d.x;P.vel.z+=d.z;if(d.y>0&&P.onGround){P.vel.y=Math.max(P.vel.y,d.y);P.onGround=false;}shake=Math.max(shake,.8);break;}}
   function deCliente(k,d){
     switch(d.t){
       case 'g':{_d.set(d.d[0],d.d[1],d.d[2]);const dir=_d.clone();
         for(const [id,pi,a] of d.p||[]){const e=porId.get(id);if(!e)continue;const p=e.parts[pi];if(!p)continue;p.hp-=a;if(p.hp<=0&&p.alive&&e.hp>0)cortar(e,p,dir);}
         for(const [id,dm] of d.h||[]){const e=porId.get(id);if(e)damageEnemy(e,dm,dir,{k});}break;}
       case 'pk':{const p=quitarPickupLocal(d.id);if(!p)break;NET.aTodos({t:'pr',id:d.id});NET.aUno(k,{t:'pg',kd:p.kind||''});break;}
-      case 'rv':if(d.k===0)levantado(k);else NET.aUno(d.k,{t:'rv',por:k});break;}}
+      case 'rv':if(d.k===0)levantado(k);else NET.aUno(d.k,{t:'rv',por:k});break;
+      case 'gs':{_d.set(d.d[0],d.d[1],d.d[2]);SHJ.hit(d.dm,_d.clone(),!!d.h);break;}}}
   /* alguien entra con la partida empezada: le manda los bichos, las cajas y la oleada */
   function alUnirse(k){if(!host())return;
-    for(const e of enemies){if(e.id===undefined||e.type==='boss')continue;const m=nacerMsg(e);m.ch=e.state==='chase'?1:0;NET.aUno(k,m);}
+    for(const e of enemies){if(e.id===undefined)continue;const m=nacerMsg(e);m.ch=e.state==='chase'?1:0;m.boss=e===bossAlive?1:0;NET.aUno(k,m);}
+    if(SHJ.busy)NET.aUno(k,{t:'shs'});
     for(const p of pickups)if(p.id)NET.aUno(k,{t:'pu',id:p.id,x:r2(p.g.position.x),z:r2(p.g.position.z),kd:p.kind||''});
     NET.aUno(k,estadoOleada());}
-  function alEntrar(){porId.clear();pkPorId.clear();P.caido=0;caidoT=0;revK=-1;revT=0;finT=0;snapT=0;owT=0;terminando=false;ocultar();tunear(NET.rol==='host');
+  function alEntrar(){porId.clear();pkPorId.clear();SH.buf.length=0;SH.k=0;SH.t=0;shPend=false;P.caido=0;caidoT=0;revK=-1;revT=0;finT=0;snapT=0;owT=0;terminando=false;ocultar();tunear(NET.rol==='host');
     $('#btnAgain').hidden=false;}
-  function reset(){porId.clear();pkPorId.clear();P.caido=0;ocultar();tLev.hidden=true;tunear(false);$('#btnAgain').hidden=false;$('#oBest').textContent='';}
+  function reset(){porId.clear();pkPorId.clear();SH.buf.length=0;shPend=false;P.caido=0;ocultar();tLev.hidden=true;tunear(false);$('#btnAgain').hidden=false;$('#oBest').textContent='';}
 
   return {blancos,alNacer,alAtacar,alEscupir,cortar,matar,alOleada,alLimpiar,alPickup,alQuitarPickup,pedirPickup,bloqueaPickup,golpes,
     titeres,caer,quieto,caido,puedeHerir,tick,titulo,quien,deHost,deCliente,alUnirse,alEntrar,reset,
+    calla:false,agro,blancoBoss,shajar,herirProxy,alEscupirSh,golpeShajar,get proxy(){return SH.proxy;},
     mulOleada:()=>1+.5*(jugadores()-1),mulVida:()=>1+.15*(jugadores()-1),extra:()=>4*(jugadores()-1),
     get cliente(){return cliente();},get porId(){return porId;}};
 })();
 idleMutants();/* v2.1.0: los bichos de adorno del menú, ya con COOP armado (spawnEnemy lo usa) */
-window.OM_DEBUG={get NET(){return NET;},get COOP(){return COOP;},P,UEM,scene,camera,renderer,SECG,get running(){return running;},get enemies(){return enemies;},get wave(){return wave;},get score(){return score;},get pickups(){return pickups;},spawnEnemy,startGame:()=>startGame(),get intermission(){return intermission;},set intermission(v){intermission=v;},frame,fire:()=>fire(),camAxes:()=>camAxes()};
+window.OM_DEBUG={get NET(){return NET;},get COOP(){return COOP;},P,UEM,scene,camera,renderer,SECG,get running(){return running;},get enemies(){return enemies;},get wave(){return wave;},set wave(v){wave=v;},get SHJ(){return SHJ;},get boss(){return bossAlive;},get STAGE(){return STAGE;},get score(){return score;},get pickups(){return pickups;},spawnEnemy,startGame:()=>startGame(),get intermission(){return intermission;},set intermission(v){intermission=v;},frame,fire:()=>fire(),camAxes:()=>camAxes()};
 requestAnimationFrame(frame);
 })();
 </script>

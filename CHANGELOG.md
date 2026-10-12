@@ -1,9 +1,9 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.1.0**
-Fuente de verdad: el repositorio https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
-Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
-Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
+**Versión actual: v2.2.0**
+Archivo del juego (única fuente de verdad): `C:\Dev_Videogame\obelisco-mutante.html`
+Repositorio: https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages)
+Mapa del juego: `C:\Dev_Videogame\mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 
 ## Cómo se numera (MAYOR.MENOR.PARCHE)
 - **MAYOR**: cambio grande (mapa nuevo hasta Av. de Mayo, multiplayer, etc.) → 1.x.x a 2.0.0
@@ -11,15 +11,14 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - **PARCHE**: arreglos y ajustes chicos → 1.1.0 a 1.1.1
 
 ## Reglas para cada chat
-1. Se trabaja sobre el repo de GitHub, no sobre la PC de Facu: el chat tiene que tener acceso de escritura a `facundofueyo-code/OBELISCO-MUTANTE`. Si no lo tiene, pedirlo antes de tocar el juego. Plan B, solo si no hay acceso al repo: trabajar sobre la carpeta `C:\Dev_Videogame` conectada y pasarle a Facu los comandos de commit, push y tag.
-2. Al empezar: traer la última versión de `main` (clonar o `git pull`) y leer `obelisco-mutante.html` y este CHANGELOG.
-3. Al terminar un cambio: subir la versión en `<title>`, en `GAME_VERSION` y en `#ver` (esquina del HUD); agregar una entrada acá arriba; sobrescribir `obelisco-mutante.html` (siempre con ese nombre, así GitHub Pages lo sirve). No se crean copias `_vX.Y.Z`: las versiones viejas quedan en el historial de git.
-4. Claude hace el commit en `main` (mensaje `vX.Y.Z: <resumen>`), crea el tag `vX.Y.Z` y sube los dos. Con eso GitHub Pages publica la versión web y GitHub Actions arma la versión de escritorio en Releases. Comprobar que el workflow terminó bien y pasarle a Facu el link de la release.
-5. Copia espejo: actualizar también `claude/obelisco-mutante.html`, `claude/CHANGELOG.md` y `claude/mapa.html` en el proyecto, para poder consultarlos desde chats sin acceso al repo. Esa copia no se edita directamente.
+1. El chat tiene que tener conectada la carpeta `C:\Dev_Videogame`. Si no la tiene, pedirla antes de tocar el juego.
+2. Al empezar: leer `C:\Dev_Videogame\obelisco-mutante.html` y este CHANGELOG (`C:\Dev_Videogame\CHANGELOG.md`).
+3. Al terminar un cambio: subir la versión en `<title>`, en `GAME_VERSION` y en `#ver` (esquina del HUD); agregar una entrada acá arriba; sobrescribir `C:\Dev_Videogame\obelisco-mutante.html` (siempre con ese nombre, así GitHub Pages lo sirve). No se crean copias `_vX.Y.Z`: las versiones viejas quedan en el historial de git.
+4. Facu hace el commit y el push. Mensaje sugerido: `vX.Y.Z: <resumen>`, y tag `vX.Y.Z`.
+5. Copia espejo: actualizar también `claude/obelisco-mutante.html` y `claude/CHANGELOG.md` en el proyecto, para poder consultarlo desde chats sin acceso a la PC. Esa copia no se edita directamente.
 6. Los `*-concepto.html` son solo referencia: no se aplican al juego sin aprobación de Facu.
-7. Mapa: `mapa.html` dibuja el mapa leyendo los datos de `obelisco-mutante.html` y no modifica el juego. Publicado con GitHub Pages lee el juego solo; abierto con doble clic muestra la copia de datos que lleva adentro. Al terminar un cambio, actualizar esa copia con el script que está en el encabezado de `mapa.html`, abrirlo para comprobar que no muestre avisos, y actualizar la copia espejo `claude/mapa.html`. Si el cambio suma un edificio modelado a mano o una sección, agregar su nombre en las tablas `HITOS` y `NOMBRE_SEC` de `mapa.html`. El mapa no lleva número de versión propio: va en el mismo commit que el juego.
+7. Mapa: `mapa.html` dibuja el mapa leyendo los datos de `obelisco-mutante.html` y no modifica el juego. Publicado con GitHub Pages lee el juego solo; abierto con doble clic muestra la copia de datos que lleva adentro. Al terminar un cambio, actualizar esa copia con el script que está en el encabezado de `mapa.html`, abrirlo para comprobar que no muestre avisos, y subir la copia espejo `claude/mapa.html`. Si el cambio suma un edificio modelado a mano o una sección, agregar su nombre en las tablas `HITOS` y `NOMBRE_SEC` de `mapa.html`. El mapa no lleva número de versión propio: va en el mismo commit que el juego.
 8. Versión de escritorio: `desktop/` envuelve el juego con Electron para jugarlo como programa de Windows, sin navegador. No se edita el juego para eso: `desktop/preparar.js` copia `obelisco-mutante.html` tal cual y toma la versión de `GAME_VERSION`. Al pushear el tag `vX.Y.Z`, GitHub Actions arma el portable y el instalador y los publica en Releases; no hace falta tocar `desktop/` en cada versión. El juego tiene que seguir funcionando sin internet: nada nuevo que se cargue desde un CDN (fuentes, librerías, sonidos, imágenes): todo va dentro del HTML o, si es una fuente, en `desktop/preparar.js`.
-9. PC de Facu: para jugar o editar en `C:\Dev_Videogame`, primero `git -C C:\Dev_Videogame pull`. Si Facu cambia algo a mano, hace commit y push antes de pedirle un cambio a Claude, para no pisarse. Claude no escribe en `C:\Dev_Videogame` salvo que Facu lo pida.
 
 ## Versión de escritorio (`desktop/`)
 - Hecha el 2026-10-12 sobre la v2.1.0, a pedido de Facu, para tener el juego descargable. No cambia la versión del juego.
@@ -28,7 +27,6 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - Los guardados del navegador (récord, opciones, FPS, semáforos) siguen funcionando, pero quedan dentro de la app y no se comparten con los del navegador.
 - Comprobado: la v2.1.0 arranca en la app con las fuentes locales (en un equipo sin placa de video).
 - Comandos en `desktop/README.md`. El workflow es `.github/workflows/escritorio.yml`.
-- 2026-10-12: primera release publicada por GitHub Actions (v2.1.0). Desde ese día el repo de GitHub pasa a ser la fuente de verdad y Claude sube los cambios directo (reglas 1 a 4 y 9).
 
 ## Mapa del juego (`mapa.html`)
 - Hecho el 2026-10-03 sobre la v1.14.0, a pedido de Facu, para ver cómo va el mapa y planear ampliaciones. No cambia la versión del juego.
@@ -46,8 +44,19 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-11, con la v2.0.0 (cooperativo): el mapa no cambia. El lector sigue encontrando todo con PeerJS adentro del juego. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.0.1: el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.1.0 (oleadas en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
+- 2026-10-12, con la v2.2.0 (Shajar y Engendro en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.2.0 — 2026-10-12
+- **Cooperativo, tercera parte: el Shajar y el Engendro para todos.** La oleada 3 trae al Shajar y las 5, 10… al Engendro también jugando de a varios, como jugando solo. Al caer el Engendro se abren las vallas y se puede caminar a Av. de Mayo.
+- **El Shajar**: lo juega el host, pero va por el que tiene más cerca de los que están en pie (no cambia de presa hasta pasados 3 s, salvo que otro quede bastante más cerca). Cuando va por un compañero, el host lo mueve contra la posición de ese compañero: los zarpazos, la embestida, el salto y los escupitajos le pegan a él y el empujón le llega a su PC. En las otras PCs el Shajar es un títere que se mueve con lo que manda el host (12 por segundo) y se anima solo: corre, rueda, se cubre, se asoma, salta, embiste, tira zarpazos y escupe. Los tiros de los demás se le mandan al host. Cuando muere, todos ven la misma muerte (sin puntos repetidos).
+- **El Engendro**: va por el que más lo lastimó en los últimos segundos. El daño se va olvidando de a poco (en unos 6 s), y cambia de presa solo si otro le hizo bastante más daño (30 % más) y ya pasaron 4 s desde el último cambio. Si su presa cae, va por otro en pie. Los demás ven el anuncio, la música, la barra de vida y su muerte igual que el host.
+- **Vallas y caminata**: al caer el Engendro se abren las vallas para todos. La caminata es libre: cada uno ve la brújula a Av. de Mayo y la distancia, y la partida pasa a Av. de Mayo cuando llega el host (a los que vienen atrás no se los espera ni se los trae).
+- **Entrar con la partida empezada**: el que entra también recibe al Engendro y al Shajar si están vivos, y la etapa (Obelisco, caminata o Av. de Mayo).
+- **Arreglo**: al arrancar la partida, el host arma un bicho de cada tipo lejos de la vista para dejar listos los gráficos, y en la v2.1.0 se los mandaba a los demás como bichos de verdad (quedaban títeres sueltos a 900 m). Ya no se mandan.
+- **Todavía no en co-op** (llegan con la v2.3.0): el Engendro no tira autos ni rompe lo que pisa cuando se juega de a varios (solo, sí); los autos que se mueven y explotan, las granadas y la destrucción de la ciudad. Los bichos siguen saliendo cerca del host. Jugando solo, todo sigue igual.
+- **Comprobado** (sin placa de video): host con un compañero falso: el Shajar fue por el compañero cuando estaba más cerca, le pegó y lo empujó en su PC sin tocar al host, y los tiros del compañero le bajaron la vida; el Engendro cambió de presa al compañero cuando este le pegó, y su muerte abrió las vallas y pasó la etapa a la caminata en las dos PCs. Cliente con la partida grabada del host: vio aparecer al Shajar, moverse y animarse, la barra y el anuncio del Engendro y la caminata. Solo: el Shajar y el Engendro salen y mueren como antes. Sin errores.
 
 ### v2.1.0 — 2026-10-12
 - **Cooperativo, segunda parte: oleadas compartidas.** En la sala el host elige el modo: **Oleadas** (el de siempre, ahora para todos) o **Recorrido libre · sin bichos**. En Oleadas los bichos salen igual que jugando solo, pero son los mismos para todos: atacan a cualquiera, los mata cualquiera y el puntaje es de todos.

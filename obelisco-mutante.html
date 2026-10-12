@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Obelisco Mutante v2.3.0</title>
+<title>Obelisco Mutante v2.4.0</title>
 <meta name="game-version" content="1.0.0">
 </head><body style="margin:0">
 
@@ -311,7 +311,7 @@ body:not(.playing) .coop-tag{display:none}
 </style>
 
 <div id="game"></div>
-<div id="ver">v2.3.0</div>
+<div id="ver">v2.4.0</div>
 <div id="coopHud" hidden></div>
 <div id="fps" aria-live="off"><b>--</b> FPS · <span>--</span> ms · peor <i>--</i> ms<u id="fpsA"></u></div>
 
@@ -538,7 +538,7 @@ body:not(.playing) .coop-tag{display:none}
     isBrowserSupported:${this.isBrowserSupported()}
     isUnifiedPlanSupported:${this.isUnifiedPlanSupported()}`}constructor(){this.isIOS="undefined"!=typeof navigator&&["iPad","iPhone","iPod"].includes(navigator.platform),this.supportedBrowsers=["firefox","chrome","safari"],this.minFirefoxVersion=59,this.minChromeVersion=72,this.minSafariVersion=605}},el=e=>!e||/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/.test(e),eh=()=>Math.random().toString(36).slice(2),eu={iceServers:[{urls:"stun:stun.l.google.com:19302"},{urls:["turn:eu-0.turn.peerjs.com:3478","turn:us-0.turn.peerjs.com:3478"],username:"peerjs",credential:"peerjsp"}],sdpSemantics:"unified-plan"},ef=new class extends n{noop(){}blobToArrayBuffer(e,t){let n=new FileReader;return n.onload=function(e){e.target&&t(e.target.result)},n.readAsArrayBuffer(e),n}binaryStringToArrayBuffer(e){let t=new Uint8Array(e.length);for(let n=0;n<e.length;n++)t[n]=255&e.charCodeAt(n);return t.buffer}isSecure(){return"https:"===location.protocol}constructor(...e){super(...e),this.CLOUD_HOST="0.peerjs.com",this.CLOUD_PORT=443,this.chunkedBrowsers={Chrome:1,chrome:1},this.defaultConfig=eu,this.browser=ed.getBrowser(),this.browserVersion=ed.getVersion(),this.pack=s,this.unpack=i,this.supports=function(){let e,t={browser:ed.isBrowserSupported(),webRTC:ed.isWebRTCSupported(),audioVideo:!1,data:!1,binaryBlob:!1,reliable:!1};if(!t.webRTC)return t;try{let n;e=new RTCPeerConnection(eu),t.audioVideo=!0;try{n=e.createDataChannel("_PEERJSTEST",{ordered:!0}),t.data=!0,t.reliable=!!n.ordered;try{n.binaryType="blob",t.binaryBlob=!ed.isIOS}catch(e){}}catch(e){}finally{n&&n.close()}}catch(e){}finally{e&&e.close()}return t}(),this.validateId=el,this.randomToken=eh}};"use strict";var em=new class{get logLevel(){return this._logLevel}set logLevel(e){this._logLevel=e}log(...e){this._logLevel>=3&&this._print(3,...e)}warn(...e){this._logLevel>=2&&this._print(2,...e)}error(...e){this._logLevel>=1&&this._print(1,...e)}setLogFunction(e){this._print=e}_print(e,...t){let n=["PeerJS: ",...t];for(let e in n)n[e]instanceof Error&&(n[e]="("+n[e].name+") "+n[e].message);e>=3?console.log(...n):e>=2?console.warn("WARNING",...n):e>=1&&console.error("ERROR",...n)}constructor(){this._logLevel=0}},e_={},eg=Object.prototype.hasOwnProperty,ey="~";function eC(){}function ev(e,t,n){this.fn=e,this.context=t,this.once=n||!1}function eb(e,t,n,r,i){if("function"!=typeof n)throw TypeError("The listener must be a function");var s=new ev(n,r||e,i),o=ey?ey+t:t;return e._events[o]?e._events[o].fn?e._events[o]=[e._events[o],s]:e._events[o].push(s):(e._events[o]=s,e._eventsCount++),e}function eT(e,t){0==--e._eventsCount?e._events=new eC:delete e._events[t]}function eS(){this._events=new eC,this._eventsCount=0}Object.create&&(eC.prototype=Object.create(null),new eC().__proto__||(ey=!1)),eS.prototype.eventNames=function(){var e,t,n=[];if(0===this._eventsCount)return n;for(t in e=this._events)eg.call(e,t)&&n.push(ey?t.slice(1):t);return Object.getOwnPropertySymbols?n.concat(Object.getOwnPropertySymbols(e)):n},eS.prototype.listeners=function(e){var t=ey?ey+e:e,n=this._events[t];if(!n)return[];if(n.fn)return[n.fn];for(var r=0,i=n.length,s=Array(i);r<i;r++)s[r]=n[r].fn;return s},eS.prototype.listenerCount=function(e){var t=ey?ey+e:e,n=this._events[t];return n?n.fn?1:n.length:0},eS.prototype.emit=function(e,t,n,r,i,s){var o=ey?ey+e:e;if(!this._events[o])return!1;var a,c,p=this._events[o],d=arguments.length;if(p.fn){switch(p.once&&this.removeListener(e,p.fn,void 0,!0),d){case 1:return p.fn.call(p.context),!0;case 2:return p.fn.call(p.context,t),!0;case 3:return p.fn.call(p.context,t,n),!0;case 4:return p.fn.call(p.context,t,n,r),!0;case 5:return p.fn.call(p.context,t,n,r,i),!0;case 6:return p.fn.call(p.context,t,n,r,i,s),!0}for(c=1,a=Array(d-1);c<d;c++)a[c-1]=arguments[c];p.fn.apply(p.context,a)}else{var l,h=p.length;for(c=0;c<h;c++)switch(p[c].once&&this.removeListener(e,p[c].fn,void 0,!0),d){case 1:p[c].fn.call(p[c].context);break;case 2:p[c].fn.call(p[c].context,t);break;case 3:p[c].fn.call(p[c].context,t,n);break;case 4:p[c].fn.call(p[c].context,t,n,r);break;default:if(!a)for(l=1,a=Array(d-1);l<d;l++)a[l-1]=arguments[l];p[c].fn.apply(p[c].context,a)}}return!0},eS.prototype.on=function(e,t,n){return eb(this,e,t,n,!1)},eS.prototype.once=function(e,t,n){return eb(this,e,t,n,!0)},eS.prototype.removeListener=function(e,t,n,r){var i=ey?ey+e:e;if(!this._events[i])return this;if(!t)return eT(this,i),this;var s=this._events[i];if(s.fn)s.fn!==t||r&&!s.once||n&&s.context!==n||eT(this,i);else{for(var o=0,a=[],c=s.length;o<c;o++)(s[o].fn!==t||r&&!s[o].once||n&&s[o].context!==n)&&a.push(s[o]);a.length?this._events[i]=1===a.length?a[0]:a:eT(this,i)}return this},eS.prototype.removeAllListeners=function(e){var t;return e?(t=ey?ey+e:e,this._events[t]&&eT(this,t)):(this._events=new eC,this._eventsCount=0),this},eS.prototype.off=eS.prototype.removeListener,eS.prototype.addListener=eS.prototype.on,eS.prefixed=ey,eS.EventEmitter=eS,e_=eS;var ek=function(e){return e.Data="data",e.Media="media",e}({}),eR=function(e){return e.BrowserIncompatible="browser-incompatible",e.Disconnected="disconnected",e.InvalidID="invalid-id",e.InvalidKey="invalid-key",e.Network="network",e.PeerUnavailable="peer-unavailable",e.SslUnavailable="ssl-unavailable",e.ServerError="server-error",e.SocketError="socket-error",e.SocketClosed="socket-closed",e.UnavailableID="unavailable-id",e.WebRTC="webrtc",e}({}),eP=function(e){return e.NegotiationFailed="negotiation-failed",e.ConnectionClosed="connection-closed",e}({}),ew=function(e){return e.NotOpenYet="not-open-yet",e.MessageToBig="message-too-big",e}({}),eE=function(e){return e.Binary="binary",e.BinaryUTF8="binary-utf8",e.JSON="json",e.None="raw",e}({}),ex=function(e){return e.Message="message",e.Disconnected="disconnected",e.Error="error",e.Close="close",e}({}),eD=function(e){return e.Heartbeat="HEARTBEAT",e.Candidate="CANDIDATE",e.Offer="OFFER",e.Answer="ANSWER",e.Open="OPEN",e.Error="ERROR",e.IdTaken="ID-TAKEN",e.InvalidKey="INVALID-KEY",e.Leave="LEAVE",e.Expire="EXPIRE",e}({});let eI="1.5.5";class eM extends e_.EventEmitter{start(e,t){this._id=e;let n=`${this._baseUrl}&id=${e}&token=${t}`;!this._socket&&this._disconnected&&(this._socket=new WebSocket(n+"&version="+eI),this._disconnected=!1,this._socket.onmessage=e=>{let t;try{t=JSON.parse(e.data),em.log("Server message received:",t)}catch(t){em.log("Invalid server message",e.data);return}this.emit(ex.Message,t)},this._socket.onclose=e=>{this._disconnected||(em.log("Socket closed.",e),this._cleanup(),this._disconnected=!0,this.emit(ex.Disconnected))},this._socket.onopen=()=>{this._disconnected||(this._sendQueuedMessages(),em.log("Socket open"),this._scheduleHeartbeat())})}_scheduleHeartbeat(){this._wsPingTimer=setTimeout(()=>{this._sendHeartbeat()},this.pingInterval)}_sendHeartbeat(){if(!this._wsOpen())return void em.log("Cannot send heartbeat, because socket closed");let e=JSON.stringify({type:eD.Heartbeat});this._socket.send(e),this._scheduleHeartbeat()}_wsOpen(){return!!this._socket&&1===this._socket.readyState}_sendQueuedMessages(){let e=[...this._messagesQueue];for(let t of(this._messagesQueue=[],e))this.send(t)}send(e){if(this._disconnected)return;if(!this._id)return void this._messagesQueue.push(e);if(!e.type)return void this.emit(ex.Error,"Invalid message");if(!this._wsOpen())return;let t=JSON.stringify(e);this._socket.send(t)}close(){this._disconnected||(this._cleanup(),this._disconnected=!0)}_cleanup(){this._socket&&(this._socket.onopen=this._socket.onmessage=this._socket.onclose=null,this._socket.close(),this._socket=void 0),clearTimeout(this._wsPingTimer)}constructor(e,t,n,r,i,s=5e3){super(),this.pingInterval=s,this._disconnected=!0,this._messagesQueue=[],this._baseUrl=(e?"wss://":"ws://")+t+":"+n+r+"peerjs?key="+i}}class eO{startConnection(e){let t=this._startPeerConnection();if(this.connection.peerConnection=t,this.connection.type===ek.Media&&e._stream&&this._addTracksToConnection(e._stream,t),e.originator){let n=this.connection,r={ordered:!!e.reliable},i=t.createDataChannel(n.label,r);n._initializeDataChannel(i),this._makeOffer()}else this.handleSDP("OFFER",e.sdp)}_startPeerConnection(){em.log("Creating RTCPeerConnection.");let e=new RTCPeerConnection(this.connection.provider.options.config);return this._setupListeners(e),e}_setupListeners(e){let t=this.connection.peer,n=this.connection.connectionId,r=this.connection.type,i=this.connection.provider;em.log("Listening for ICE candidates."),e.onicecandidate=e=>{e.candidate&&e.candidate.candidate&&(em.log(`Received ICE candidates for ${t}:`,e.candidate),i.socket.send({type:eD.Candidate,payload:{candidate:e.candidate,type:r,connectionId:n},dst:t}))},e.oniceconnectionstatechange=()=>{switch(e.iceConnectionState){case"failed":em.log("iceConnectionState is failed, closing connections to "+t),this.connection.emitError(eP.NegotiationFailed,"Negotiation of connection to "+t+" failed."),this.connection.close();break;case"closed":em.log("iceConnectionState is closed, closing connections to "+t),this.connection.emitError(eP.ConnectionClosed,"Connection to "+t+" closed."),this.connection.close();break;case"disconnected":em.log("iceConnectionState changed to disconnected on the connection with "+t);break;case"completed":e.onicecandidate=()=>{}}this.connection.emit("iceStateChanged",e.iceConnectionState)},em.log("Listening for data channel"),e.ondatachannel=e=>{em.log("Received data channel");let r=e.channel;i.getConnection(t,n)._initializeDataChannel(r)},em.log("Listening for remote stream"),e.ontrack=e=>{em.log("Received remote stream");let r=e.streams[0],s=i.getConnection(t,n);s.type===ek.Media&&this._addStreamToMediaConnection(r,s)}}cleanup(){em.log("Cleaning up PeerConnection to "+this.connection.peer);let e=this.connection.peerConnection;if(!e)return;this.connection.peerConnection=null,e.onicecandidate=e.oniceconnectionstatechange=e.ondatachannel=e.ontrack=()=>{};let t="closed"!==e.signalingState,n=!1,r=this.connection.dataChannel;r&&(n=!!r.readyState&&"closed"!==r.readyState),(t||n)&&e.close()}async _makeOffer(){let e=this.connection.peerConnection,t=this.connection.provider;try{let n=await e.createOffer(this.connection.options.constraints);em.log("Created offer."),this.connection.options.sdpTransform&&"function"==typeof this.connection.options.sdpTransform&&(n.sdp=this.connection.options.sdpTransform(n.sdp)||n.sdp);try{await e.setLocalDescription(n),em.log("Set localDescription:",n,`for:${this.connection.peer}`);let r={sdp:n,type:this.connection.type,connectionId:this.connection.connectionId,metadata:this.connection.metadata};if(this.connection.type===ek.Data){let e=this.connection;r={...r,label:e.label,reliable:e.reliable,serialization:e.serialization}}t.socket.send({type:eD.Offer,payload:r,dst:this.connection.peer})}catch(e){"OperationError: Failed to set local offer sdp: Called in wrong state: kHaveRemoteOffer"!=e&&(t.emitError(eR.WebRTC,e),em.log("Failed to setLocalDescription, ",e))}}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to createOffer, ",e)}}async _makeAnswer(){let e=this.connection.peerConnection,t=this.connection.provider;try{let n=await e.createAnswer();em.log("Created answer."),this.connection.options.sdpTransform&&"function"==typeof this.connection.options.sdpTransform&&(n.sdp=this.connection.options.sdpTransform(n.sdp)||n.sdp);try{await e.setLocalDescription(n),em.log("Set localDescription:",n,`for:${this.connection.peer}`),t.socket.send({type:eD.Answer,payload:{sdp:n,type:this.connection.type,connectionId:this.connection.connectionId},dst:this.connection.peer})}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to setLocalDescription, ",e)}}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to create answer, ",e)}}async handleSDP(e,t){t=new RTCSessionDescription(t);let n=this.connection.peerConnection,r=this.connection.provider;em.log("Setting remote description",t);try{await n.setRemoteDescription(t),em.log(`Set remoteDescription:${e} for:${this.connection.peer}`),"OFFER"===e&&await this._makeAnswer()}catch(e){r.emitError(eR.WebRTC,e),em.log("Failed to setRemoteDescription, ",e)}}async handleCandidate(e){em.log("handleCandidate:",e);try{await this.connection.peerConnection.addIceCandidate(e),em.log(`Added ICE candidate for:${this.connection.peer}`)}catch(e){this.connection.provider.emitError(eR.WebRTC,e),em.log("Failed to handleCandidate, ",e)}}_addTracksToConnection(e,t){if(em.log(`add tracks from stream ${e.id} to peer connection`),!t.addTrack)return em.error("Your browser does't support RTCPeerConnection#addTrack. Ignored.");e.getTracks().forEach(n=>{t.addTrack(n,e)})}_addStreamToMediaConnection(e,t){em.log(`add stream ${e.id} to media connection ${t.connectionId}`),t.addStream(e)}constructor(e){this.connection=e}}class eL extends e_.EventEmitter{emitError(e,t){em.error("Error:",t),this.emit("error",new eA(`${e}`,t))}}class eA extends Error{constructor(e,t){"string"==typeof t?super(t):(super(),Object.assign(this,t)),this.type=e}}class ej extends eL{get open(){return this._open}constructor(e,t,n){super(),this.peer=e,this.provider=t,this.options=n,this._open=!1,this.metadata=n.metadata}}class eB extends ej{get type(){return ek.Media}get localStream(){return this._localStream}get remoteStream(){return this._remoteStream}_initializeDataChannel(e){this.dataChannel=e,this.dataChannel.onopen=()=>{em.log(`DC#${this.connectionId} dc connection success`),this.emit("willCloseOnRemote")},this.dataChannel.onclose=()=>{em.log(`DC#${this.connectionId} dc closed for:`,this.peer),this.close()}}addStream(e){em.log("Receiving stream",e),this._remoteStream=e,super.emit("stream",e)}handleMessage(e){let t=e.type,n=e.payload;switch(e.type){case eD.Answer:this._negotiator.handleSDP(t,n.sdp),this._open=!0;break;case eD.Candidate:this._negotiator.handleCandidate(n.candidate);break;default:em.warn(`Unrecognized message type:${t} from peer:${this.peer}`)}}answer(e,t={}){if(this._localStream)return void em.warn("Local stream already exists on this MediaConnection. Are you answering a call twice?");for(let n of(this._localStream=e,t&&t.sdpTransform&&(this.options.sdpTransform=t.sdpTransform),this._negotiator.startConnection({...this.options._payload,_stream:e}),this.provider._getMessages(this.connectionId)))this.handleMessage(n);this._open=!0}close(){this._negotiator&&(this._negotiator.cleanup(),this._negotiator=null),this._localStream=null,this._remoteStream=null,this.provider&&(this.provider._removeConnection(this),this.provider=null),this.options&&this.options._stream&&(this.options._stream=null),this.open&&(this._open=!1,super.emit("close"))}constructor(e,t,n){super(e,t,n),this._localStream=this.options._stream,this.connectionId=this.options.connectionId||eB.ID_PREFIX+ef.randomToken(),this._negotiator=new eO(this),this._localStream&&this._negotiator.startConnection({_stream:this._localStream,originator:!0})}}eB.ID_PREFIX="mc_";class eU{_buildRequest(e){let t=this._options.secure?"https":"http",{host:n,port:r,path:i,key:s}=this._options,o=new URL(`${t}://${n}:${r}${i}${s}/${e}`);return o.searchParams.set("ts",`${Date.now()}${Math.random()}`),o.searchParams.set("version",eI),fetch(o.href,{referrerPolicy:this._options.referrerPolicy})}async retrieveId(){try{let e=await this._buildRequest("id");if(200!==e.status)throw Error(`Error. Status:${e.status}`);return e.text()}catch(t){em.error("Error retrieving ID",t);let e="";throw"/"===this._options.path&&this._options.host!==ef.CLOUD_HOST&&(e=" If you passed in a `path` to your self-hosted PeerServer, you'll also need to pass in that same path when creating a new Peer."),Error("Could not get an ID from the server."+e)}}async listAllPeers(){try{let e=await this._buildRequest("peers");if(200!==e.status){if(401===e.status){let e="";throw e=this._options.host===ef.CLOUD_HOST?"It looks like you're using the cloud server. You can email team@peerjs.com to enable peer listing for your API key.":"You need to enable `allow_discovery` on your self-hosted PeerServer to use this feature.",Error("It doesn't look like you have permission to list peers IDs. "+e)}throw Error(`Error. Status:${e.status}`)}return e.json()}catch(e){throw em.error("Error retrieving list peers",e),Error("Could not get list peers from the server."+e)}}constructor(e){this._options=e}}class eF extends ej{get type(){return ek.Data}_initializeDataChannel(e){this.dataChannel=e,this.dataChannel.onopen=()=>{em.log(`DC#${this.connectionId} dc connection success`),this._open=!0,this.emit("open")},this.dataChannel.onmessage=e=>{em.log(`DC#${this.connectionId} dc onmessage:`,e.data)},this.dataChannel.onclose=()=>{em.log(`DC#${this.connectionId} dc closed for:`,this.peer),this.close()}}close(e){if(e?.flush)return void this.send({__peerData:{type:"close"}});this._negotiator&&(this._negotiator.cleanup(),this._negotiator=null),this.provider&&(this.provider._removeConnection(this),this.provider=null),this.dataChannel&&(this.dataChannel.onopen=null,this.dataChannel.onmessage=null,this.dataChannel.onclose=null,this.dataChannel=null),this.open&&(this._open=!1,super.emit("close"))}send(e,t=!1){return this.open?this._send(e,t):void this.emitError(ew.NotOpenYet,"Connection is not open. You should listen for the `open` event before sending messages.")}async handleMessage(e){let t=e.payload;switch(e.type){case eD.Answer:await this._negotiator.handleSDP(e.type,t.sdp);break;case eD.Candidate:await this._negotiator.handleCandidate(t.candidate);break;default:em.warn("Unrecognized message type:",e.type,"from peer:",this.peer)}}constructor(e,t,n){super(e,t,n),this.connectionId=this.options.connectionId||eF.ID_PREFIX+eh(),this.label=this.options.label||this.connectionId,this.reliable=!!this.options.reliable,this._negotiator=new eO(this),this._negotiator.startConnection(this.options._payload||{originator:!0,reliable:this.reliable})}}eF.ID_PREFIX="dc_",eF.MAX_BUFFERED_AMOUNT=8388608;class eN extends eF{get bufferSize(){return this._bufferSize}_initializeDataChannel(e){super._initializeDataChannel(e),this.dataChannel.binaryType="arraybuffer",this.dataChannel.addEventListener("message",e=>this._handleDataMessage(e))}_bufferedSend(e){(this._buffering||!this._trySend(e))&&(this._buffer.push(e),this._bufferSize=this._buffer.length)}_trySend(e){if(!this.open)return!1;if(this.dataChannel.bufferedAmount>eF.MAX_BUFFERED_AMOUNT)return this._buffering=!0,setTimeout(()=>{this._buffering=!1,this._tryBuffer()},50),!1;try{this.dataChannel.send(e)}catch(e){return em.error(`DC#:${this.connectionId} Error when sending:`,e),this._buffering=!0,this.close(),!1}return!0}_tryBuffer(){if(!this.open||0===this._buffer.length)return;let e=this._buffer[0];this._trySend(e)&&(this._buffer.shift(),this._bufferSize=this._buffer.length,this._tryBuffer())}close(e){if(e?.flush)return void this.send({__peerData:{type:"close"}});this._buffer=[],this._bufferSize=0,super.close()}constructor(...e){super(...e),this._buffer=[],this._bufferSize=0,this._buffering=!1}}class ez extends eN{close(e){super.close(e),this._chunkedData={}}_handleDataMessage({data:e}){let t=i(e),n=t.__peerData;if(n)return"close"===n.type?void this.close():void this._handleChunk(t);this.emit("data",t)}_handleChunk(e){let t=e.__peerData,n=this._chunkedData[t]||{data:[],count:0,total:e.total};if(n.data[e.n]=new Uint8Array(e.data),n.count++,this._chunkedData[t]=n,n.total===n.count){delete this._chunkedData[t];let e=function(e){let t=0;for(let n of e)t+=n.byteLength;let n=new Uint8Array(t),r=0;for(let t of e)n.set(t,r),r+=t.byteLength;return n}(n.data);this._handleDataMessage({data:e})}}_send(e,t){let n=s(e);return n instanceof Promise?this._send_blob(n):!t&&n.byteLength>this.chunker.chunkedMTU?void this._sendChunks(n):void this._bufferedSend(n)}async _send_blob(e){let t=await e;if(t.byteLength>this.chunker.chunkedMTU)return void this._sendChunks(t);this._bufferedSend(t)}_sendChunks(e){let t=this.chunker.chunk(e);for(let e of(em.log(`DC#${this.connectionId} Try to send ${t.length} chunks...`),t))this.send(e,!0)}constructor(e,t,r){super(e,t,r),this.chunker=new n,this.serialization=eE.Binary,this._chunkedData={}}}class e$ extends eN{_handleDataMessage({data:e}){super.emit("data",e)}_send(e,t){this._bufferedSend(e)}constructor(...e){super(...e),this.serialization=eE.None}}class eV extends eN{_handleDataMessage({data:e}){let t=this.parse(this.decoder.decode(e)),n=t.__peerData;if(n&&"close"===n.type)return void this.close();this.emit("data",t)}_send(e,t){let n=this.encoder.encode(this.stringify(e));if(n.byteLength>=ef.chunkedMTU)return void this.emitError(ew.MessageToBig,"Message too big for JSON channel");this._bufferedSend(n)}constructor(...e){super(...e),this.serialization=eE.JSON,this.encoder=new TextEncoder,this.decoder=new TextDecoder,this.stringify=JSON.stringify,this.parse=JSON.parse}}class eG extends eL{get id(){return this._id}get options(){return this._options}get open(){return this._open}get socket(){return this._socket}get connections(){let e=Object.create(null);for(let[t,n]of this._connections)e[t]=n;return e}get destroyed(){return this._destroyed}get disconnected(){return this._disconnected}_createServerConnection(){let e=new eM(this._options.secure,this._options.host,this._options.port,this._options.path,this._options.key,this._options.pingInterval);return e.on(ex.Message,e=>{this._handleMessage(e)}),e.on(ex.Error,e=>{this._abort(eR.SocketError,e)}),e.on(ex.Disconnected,()=>{this.disconnected||(this.emitError(eR.Network,"Lost connection to server."),this.disconnect())}),e.on(ex.Close,()=>{this.disconnected||this._abort(eR.SocketClosed,"Underlying socket is already closed.")}),e}_initialize(e){this._id=e,this.socket.start(e,this._options.token)}_handleMessage(e){let t=e.type,n=e.payload,r=e.src;switch(t){case eD.Open:this._lastServerId=this.id,this._open=!0,this.emit("open",this.id);break;case eD.Error:this._abort(eR.ServerError,n.msg);break;case eD.IdTaken:this._abort(eR.UnavailableID,`ID "${this.id}" is taken`);break;case eD.InvalidKey:this._abort(eR.InvalidKey,`API KEY "${this._options.key}" is invalid`);break;case eD.Leave:em.log(`Received leave message from ${r}`),this._cleanupPeer(r),this._connections.delete(r);break;case eD.Expire:this.emitError(eR.PeerUnavailable,`Could not connect to peer ${r}`);break;case eD.Offer:{let e=n.connectionId,t=this.getConnection(r,e);if(t&&(t.close(),em.warn(`Offer received for existing Connection ID:${e}`)),n.type===ek.Media){let i=new eB(r,this,{connectionId:e,_payload:n,metadata:n.metadata});t=i,this._addConnection(r,t),this.emit("call",i)}else{if(n.type!==ek.Data)return void em.warn(`Received malformed connection type:${n.type}`);let i=new this._serializers[n.serialization](r,this,{connectionId:e,_payload:n,metadata:n.metadata,label:n.label,serialization:n.serialization,reliable:n.reliable});t=i,this._addConnection(r,t),this.emit("connection",i)}for(let n of this._getMessages(e))t.handleMessage(n);break}default:{if(!n)return void em.warn(`You received a malformed message from ${r} of type ${t}`);let i=n.connectionId,s=this.getConnection(r,i);s&&s.peerConnection?s.handleMessage(e):i?this._storeMessage(i,e):em.warn("You received an unrecognized message:",e)}}}_storeMessage(e,t){this._lostMessages.has(e)||this._lostMessages.set(e,[]),this._lostMessages.get(e).push(t)}_getMessages(e){let t=this._lostMessages.get(e);return t?(this._lostMessages.delete(e),t):[]}connect(e,t={}){if(t={serialization:"default",...t},this.disconnected){em.warn("You cannot connect to a new Peer because you called .disconnect() on this Peer and ended your connection with the server. You can create a new Peer to reconnect, or call reconnect on this peer if you believe its ID to still be available."),this.emitError(eR.Disconnected,"Cannot connect to new Peer after disconnecting from server.");return}let n=new this._serializers[t.serialization](e,this,t);return this._addConnection(e,n),n}call(e,t,n={}){if(this.disconnected){em.warn("You cannot connect to a new Peer because you called .disconnect() on this Peer and ended your connection with the server. You can create a new Peer to reconnect."),this.emitError(eR.Disconnected,"Cannot connect to new Peer after disconnecting from server.");return}if(!t)return void em.error("To call a peer, you must provide a stream from your browser's `getUserMedia`.");let r=new eB(e,this,{...n,_stream:t});return this._addConnection(e,r),r}_addConnection(e,t){em.log(`add connection ${t.type}:${t.connectionId} to peerId:${e}`),this._connections.has(e)||this._connections.set(e,[]),this._connections.get(e).push(t)}_removeConnection(e){let t=this._connections.get(e.peer);if(t){let n=t.indexOf(e);-1!==n&&t.splice(n,1)}this._lostMessages.delete(e.connectionId)}getConnection(e,t){let n=this._connections.get(e);if(!n)return null;for(let e of n)if(e.connectionId===t)return e;return null}_delayedAbort(e,t){setTimeout(()=>{this._abort(e,t)},0)}_abort(e,t){em.error("Aborting!"),this.emitError(e,t),this._lastServerId?this.disconnect():this.destroy()}destroy(){this.destroyed||(em.log(`Destroy peer with ID:${this.id}`),this.disconnect(),this._cleanup(),this._destroyed=!0,this.emit("close"))}_cleanup(){for(let e of this._connections.keys())this._cleanupPeer(e),this._connections.delete(e);this.socket.removeAllListeners()}_cleanupPeer(e){let t=this._connections.get(e);if(t)for(let e of t)e.close()}disconnect(){if(this.disconnected)return;let e=this.id;em.log(`Disconnect peer with ID:${e}`),this._disconnected=!0,this._open=!1,this.socket.close(),this._lastServerId=e,this._id=null,this.emit("disconnected",e)}reconnect(){if(this.disconnected&&!this.destroyed)em.log(`Attempting reconnection to server with ID ${this._lastServerId}`),this._disconnected=!1,this._initialize(this._lastServerId);else if(this.destroyed)throw Error("This peer cannot reconnect to the server. It has already been destroyed.");else if(this.disconnected||this.open)throw Error(`Peer ${this.id} cannot reconnect because it is not disconnected from the server!`);else em.error("In a hurry? We're still trying to make the initial connection!")}listAllPeers(e=e=>{}){this._api.listAllPeers().then(t=>e(t)).catch(e=>this._abort(eR.ServerError,e))}constructor(e,t){let n;if(super(),this._serializers={raw:e$,json:eV,binary:ez,"binary-utf8":ez,default:ez},this._id=null,this._lastServerId=null,this._destroyed=!1,this._disconnected=!1,this._open=!1,this._connections=new Map,this._lostMessages=new Map,e&&e.constructor==Object?t=e:e&&(n=e.toString()),t={debug:0,host:ef.CLOUD_HOST,port:ef.CLOUD_PORT,path:"/",key:eG.DEFAULT_KEY,token:ef.randomToken(),config:ef.defaultConfig,referrerPolicy:"strict-origin-when-cross-origin",serializers:{},...t},this._options=t,this._serializers={...this._serializers,...this.options.serializers},"/"===this._options.host&&(this._options.host=window.location.hostname),this._options.path&&("/"!==this._options.path[0]&&(this._options.path="/"+this._options.path),"/"!==this._options.path[this._options.path.length-1]&&(this._options.path+="/")),void 0===this._options.secure&&this._options.host!==ef.CLOUD_HOST?this._options.secure=ef.isSecure():this._options.host==ef.CLOUD_HOST&&(this._options.secure=!0),this._options.logFunction&&em.setLogFunction(this._options.logFunction),em.logLevel=this._options.debug||0,this._api=new eU(t),this._socket=this._createServerConnection(),!ef.supports.audioVideo&&!ef.supports.data)return void this._delayedAbort(eR.BrowserIncompatible,"The current browser does not support WebRTC");if(n&&!ef.validateId(n))return void this._delayedAbort(eR.InvalidID,`ID "${n}" is invalid`);n?this._initialize(n):this._api.retrieveId().then(e=>this._initialize(e)).catch(e=>this._abort(eR.ServerError,e))}}eG.DEFAULT_KEY="peerjs",window.peerjs={Peer:eG,util:ef},window.Peer=eG})();
 </script>
-<script>const GAME_VERSION="2.3.0";
+<script>const GAME_VERSION="2.4.0";
 /* v1.22.0 · opciones del jugador (pantalla Opciones). Se guardan en este navegador. */
 const OPC_DEF={sens:1,invY:false,vGen:1,vMus:1,vFx:1,res:'alta',nombre:''};
 const OPC=Object.assign({},OPC_DEF);
@@ -12519,7 +12519,7 @@ function fire(){const w=W[wi];
     let wall=Infinity,glB=null,glT=Infinity;for(const b of obstacles){const t=rayBox(ray.o,d,b);if(b.glass){if(t<glT){glT=t;glB=b;}continue;}if(t<wall)wall=t;}wall=Math.min(wall,rayWalls(ray.o,d,range));
     if(glB&&glT<wall&&glT<range&&(!hitE||glT<best))mbGlassBreak(glB.gl,d.x,d.z);
     {const sh=SHJ.ray(ray.o,d);if(sh&&sh.t<wall&&sh.t<range&&(!hitE||sh.t<best)){const chT=(rayCars(ray.o,d,Math.min(wall,range))||{t:Infinity}).t;if(sh.t<chT){if(sh.dodge){SHJ.dodged();continue;}const fall=w.fall?w.fall(sh.t):/*UE:R*/w.rays>1?(sh.t<12?1:Math.max(.3,1-(sh.t-12)/40)):(sh.t<30?1:Math.max(.55,1-(sh.t-30)/80));if(COOP.cliente)COOP.golpeShajar(w.dmg*fall*sh.mul,d,sh.head);else SHJ.hit(w.dmg*fall*sh.mul,d,sh.head);anyHit=true;if(sh.head)eyeHit=true;_v.copy(ray.o).addScaledVector(d,sh.t);for(let k=0;k<4;k++)spawnPart(_v,_w.set(rand(-2,2)-d.x*3,rand(1,4),rand(-2,2)-d.z*3),rand(.04,.1),pick(GOO),rand(1,2.2));continue;}}}
-    if(!NET.on&&UEG.balaJugador(ray.o,d,w,hitE?best:Infinity,wall,range,i)){anyHit=true;continue;}/*UE:rayo-jugador*/
+    if((NET.on&&COOP.cliente)?COOP.balaSoldados(ray.o,d,w,hitE?best:Infinity,wall,range,i):UEG.balaJugador(ray.o,d,w,hitE?best:Infinity,wall,range,i)){anyHit=true;continue;}/*UE:rayo-jugador*/
     {const ch=rayCars(ray.o,d,Math.min(wall,range));if(ch&&(!hitE||ch.t<best)){carShot(ch.car,_v.copy(ray.o).addScaledVector(d,ch.t),d,dbl);continue;}}
     if(hitE&&best<wall&&best<range){const fall=w.fall?w.fall(best):/*UE:R*/w.rays>1?(best<12?1:Math.max(.3,1-(best-12)/40)):(best<30?1:Math.max(.55,1-(best-30)/80));const dm=w.dmg*fall;
       dmgMap.set(hitE,(dmgMap.get(hitE)||0)+dm*(hitP?(hitP.kind==='eye'?2.5:.75):1));anyHit=true;if(hitP&&hitP.kind==='eye')eyeHit=true;if(hitP){hitP.acc=(hitP.acc||0)+dm*(hitP.kind==='eye'?1.6:1);partsHit.add(hitP);}
@@ -15902,7 +15902,7 @@ const BCH={
 
 /* la lista de soldados se le pide a la IA una sola vez por cuadro (T, el reloj del juego, avanza en cada cuadro) */
 function bchObjs(){
-  if(BCH.t!==T){BCH.t=T;const L=NET.on?COOP.blancos():UEB.objetivos();BCH.L=L&&L.length?L:BCH.vacio;BCH.n=BCH.L.length;}
+  if(BCH.t!==T){BCH.t=T;const L=NET.on?COOP.blancos().concat(UEB.objetivos()||[]):UEB.objetivos();/* v2.4.0: en co-op, compañeros y soldados */BCH.L=L&&L.length?L:BCH.vacio;BCH.n=BCH.L.length;}
   return BCH.L;
 }
 
@@ -19238,7 +19238,7 @@ function crearUE(ENV, TUNE) {
   }
   function percibir(s) {
     const dtP = Math.min(0.4, ahora - s.tPercAnt); s.tPercAnt = ahora;
-    const j = ENV.jugador(), nivel = nivelDe(s);
+    const j = ENV.jugadorPara ? ENV.jugadorPara(s) : ENV.jugador(), nivel = nivelDe(s);   // v2.4.0: en co-op, el testigo más cercano
     let ve = false, medio = false, d = 1e9;
     if (j.vivo) {
       const dx = j.x - s.x, dz = j.z - s.z; d = hyp(dx, dz);
@@ -19375,9 +19375,9 @@ function crearUE(ENV, TUNE) {
     let ref = null;
     const hb = bichos.length ? ENV.rayoBichos(ox, oy, oz, dx, dy, dz, tM) : null;
     if (hb && hb.t < tM) { tM = hb.t; pega = 'bicho'; ref = hb.ref; }
-    const j = ENV.jugador();
-    if (j.vivo) { const tj = rayoCapsula(ox, oy, oz, dx, dy, dz, j.x, j.y, j.z, 0.35, j.alto); if (tj < tM) { tM = tj; pega = 'jugador'; ref = null; } }
-    _res.t = tM; _res.pega = pega; _res.ref = ref; return _res;
+    let jk = -1; const JS = ENV.jugadores ? ENV.jugadores() : [ENV.jugador()];   // v2.4.0: la bala puede pegarle a cualquier testigo
+    for (let q = 0; q < JS.length; q++) { const j = JS[q]; if (!j.vivo) continue; const tj = rayoCapsula(ox, oy, oz, dx, dy, dz, j.x, j.y, j.z, 0.35, j.alto); if (tj < tM) { tM = tj; pega = 'jugador'; ref = null; jk = j.k | 0; } }
+    _res.t = tM; _res.pega = pega; _res.ref = ref; _res.jk = jk; return _res;
   }
   /* Dispara UNA bala (o perdigón) de s hacia el punto (px,py,pz).
      modo: 'pegar' · 'suprimir' (erra a propósito; si igual le iba a pegar, se sortea de nuevo una vez) ·
@@ -19401,7 +19401,7 @@ function crearUE(ENV, TUNE) {
       if (r.pega === 'jugador' && !errar && enTope && danoReciente() + dano > T.topeDano) errar = true;   // tope de daño por segundo
       if (errar) {
         /* la bala se corre lo justo para pasarle al lado (0,6 m fuera del cuerpo), del lado hacia el que ya iba */
-        const j = ENV.jugador(), jx = j.x - ox, jz = j.z - oz, jd = Math.sqrt(jx * jx + jz * jz) || 1;
+        const j = ENV.jugadorK ? ENV.jugadorK(r.jk) : ENV.jugador(), jx = j.x - ox, jz = j.z - oz, jd = Math.sqrt(jx * jx + jz * jz) || 1;
         const lado = (ex * (-jz) + ez * jx) >= 0 ? 1 : -1, qx = -jz / jd * lado, qz = jx / jd * lado;
         for (let q = 0; q < 3 && r.pega === 'jugador'; q++) {
           const tx = j.x + qx * (0.95 + q * 0.5) - ox, ty = oy + ey * jd - oy, tz = j.z + qz * (0.95 + q * 0.5) - oz;
@@ -19413,7 +19413,7 @@ function crearUE(ENV, TUNE) {
     }
     if (r.pega === 'jugador') {
       if (enTope) { red.dano.push(ahora, dano); }
-      ENV.herirJugador(dano, s.x, s.z, tipo);
+      ENV.herirJugador(dano, s.x, s.z, tipo, r.jk);
     } else if (r.pega === 'bicho') ENV.herirBicho(r.ref, (dano / (T.dano || 1)) * T.bichoDano, ex, ez);
     const e = _ev; e.s = s; e.ox = ox; e.oy = oy; e.oz = oz; e.hx = ox + ex * r.t; e.hy = oy + ey * r.t; e.hz = oz + ez * r.t;
     e.tipo = tipo; e.pega = r.pega; e.modo = modo; e.raf = s.nRaf; e.t = ahora; e.px = px; e.py = py; e.pz = pz; e.ficha = !!s.ficha;
@@ -19761,8 +19761,8 @@ function crearUE(ENV, TUNE) {
       if (s.culBicho) { const b = s.bicho; if (b && b.d < C.dist + 0.6) ENV.herirBicho(b.ref, 25 * T.bichoDano, Math.sin(s.miraYaw), Math.cos(s.miraYaw)); }
       else {
         /* física del golpe: llega si el jugador sigue al alcance y adelante (se puede esquivar retrocediendo) */
-        const j = ENV.jugador(), dx = j.x - s.x, dz = j.z - s.z, d = hyp(dx, dz);
-        if (j.vivo && d < C.dist + 0.25 && Math.abs(angN(Math.atan2(dx, dz) - s.miraYaw)) < 1.0 && Math.abs(j.y - s.y) < 1.5) ENV.herirJugador(C.dano * T.dano, s.x, s.z, 'culata');
+        const j = ENV.jugadorPara ? ENV.jugadorPara(s) : ENV.jugador(), dx = j.x - s.x, dz = j.z - s.z, d = hyp(dx, dz);
+        if (j.vivo && d < C.dist + 0.25 && Math.abs(angN(Math.atan2(dx, dz) - s.miraYaw)) < 1.0 && Math.abs(j.y - s.y) < 1.5) ENV.herirJugador(C.dano * T.dano, s.x, s.z, 'culata', j.k | 0);
       }
     }
     if (s.culT >= 1) { s.culT = -1; s.culCd = C.cada; if (s.estado === 'culata') ponerEstado(s, s.cob ? 'volver' : 'alerta'); }
@@ -20853,8 +20853,8 @@ function crearUE(ENV, TUNE) {
   const vivosObj = [];
   /* (percepción gruesa, solo para ahorrar: ¿está el jugador lejos de todos?) */
   function percibirLejos() {
-    const j = ENV.jugador();
-    for (let i = 0; i < soldados.length; i++) { const s = soldados[i]; if (s.vivo && s.activo && hyp(j.x - s.x, j.z - s.z) < T.lejos) return false; }
+    const JS = ENV.jugadores ? ENV.jugadores() : [ENV.jugador()];
+    for (let q = 0; q < JS.length; q++) { const j = JS[q]; for (let i = 0; i < soldados.length; i++) { const s = soldados[i]; if (s.vivo && s.activo && hyp(j.x - s.x, j.z - s.z) < T.lejos) return false; } }
     return true;
   }
   function update(dt) {
@@ -20993,6 +20993,11 @@ const UEG=(()=>{
     const w=W[wi];J.recargando=!!(w&&w.rT>=0);J.corriendo=!!P.sprint||(P.vel.x*P.vel.x+P.vel.z*P.vel.z)>49;
     return J;
   }
+  /* v2.4.0 · co-op: todos los testigos (el host es k 0; los compañeros los arma COOP con lo que mandan) */
+  const JS=[J];J.k=0;
+  function jugadores(){JS.length=1;jugador();if(NET.on&&NET.rol==='host'){const R=COOP.jugadoresUE();for(let i=0;i<R.length;i++)JS.push(R[i]);}return JS;}
+  function jugadorPara(s){const L=jugadores();let best=L[0],bd=1e9;for(let i=0;i<L.length;i++){const j=L[i];if(!j.vivo)continue;const d=Math.hypot(j.x-s.x,j.z-s.z);if(d<bd){bd=d;best=j;}}return best;}
+  function jugadorK(k){const L=jugadores();for(let i=0;i<L.length;i++)if(L[i].k===k)return L[i];return L[0];}
 
   /* --- cajas (obstacles) en una grilla de 8 m: la IA tira cientos de rayos y recorrer todas las cajas es caro.
          Se rehace sola si cambia la cantidad (el retén agrega las suyas, un vidrio roto se saca). Los vidrios no frenan. --- */
@@ -21118,8 +21123,9 @@ const UEG=(()=>{
 
   /* --- le pegan al jugador. «culpa» marca que el daño es de ellos, por si hurtPlayer termina la partida --- */
   let culpa=false,culpaGranT=-1,muerteUE=false;
-  function herirJugador(dano,x,z,tipo){
+  function herirJugador(dano,x,z,tipo,k){
     if(!running||!(dano>0))return;
+    if(k>0){COOP.herirCompa(k,dano);return;}   /* v2.4.0: le pegaron a un compañero */
     culpa=true;try{hurtPlayer(dano,false);}finally{culpa=false;}
     if(hay.hud()&&UEHUD.golpeDesde)UEHUD.golpeDesde(x,z);
   }
@@ -21133,14 +21139,16 @@ const UEG=(()=>{
     const mismo=ev.tipo==='escopeta'&&tiroS===ev.s&&tiroT===ev.t;            // ocho perdigones, un estampido
     if(snd&&!mismo)UESND.disparo(ev.tipo,_a);
     tiroS=ev.s;tiroT=ev.t;
+    let mat='';
     if(ev.pega==='mundo'){
       const L=Math.hypot(ev.hx-ev.ox,ev.hy-ev.oy,ev.hz-ev.oz);
       const fue=RZ.que&&Math.abs(RZ.t-L)<.06;                                 // terminó en lo que encontró el último rayo
-      let mat='piso';
+      mat='piso';
       if(fue)mat=RZ.que==='auto'?'metal':(RZ.que==='caja'&&RZ.caja&&esDelReten(RZ.caja))?'metal':'pared';
       if(fx)UEFX.impacto(_b,null,mat);
       if(fue&&RZ.que==='auto'&&RZ.car)carDamage(RZ.car,TUNE.danoAuto);
     }else if(ev.pega==='bicho'){if(fx)UEFX.impacto(_b,null,'carne');}
+    if(NET.on&&NET.rol==='host')COOP.ueBala(ev,mat,!mismo);   /* v2.4.0: los demás ven la misma bala */
   }
   let cajasReten=null;
   function esDelReten(b){
@@ -21168,6 +21176,7 @@ const UEG=(()=>{
     if(!hay.gran()||!GRAN.lanzar)return;
     const g=GRAN.lanzar({pos:_ga.set(ox,oy,oz),vel:_gb.set(vx,vy,vz),mecha,de:s,tipo:tipo||'frag'});
     if(!g)return;
+    if(NET.on&&NET.rol==='host')COOP.granadaSoldado(ox,oy,oz,vx,vy,vz,mecha);
     if(vx===ULT.vx&&vy===ULT.vy&&vz===ULT.vz){if(!g.ueFin)g.ueFin={x:0,z:0};g.ueFin.x=ULT.fx;g.ueFin.z=ULT.fz;g.ueDe=s;}
     else g.ueDe=null;
   }
@@ -21177,6 +21186,7 @@ const UEG=(()=>{
   function radio(s,clave,texto){
     if(!s||!texto)return;
     const guardia=s.virtual?false:!(s.esc&&s.esc.estado!=='guardia');
+    if(NET.on&&NET.rol==='host')COOP.ueRadio(s.nombre||'Central',texto,clave,voz(s),s.virtual?null:[s.x,(s.y||0)+1.6,s.z],guardia?1:0);
     if(guardia&&!s.virtual&&Math.hypot(P.pos.x-s.x,P.pos.z-s.z)>TUNE.radioDist)return;
     if(hay.hud())UEHUD.radio(s.nombre||'Central',texto,clave);
     if(hay.snd()){
@@ -21201,10 +21211,10 @@ const UEG=(()=>{
     if(delJugador){
       kills++;if(comboT>0)combo=Math.min(5,combo+1);else combo=1;comboT=3;
       const pts=TUNE.puntos*combo;score+=pts;hudScore();
-      feed(`<b>${pick(QUIPS_UE)}</b> · ${s.nombre}${parte==='cabeza'?' (a la cabeza)':''} +${pts}`);
+      const tx=`<b>${pick(QUIPS_UE)}</b> · ${s.nombre}${parte==='cabeza'?' (a la cabeza)':''}${NET.on?COOP.quienUE():''} +${pts}`;feed(tx);if(NET.on)COOP.ueFeed(tx);
     }else{
       const como=de==='bicho'?'lo despedazaron los bichos':de==='auto'?'voló con el auto':de==='granada'?'lo voló una granada':'cayó';
-      feed(`<b>${s.nombre}</b> · ${como}`);
+      feed(`<b>${s.nombre}</b> · ${como}`);if(NET.on)COOP.ueFeed(`<b>${s.nombre}</b> · ${como}`);
     }
     botin(x,z,s.rol,s);
   }
@@ -21287,7 +21297,7 @@ const UEG=(()=>{
     B:enB,H:enH,EW,EH,EX0,EZ0,
     jugador,piso:floorAt,rayo,
     luz:(x,z)=>typeof RETEN!=='undefined'&&RETEN.luz?RETEN.luz(x,z):0,
-    bichos,rayoBichos:rayoB,herirBicho,peligros,herirJugador,bala,granada,arco,radio,evento,vista,
+    bichos,rayoBichos:rayoB,herirBicho,peligros,herirJugador,bala,granada,arco,radio,evento,vista,jugadores,jugadorPara,jugadorK,
     azar:Math.random,ahora:()=>T
   };
   const UE=crearUE(ENV,UE_TUNE);
@@ -21385,10 +21395,12 @@ const UEG=(()=>{
   /* --- UEB: lo que piden los demás módulos --- */
   UEB.objetivos=()=>UE.objetivos();
   UEB.explosion=(pos,radio,dano,de)=>{
+    if(NET.on&&COOP.cliente)return;
     if(de&&typeof de==='object')culpaGranT=T;            // granada de un soldado: si mata al jugador, fueron ellos
     explDe=de;try{UE.explosion(pos,radio,dano,de);}finally{explDe=null;}
   };
   UEB.ruido=(pos,tipo,fuerza)=>{
+    if(NET.on&&COOP.cliente)return;
     /* fire() avisa con la cámara; la IA quiere los pies del que hizo el ruido */
     const delJugador=tipo==='disparo'||tipo==='pasos'||tipo==='jugador'||tipo==='recarga';
     UE.ruido(delJugador?P.pos:pos,tipo,fuerza);
@@ -21731,8 +21743,8 @@ const BOTIN=(()=>{
     else g.add(granMolde.clone());
     const sp=new THREE.Sprite(brillo[tipo]);g.add(sp);sp.scale.setScalar(tipo==='fusil'?2.3:tipo==='granada'?1.6:1.9);
     return g;}
-  function poner(tipo,x,z){const g=modelo(tipo),y=floorAt(x,z);g.position.set(x,y+ALTO[tipo],z);g.rotation.y=rand(0,6.28);_sceneAdd(g);
-    const c={tipo,g,x,z,y,t:rand(0,6),life:VIDA[tipo]};cajas.push(c);return c;}
+  function poner(tipo,x,z,id){const g=modelo(tipo),y=floorAt(x,z);g.position.set(x,y+ALTO[tipo],z);g.rotation.y=rand(0,6.28);_sceneAdd(g);
+    const c={tipo,g,x,z,y,t:rand(0,6),life:VIDA[tipo],id:id||0};cajas.push(c);if(!id&&NET.on)COOP.botinNuevo(c);return c;}
   const hay=tipo=>cajas.some(c=>c.tipo===tipo);
   function quitar(i){scene.remove(cajas[i].g);cajas.splice(i,1);}
   /* levantar: devuelve true si se la llevó */
@@ -21751,15 +21763,20 @@ const BOTIN=(()=>{
   function update(dt){for(let i=0;i<cajas.length;i++){const c=cajas[i];c.t+=dt;c.life-=dt;
     c.g.rotation.y+=dt*2;c.g.position.y=c.y+ALTO[c.tipo]+Math.sin(c.t*3)*.15;c.g.visible=c.life>5||Math.sin(c.t*16)>-.2;
     const cerca=Math.hypot(c.x-P.pos.x,c.z-P.pos.z)<1.7&&P.pos.y<c.y+1.5;
-    if((cerca&&P.hp>0&&tomar(c))||c.life<=0){quitar(i);i--;}}}
+    if(c.life<=0){quitar(i);i--;continue;}
+    if(cerca&&P.hp>0){if(NET.on){if(!P.caido)COOP.botinPedir(c);}else if(tomar(c)){quitar(i);i--;}}}}
   function reset(){while(cajas.length)quitar(cajas.length-1);tomar.vio=false;}
-  return{PROB,VIDA,cajas,poner,hay,update,reset,tomar};})();
+  /* v2.4.0 · co-op: ¿la podría levantar? (sin levantarla) y sacar una caja por su número */
+  function puede(c){if(c.tipo==='fusil'){const w=FUSIL.w;return !w.owned||w.res<w.maxRes;}if(c.tipo==='balas'){const w=FUSIL.w;return w.res<w.maxRes;}
+    if(c.tipo==='granada')return GJ.n<GJ.TU.max;if(c.tipo==='botiquin')return P.hp<100;return false;}
+  function quitarId(id){const i=cajas.findIndex(c=>c.id===id);if(i>=0)quitar(i);}
+  return{PROB,VIDA,cajas,poner,hay,update,reset,tomar,puede,quitarId,porId:id=>cajas.find(c=>c.id===id)};})();
 
 /* qué suelta un soldado al caer (lo llama UEG con la posición ya corrida a un lugar libre) */
 UEB.botin=(x,z,rol)=>{const P_=BOTIN.PROB;let k=0;
   /* las cajas se reparten alrededor del cuerpo, a 70 cm */
   const pos=()=>{const a=k*2.4+rand(-.3,.3),r=k?.7:0;k++;return [x+Math.sin(a)*r,z+Math.cos(a)*r];};
-  if(!FUSIL.w.owned&&!BOTIN.hay('fusil'))BOTIN.poner('fusil',...pos());
+  if((NET.on||!FUSIL.w.owned)&&!BOTIN.hay('fusil'))BOTIN.poner('fusil',...pos());
   if(rol==='tirador'||((rol==='jefe'||rol==='granadero')&&Math.random()<P_.balasJefe))BOTIN.poner('balas',...pos());
   if(rol==='asalto'){const p=pos();addAmmo(p[0],p[1],'escopeta');}
   const ng=rol==='granadero'?(Math.random()<P_.granDos?2:1):(Math.random()<P_.granOtro?1:0);
@@ -21796,7 +21813,7 @@ function updateCompass(){if(!CMP.el)compassInit();const w=CMP.el.clientWidth;if(
   for(const [id,e] of CMP.marks)if(!seen.has(id)){e.remove();CMP.marks.delete(id);}}
 function frame(now){requestAnimationFrame(frame);const _bt0=performance.now();const dt=Math.min(.05,(now-last)/1000);last=now;
   if(!paused){T+=dt;ambientAnim(dt);
-    if(running){if(COOP.caido())COOP.quieto(dt);else updatePlayer(dt);COOP.espectar();updateWeapon(dt);MOV.draw(dt);updateTorch(dt);if(NET.on)NET.oleadas(dt);else updateWaves(dt);updateCompass();if(COOP.cliente)COOP.titeres(dt);else{enTick(dt);updateEnemies(dt);}COOP.shajar(dt);updateProjs(dt);updatePickups(dt);GRAN.update(dt);if(!NET.on)UEG.update(dt);FUSIL.update(dt);GJ.update(dt);BOTIN.update(dt);/*UE:update*/}
+    if(running){if(COOP.caido())COOP.quieto(dt);else updatePlayer(dt);COOP.espectar();updateWeapon(dt);MOV.draw(dt);updateTorch(dt);if(NET.on)NET.oleadas(dt);else updateWaves(dt);updateCompass();if(COOP.cliente)COOP.titeres(dt);else{enTick(dt);updateEnemies(dt);}COOP.shajar(dt);updateProjs(dt);updatePickups(dt);GRAN.update(dt);if(!NET.on||!COOP.cliente)UEG.update(dt);else COOP.soldadosTiteres(dt);FUSIL.update(dt);GJ.update(dt);BOTIN.update(dt);/*UE:update*/}
     else if(!over)attract(dt);
     else{orbit+=dt*.03;}
     if(!running)idleRigs(dt);
@@ -22010,7 +22027,7 @@ const NET=(()=>{
       if(on){avisar(`<b style="color:${COL[k]}">${sala[k].n}</b> entró a la partida`);COOP.alUnirse(k);}return;}
     const k=cn.k;if(k===undefined||conns[k]!==cn)return;
     if(d.t==='e'&&Array.isArray(d.s)){estado(k,d.s);aOtros(k,{t:'e',k,s:d.s});}
-    else if(d.t==='d'){tiro(k,d.a);aOtros(k,{t:'d',k,a:d.a});}
+    else if(d.t==='d'){tiro(k,d.a);aOtros(k,{t:'d',k,a:d.a});COOP.ruidoTiro(k);}
     else if(d.t==='P'&&sala[k])sala[k].ping=Math.round(performance.now()-d.ts);
     else COOP.deCliente(k,d);}
   function cierraCliente(cn){const k=cn.k;if(k===undefined||conns[k]!==cn)return;conns[k]=null;const n=sala[k]&&sala[k].n;sala[k]=null;quitar(k);
@@ -22341,6 +22358,91 @@ const COOP=(()=>{
   function granada(g,p,v,m){g.coopK=NET.yo;const msg={t:'gr',k:NET.yo,p:[r3(p.x),r3(p.y),r3(p.z)],v:[r3(v.x),r3(v.y),r3(v.z)],m};if(host())NET.aTodos(msg);else NET.alHost(msg);}
   function granadaCopia(d){if(d.k===NET.yo)return;const g=GRAN.lanzar({pos:new THREE.Vector3(d.p[0],d.p[1],d.p[2]),vel:new THREE.Vector3(d.v[0],d.v[1],d.v[2]),mecha:d.m,de:'jugador',tipo:'frag'});if(g)g.coopK=d.k;}
   function destruccionReset(){LOG.length=0;CV.clear();rgK='';remoto=false;tiroAuto=false;}
+  /* ================= v2.4.0 · el retén en co-op =================
+     La IA del escuadrón corre en el host y ve a todos los testigos: cada soldado mira al más cercano y sus balas le pegan a
+     cualquiera (el daño se lo manda el host a cada uno). En las otras PC los soldados son títeres: el host manda 12 veces por
+     segundo dónde está cada uno y cómo se mueve (lo mismo que la IA le pasa al modelo), cada bala con su trazadora, la radio y
+     el estado del escuadrón para el arco del HUD. Los tiros de los demás contra un soldado se resuelven contra el títere y se le
+     mandan al host. El botín lo pone el host y cada caja la levanta uno solo, como las empanadas. */
+  const JR=[0,1,2,3].map(k=>({k,x:0,y:0,z:0,vx:0,vz:0,agach:0,ojoY:1.7,alto:1.8,hp:100,vivo:false,linterna:false,recargando:false,corriendo:false})),JRL=[];
+  function jugadoresUE(){JRL.length=0;
+    for(let k=1;k<4;k++){const a=NET.av[k];if(!NET.sala[k]||!a||!a.buf.length)continue;const B=a.buf,s1=B[B.length-1].s,s0=B.length>1?B[B.length-2].s:s1,dt=B.length>1?Math.max(.03,B[B.length-1].t-B[B.length-2].t):1,j=JR[k];
+      j.x=s1[0];j.y=s1[1];j.z=s1[2];j.vx=(s1[0]-s0[0])/dt;j.vz=(s1[2]-s0[2])/dt;const pr=s1[6]||0;j.agach=Math.max(s1[5]||0,pr);
+      j.ojoY=pr>.5?.4:1.7-.68*(s1[5]||0);j.alto=j.ojoY+.1;j.hp=s1[12];j.vivo=running&&!(s1[16]|0)&&s1[12]>0;j.linterna=!!s1[11];j.recargando=s1[13]>=0;j.corriendo=j.vx*j.vx+j.vz*j.vz>49;JRL.push(j);}
+    return JRL;}
+  function herirCompa(k,dano){blancos();const b=BL[k];if(b)b.herir(dano);}
+  /* el host oye los tiros de los compañeros (les dice a los soldados dónde están) */
+  function ruidoTiro(k){if(!host()||typeof UE==='undefined')return;const a=NET.av[k];if(!a||!a.buf.length)return;const s1=a.buf[a.buf.length-1].s;try{UE.ruido({x:s1[0],y:s1[1],z:s1[2]},'disparo',1);}catch(e){}}
+  /* balas de los soldados: se juntan las del cuadro y salen en un mensaje */
+  const UB=[];
+  function ueBala(ev,mat,snd){UB.push([ev.s?ev.s.id:-1,r2(ev.ox),r2(ev.oy),r2(ev.oz),r2(ev.hx),r2(ev.hy),r2(ev.hz),ev.tipo,ev.pega,mat||'',snd?1:0]);}
+  function ueRadio(n,tx,cl,v,p,g){NET.aTodos({t:'ur',n,tx,cl,v,p:p?[r1(p[0]),r1(p[1]),r1(p[2])]:0,g});}
+  function ueFeed(tx){if(host())NET.aTodos({t:'uf',tx});}
+  let porUE=-1;const quienUE=()=>porUE>0?` · ${nombre(porUE)}`:'';
+  function granadaSoldado(ox,oy,oz,vx,vy,vz,m){NET.aTodos({t:'gr',k:-1,p:[r3(ox),r3(oy),r3(oz)],v:[r3(vx),r3(vy),r3(vz)],m});}
+  /* fotos de los soldados */
+  const ROLC={jefe:0,asalto:1,granadero:2,tirador:3},ROLN=['jefe','asalto','granadero','tirador'];
+  function ueFoto(){const L=[];if(typeof UE==='undefined')return L;
+    for(const s of UE.soldados){const v=s.vista;if(!v)continue;const e=v.e,ro=v.root;
+      const r=[s.id,ROLC[s.rol]|0,s.esc&&s.esc.esRefuerzo?1:0,r2(ro.position.x),r2(ro.position.y),r2(ro.position.z),r3(ro.rotation.y),s.vivo?1:0,s.activo===false?0:1,
+        r2(e.agach||0),r2(e.tierra||0),r2(e.apunta||0),r2(e.mYaw||0),r2(e.mPitch||0),r2(e.asoma||0),r2(e.recarga),r2(e.salto),r2(e.lanza),r2(e.senal),e.senalTipo||'avanzar',r2(e.culata),r2(e.radio||0),e.aturdido?1:0,e.luz?1:0,
+        e.laser?[r2(e.laser.x),r2(e.laser.y),r2(e.laser.z)]:0,e.muerte?[e.muerte.tipo,r2(e.muerte.dir||0)]:0];
+      const k=r.join(',');if(k===s.ueK)continue;s.ueK=k;L.push(r);}
+    return L;}
+  /* títeres: los soldados en las otras PC */
+  const UT=new Map();   // id → {s,v,r,listo}
+  function titereSoldado(r){let p=UT.get(r[0]);if(p)return p;
+    let s=null;if(typeof UE!=='undefined')for(const q of UE.soldados)if(q.id===r[0]){s=q;break;}
+    if(!s||!s.vista){s={id:r[0],rol:ROLN[r[1]]||'asalto',esc:{esRefuerzo:!!r[2]},x:r[3],y:r[4],z:r[5],rumbo:r[6],vivo:true,activo:true,nuevoTitere:true};
+      const v=UEG.ENV.vista(s);if(!v)return null;s.vista=v;}
+    p={s,v:s.vista,r,listo:false};UT.set(r[0],p);return p;}
+  function soldadosRecibir(L){for(const r of L){const p=titereSoldado(r);if(p)p.r=r;}}
+  function soldadosTiteres(dt){const k=Math.min(1,dt*12),secB=!SECG||SECG.B.visible,cx=camera.position.x,cz=camera.position.z;
+    for(const p of UT.values()){const r=p.r,s=p.s,v=p.v,e=v.e,ro=v.root;
+      if(!p.listo){s.x=r[3];s.y=r[4];s.z=r[5];s.rumbo=r[6];p.listo=true;}
+      else{s.x+=(r[3]-s.x)*k;s.y+=(r[4]-s.y)*k;s.z+=(r[5]-s.z)*k;let da=r[6]-s.rumbo;da=Math.atan2(Math.sin(da),Math.cos(da));s.rumbo+=da*k;}
+      ro.position.set(s.x,s.y,s.z);ro.rotation.y=s.rumbo;s.vivo=!!r[7];s.activo=!!r[8];
+      e.agach=r[9];e.tierra=r[10];e.apunta=r[11];e.mYaw=r[12];e.mPitch=r[13];e.asoma=r[14];e.recarga=r[15];e.salto=r[16];e.lanza=r[17];e.senal=r[18];e.senalTipo=r[19];
+      e.culata=r[20];e.radio=r[21];e.aturdido=r[22];e.luz=!!r[23];
+      if(r[24]){if(!e.laser||!e.laser.isVector3)e.laser=new THREE.Vector3();e.laser.set(r[24][0],r[24][1],r[24][2]);}else e.laser=null;
+      if(r[25]&&!e.muerte){e.muerte={tipo:r[25][0],t:0,dir:r[25][1]};s.muerte=e.muerte;}else if(!r[25]&&e.muerte&&s.vivo){e.muerte=null;s.muerte=null;}
+      const vis=secB&&s.activo&&Math.hypot(s.x-cx,s.z-cz)<170;if(ro.visible!==vis)ro.visible=vis;v.vis=vis;
+      if(vis)v.update(dt);}}
+  /* los tiros de esta PC contra los títeres: se ve la sangre acá y el daño se lo manda al host */
+  const _ua=new THREE.Vector3();
+  function balaSoldados(o,d,w,tE,wall,range,i){let lim=Math.min(wall,range,tE);const ch=rayCars(o,d,lim);if(ch&&ch.t<lim)lim=ch.t;
+    let best=null,bt=lim,bp='';for(const p of UT.values()){if(!p.s.vivo||!p.v.vis)continue;const h=p.v.rayo(o,d);if(h&&h.t<bt){bt=h.t;best=p;bp=h.parte;}}
+    if(!best)return false;
+    const fall=w.fall?w.fall(bt):w.rays>1?(bt<12?1:Math.max(.3,1-(bt-12)/40)):(bt<30?1:Math.max(.55,1-(bt-30)/80)),dm=w.dmg*fall;
+    _ua.copy(o).addScaledVector(d,bt);if(typeof UEFX!=='undefined')UEFX.sangre(_ua,d);
+    const s=best.s;if(best.v.golpe){const a=Math.atan2(o.x-s.x,o.z-s.z)-s.rumbo;best.v.golpe(Math.atan2(Math.sin(a),Math.cos(a)),Math.min(1,dm/30));}
+    NET.alHost({t:'us',id:s.id,dm:Math.round(dm*100)/100,pa:bp,d:[r3(d.x),r3(d.y),r3(d.z)]});return true;}
+  function golpeSoldado(k,d){if(typeof UE==='undefined')return;let s=null;for(const q of UE.soldados)if(q.id===d.id){s=q;break;}if(!s||!s.vivo)return;
+    _d.set(d.d[0],d.d[1],d.d[2]);porUE=k;try{UE.herir(s,Math.min(200,d.dm),_d,d.pa||'torso','jugador');}finally{porUE=-1;}
+    if(s.vista&&s.vista.golpe){const a=Math.atan2(-d.d[0],-d.d[2])-s.rumbo;s.vista.golpe(Math.atan2(Math.sin(a),Math.cos(a)),Math.min(1,d.dm/30));}}
+  /* en las otras PC: las balas de los soldados */
+  const _ub=new THREE.Vector3(),_uc=new THREE.Vector3();
+  function balasRecibir(L){const fx=typeof UEFX!=='undefined',snd=typeof UESND!=='undefined';
+    for(const b of L){_ub.set(b[1],b[2],b[3]);_uc.set(b[4],b[5],b[6]);if(fx)UEFX.trazadora(_ub,_uc,b[7]);
+      if(b[10]){if(snd)UESND.disparo(b[7],_ub);const p=UT.get(b[0]);if(p&&p.v.vis)p.v.disparo();}
+      if(b[8]==='mundo'&&fx)UEFX.impacto(_uc,null,b[9]||'piso');else if(b[8]==='bicho'&&fx)UEFX.impacto(_uc,null,'carne');}}
+  function radioRecibir(d){if(d.g&&d.p&&Math.hypot(P.pos.x-d.p[0],P.pos.z-d.p[2])>250)return;
+    if(typeof UEHUD!=='undefined')UEHUD.radio(d.n,d.tx,d.cl);
+    if(typeof UESND!=='undefined'){let p=null;if(d.p)p={x:d.p[0],y:d.p[1],z:d.p[2]};UESND.radio(d.v,UESND.durFrase?UESND.durFrase(d.tx):1.4,p);}}
+  /* el arco del HUD: el estado del escuadrón lo manda el host */
+  const EST2={alerta:0,ang:null,combate:false,vivos:0,sospecha:0,x:0,z:0,quedan:0,busqueda:false,refuerzo:'no',refuerzoEn:null};let estT=0;
+  const _estLocal=UEB.estado;
+  UEB.estado=()=>{if(!(NET.on&&cliente()))return _estLocal();EST2.ang=(EST2.sospecha>0&&typeof UEHUD!=='undefined'&&UEHUD.angulo)?UEHUD.angulo(EST2.x,EST2.z):null;return EST2;};
+  function estadoUE(){const e=_estLocal();return {t:'ue',a:r2(e.alerta),c:e.combate?1:0,b:e.busqueda?1:0,q:e.quedan|0,v:e.vivos|0,rf:e.refuerzo,re:e.refuerzoEn===null?null:r1(e.refuerzoEn),x:r1(e.x||0),z:r1(e.z||0)};}
+  function estadoRecibir(d){EST2.alerta=EST2.sospecha=d.a;EST2.combate=!!d.c;EST2.busqueda=!!d.b;EST2.quedan=d.q;EST2.vivos=d.v;EST2.refuerzo=d.rf;EST2.refuerzoEn=d.re;EST2.x=d.x;EST2.z=d.z;}
+  /* botín */
+  let boId=0;
+  function botinNuevo(c){if(!host()){return;}c.id=++boId;NET.aTodos({t:'bo',id:c.id,tp:c.tipo,x:r2(c.x),z:r2(c.z)});}
+  function botinPedir(c){if(c.pend||!BOTIN.puede(c))return;
+    if(host()){if(BOTIN.tomar(c)){BOTIN.quitarId(c.id);NET.aTodos({t:'br',id:c.id});}return;}
+    c.pend=true;setTimeout(()=>{c.pend=false;},1500);NET.alHost({t:'bk',id:c.id});}
+  function botinDar(k,id){const c=BOTIN.porId(id);if(!c)return;NET.aUno(k,{t:'bg',id,tp:c.tipo});BOTIN.quitarId(id);NET.aTodos({t:'br',id});}
+  function soldadosReset(){for(const p of UT.values()){if(p.s.nuevoTitere&&p.v&&p.v.dispose)p.v.dispose();}UT.clear();UB.length=0;porUE=-1;boId=0;estT=0;}
   const jugadores=()=>{let n=0;for(let k=0;k<4;k++)if(NET.sala[k])n++;return Math.max(1,n);};
 
   /* ---------- el host avisa ---------- */
@@ -22479,7 +22581,9 @@ const COOP=(()=>{
         else mostrar(tiene?'LEVANTANDO…':nombre(k).toUpperCase()+' ESTÁ CAÍDO',tiene?nombre(k):(isTouch?'Mantené LEVANTAR':'Mantené V para levantarlo'),revT/LEVANTAR_T);}}
     if(!host())return;
     /* host: posiciones de los bichos, estado de la oleada y ¿cayeron todos? */
-    snapT-=dt;if(snapT<=0){snapT=SNAP;snap();const cv=autosFoto(false);if(cv)NET.aTodos(cv);}
+    snapT-=dt;if(snapT<=0){snapT=SNAP;snap();const cv=autosFoto(false);if(cv)NET.aTodos(cv);const uv=ueFoto();if(uv.length)NET.aTodos({t:'uv',l:uv});}
+    if(UB.length){NET.aTodos({t:'ub',l:UB.slice()});UB.length=0;}
+    estT-=dt;if(estT<=0){estT=.5;try{NET.aTodos(estadoUE());}catch(e){}}
     owT-=dt;if(owT<=0){owT=.5;NET.aTodos(estadoOleada());}
     let vivos=P.caido?0:1;for(let k=1;k<4;k++){if(!NET.sala[k])continue;const a=NET.av[k];if(!a||!a.buf.length||!(a.buf[a.buf.length-1].s[16]|0))vivos++;}
     if(vivos===0&&running&&NET.modo==='oleadas'){finT+=dt;if(finT>1.2){finT=0;fin();}}else finT=0;}
@@ -22519,6 +22623,14 @@ const COOP=(()=>{
       case 'shs':if(!SHJ.busy){SHJ.spawn();alienMusic.start();}break;
       case 'sh':{if(!SHJ.busy&&!d.f[22]){SHJ.spawn();shPend=false;}const t=performance.now()/1000;SH.buf.push({t,f:d.f});if(SH.buf.length>16)SH.buf.splice(0,SH.buf.length-16);break;}
       case 'cs':estadoAuto(d);break;
+      case 'uv':soldadosRecibir(d.l);break;
+      case 'ub':balasRecibir(d.l);break;
+      case 'ur':radioRecibir(d);break;
+      case 'uf':feed(d.tx);break;
+      case 'ue':estadoRecibir(d);break;
+      case 'bo':if(!BOTIN.porId(d.id))BOTIN.poner(d.tp,d.x,d.z,d.id);break;
+      case 'br':BOTIN.quitarId(d.id);break;
+      case 'bg':BOTIN.tomar({tipo:d.tp});BOTIN.quitarId(d.id);break;
       case 'co':opAuto(d);break;
       case 'cb':boomAuto(d);break;
       case 'cv':autosRecibir(d);break;
@@ -22534,6 +22646,8 @@ const COOP=(()=>{
       case 'rv':if(d.k===0)levantado(k);else NET.aUno(d.k,{t:'rv',por:k});break;
       case 'gs':{_d.set(d.d[0],d.d[1],d.d[2]);SHJ.hit(d.dm,_d.clone(),!!d.h);break;}
       case 'cd':{const c=VCARS[d.i];if(c)carDamage(c,Math.min(4,d.n|0));break;}
+      case 'us':golpeSoldado(k,d);break;
+      case 'bk':botinDar(k,d.id);break;
       case 'bp':if(aplicarRotura(d)){LOG.push(d);NET.aTodos(d);}break;
       case 'gr':granadaCopia(d);NET.aTodos(d);break;}}
   /* alguien entra con la partida empezada: le manda los bichos, las cajas y la oleada */
@@ -22542,19 +22656,21 @@ const COOP=(()=>{
     if(SHJ.busy)NET.aUno(k,{t:'shs'});
     for(const p of pickups)if(p.id)NET.aUno(k,{t:'pu',id:p.id,x:r2(p.g.position.x),z:r2(p.g.position.z),kd:p.kind||''});
     for(const m of LOG)NET.aUno(k,m);{const cv=autosFoto(true);if(cv)NET.aUno(k,cv);}
+    if(typeof UE!=='undefined'){for(const q of UE.soldados)q.ueK='';const uv=ueFoto();if(uv.length)NET.aUno(k,{t:'uv',l:uv});}
+    for(const c of BOTIN.cajas)if(c.id)NET.aUno(k,{t:'bo',id:c.id,tp:c.tipo,x:r2(c.x),z:r2(c.z)});
     NET.aUno(k,estadoOleada());}
-  function alEntrar(){destruccionReset();porId.clear();pkPorId.clear();SH.buf.length=0;SH.k=0;SH.t=0;shPend=false;espectarFin();P.caido=0;caidoT=0;revK=-1;revT=0;finT=0;snapT=0;owT=0;terminando=false;ocultar();tunear(NET.rol==='host');
+  function alEntrar(){destruccionReset();soldadosReset();porId.clear();pkPorId.clear();SH.buf.length=0;SH.k=0;SH.t=0;shPend=false;espectarFin();P.caido=0;caidoT=0;revK=-1;revT=0;finT=0;snapT=0;owT=0;terminando=false;ocultar();tunear(NET.rol==='host');
     $('#btnAgain').hidden=false;}
-  function reset(){destruccionReset();porId.clear();pkPorId.clear();SH.buf.length=0;shPend=false;espectarFin();P.caido=0;ocultar();tLev.hidden=true;tunear(false);$('#btnAgain').hidden=false;$('#oBest').textContent='';}
+  function reset(){destruccionReset();soldadosReset();porId.clear();pkPorId.clear();SH.buf.length=0;shPend=false;espectarFin();P.caido=0;ocultar();tLev.hidden=true;tunear(false);$('#btnAgain').hidden=false;$('#oBest').textContent='';}
 
   return {blancos,alNacer,alAtacar,alEscupir,cortar,matar,alOleada,alLimpiar,alPickup,alQuitarPickup,pedirPickup,bloqueaPickup,golpes,
     titeres,caer,quieto,caido,puedeHerir,tick,titulo,quien,deHost,deCliente,alUnirse,alEntrar,reset,
-    calla:false,agro,blancoBoss,shajar,autosTiteres,atropello,granada,get logDestruccion(){return LOG.length;},herirCaido,noTira,espectar,herirProxy,alEscupirSh,golpeShajar,get proxy(){return SH.proxy;},
+    calla:false,agro,blancoBoss,shajar,jugadoresUE,herirCompa,ruidoTiro,ueBala,ueRadio,ueFeed,quienUE,granadaSoldado,soldadosTiteres,balaSoldados,botinNuevo,botinPedir,get titeresUE(){return UT;},autosTiteres,atropello,granada,get logDestruccion(){return LOG.length;},herirCaido,noTira,espectar,herirProxy,alEscupirSh,golpeShajar,get proxy(){return SH.proxy;},
     mulOleada:()=>1+.5*(jugadores()-1),mulVida:()=>1+.15*(jugadores()-1),extra:()=>4*(jugadores()-1),
     get cliente(){return cliente();},get porId(){return porId;}};
 })();
 idleMutants();/* v2.1.0: los bichos de adorno del menú, ya con COOP armado (spawnEnemy lo usa) */
-window.OM_DEBUG={get NET(){return NET;},get COOP(){return COOP;},P,UEM,scene,camera,renderer,SECG,get running(){return running;},get enemies(){return enemies;},get wave(){return wave;},set wave(v){wave=v;},get SHJ(){return SHJ;},get boss(){return bossAlive;},get STAGE(){return STAGE;},get W(){return W[wi].id;},get VCARS(){return VCARS;},get VDYN(){return VDYN;},get obstacles(){return obstacles;},get circHash(){return circHash;},get GRAN(){return GRAN;},get GJ(){return GJ;},get bossThrow(){return bossThrow;},carShot:(...a)=>carShot(...a),carBoom:c=>carBoom(c),carShove:(...a)=>carShove(...a),breakProp:(...a)=>breakProp(...a),get score(){return score;},get pickups(){return pickups;},spawnEnemy,startGame:()=>startGame(),get intermission(){return intermission;},set intermission(v){intermission=v;},frame,fire:()=>fire(),camAxes:()=>camAxes()};
+window.OM_DEBUG={get NET(){return NET;},get COOP(){return COOP;},P,UEM,scene,camera,renderer,SECG,get running(){return running;},get enemies(){return enemies;},get wave(){return wave;},set wave(v){wave=v;},get SHJ(){return SHJ;},get boss(){return bossAlive;},get STAGE(){return STAGE;},get W(){return W[wi].id;},get UE(){return UE;},get UEG(){return UEG;},get BOTIN(){return BOTIN;},get RETEN(){return RETEN;},get VCARS(){return VCARS;},get VDYN(){return VDYN;},get obstacles(){return obstacles;},get circHash(){return circHash;},get GRAN(){return GRAN;},get GJ(){return GJ;},get bossThrow(){return bossThrow;},carShot:(...a)=>carShot(...a),carBoom:c=>carBoom(c),carShove:(...a)=>carShove(...a),breakProp:(...a)=>breakProp(...a),get score(){return score;},get pickups(){return pickups;},spawnEnemy,startGame:()=>startGame(),get intermission(){return intermission;},set intermission(v){intermission=v;},frame,fire:()=>fire(),camAxes:()=>camAxes()};
 requestAnimationFrame(frame);
 })();
 </script>

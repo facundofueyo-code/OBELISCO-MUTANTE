@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.3.0**
+**Versión actual: v2.4.0**
 Fuente de verdad: el repositorio https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -49,8 +49,18 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-12, con la v2.2.0 (Shajar y Engendro en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.2.1: el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.3.0 (autos, destrucción y granadas en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
+- 2026-10-12, con la v2.4.0 (el retén en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.4.0 — 2026-10-12
+- **Cooperativo, última parte: el retén y su botín.** Con esto todo lo que hay jugando solo también está jugando de a varios.
+- **Los soldados**: el escuadrón Ceniza (y el refuerzo Tizón cuando lo piden) lo maneja el host con la misma IA de siempre, pero ahora ve a todos: cada soldado mira al testigo que tiene más cerca, el escuadrón persigue al último que vio y sus balas le pegan al que se cruce, sea quien sea. El daño se lo manda el host a cada uno. La culata también le pega a cualquiera. Oyen los tiros de todos (eso les dice dónde está cada uno) y sus granadas, como las de los jugadores, vuelan y explotan igual en todas las PC.
+- **En las otras PC** los soldados son títeres: el host manda 12 veces por segundo dónde está cada uno y cómo se mueve (agachado, cuerpo a tierra, apuntando, asomado, recargando, tirando una granada, haciendo señas, hablando por radio, con la linterna, el láser del tirador, aturdido y cómo cae al morir), y cada modelo se anima solo con eso. Cada bala llega con su trazadora, su estampido, el fogonazo del arma y el impacto. La radio interceptada (subtítulo y voz) y el arco del HUD («te vieron», sospecha, refuerzo) son los mismos para todos.
+- **Tirarles desde otra PC**: el tiro se resuelve contra el títere (la sangre y el golpe se ven al toque) y el daño se le manda al host. Cuando muere, el costado dice quién lo bajó.
+- **El botín**: lo pone el host y lo ven todos. Cada caja la levanta uno solo, el primero que llega (como las empanadas). En co-op siempre cae un fusil si no hay otro tirado, porque cada uno tiene el suyo. Las granadas del botín son las primeras granadas del co-op.
+- **Entrar con la partida empezada**: el que entra recibe los soldados (vivos y caídos) y las cajas que hay en el piso.
+- **Comprobado** (sin placa de video, host con un compañero falso frente al retén y el host lejos): los soldados vieron al compañero, avisaron por radio, entraron en combate, le tiraron (35 balas le pegaron, con su daño mandado) y le tiraron una granada; el compañero mató a Ceniza 1 de un tiro a la cabeza, el costado dijo su nombre y cayeron el fusil, las balas, la granada y el botiquín; el compañero pidió el fusil y se lo llevó él solo; el host levantó otra caja y desapareció en las dos PC. El cliente con la partida grabada: los cuatro soldados como títeres en su lugar, la muerte de Ceniza 1 cayendo hacia atrás, las cajas que quedaron y sus tiros contra un títere mandados al host. Solo: el retén pelea y lastima como antes, el Shajar y el Engendro como antes. Sin errores.
 
 ### v2.3.0 — 2026-10-12
 - **Cooperativo, cuarta parte: autos, destrucción y granadas, todo igual para todos** (como lo pidió Facu: los autos se mueven y explotan igual en todas las PC, las explosiones lastiman a cualquiera y lo roto queda roto para todos).

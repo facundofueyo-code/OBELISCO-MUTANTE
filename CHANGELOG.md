@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.2.1**
+**Versión actual: v2.3.0**
 Fuente de verdad: el repositorio https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -48,8 +48,19 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-12, con la v2.1.0 (oleadas en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.2.0 (Shajar y Engendro en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.2.1: el mapa no cambia. Copia de datos en esta versión, sin avisos.
+- 2026-10-12, con la v2.3.0 (autos, destrucción y granadas en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.3.0 — 2026-10-12
+- **Cooperativo, cuarta parte: autos, destrucción y granadas, todo igual para todos** (como lo pidió Facu: los autos se mueven y explotan igual en todas las PC, las explosiones lastiman a cualquiera y lo roto queda roto para todos).
+- **Autos que se rompen y explotan**: el daño de cada auto lo lleva el host. Si le tirás a un auto desde otra PC, tus balas se le mandan al host; cuando el auto empieza a humear, se prende fuego o explota, todos lo ven en el mismo momento. La explosión sale con una semilla compartida, así la carrocería y los pedazos vuelan igual en todas las PC. Las explosiones en cadena también son las mismas.
+- **Autos que se mueven**: los empujones del mole, los barridos y pisotones del Engendro y los choques entre autos los simula el host. En las otras PC cada auto suelto sigue al host (12 veces por segundo, suavizado), con las mismas abolladuras, los mismos vidrios rotos, el mismo vuelco y el mismo techo hundido. Un auto suelto que te atropella te lastima y te empuja, seas el host o no.
+- **El Engendro en co-op**: vuelve a levantar autos y tirarlos, y a romper todo lo que pisa (en la v2.2.0 no lo hacía jugando de a varios). El auto va hacia el que está persiguiendo (el que más lo lastimó), el círculo rojo de dónde va a caer se ve en todas las PC y la explosión lastima a todos los que estén cerca.
+- **Lo que se rompe en la calle**: árboles, faroles, semáforos, postes y techo del Metrobús, mamparas, vallas policiales, kioscos y bolsas. Lo avisa el que lo rompe (un tiro, un auto, el Engendro) y se rompe igual en todas las PC, cayendo para el mismo lado.
+- **Granadas**: la que tirás la ven volar, picar y explotar todos. El daño a los bichos lo pone el host y la muerte se le cuenta al que la tiró; el daño a los compañeros también lo calcula el host (con la misma cobertura que para vos). Todavía no hay granadas en co-op porque salen del botín de los soldados, y el retén llega con la v2.4.0: el sistema ya queda listo.
+- **Entrar con la partida empezada**: el que entra recibe todo lo que ya se rompió y explotó, y los autos sueltos donde quedaron.
+- **Comprobado** (sin placa de video, host con un compañero falso): los tiros del compañero prenden y hacen explotar un auto en el host, que avisa cada paso; un empujón vuelca un auto y choca a otro, y el compañero los ve en el mismo lugar y con el mismo vuelco; dos árboles rotos (uno por cada uno) quedan rotos en las dos PC; una granada del compañero mata a un bicho en el host y la muerte es suya; una granada al lado del compañero le avisa el daño; el Engendro levanta un auto y se lo tira al compañero que lo lastimó, con el círculo en su lugar, y explota al caer; el que entra tarde recibe todo lo roto. El cliente con la partida grabada del host ve el auto explotado, el volcado, el empujado y los árboles en el mismo lugar. Solo: todo como antes. Sin errores.
 
 ### v2.2.1 — 2026-10-12
 - **Ajustes del cooperativo después de la primera partida de verdad** (pedidos por Facu).

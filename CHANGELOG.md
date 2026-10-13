@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.4.0**
+**Versión actual: v2.5.0**
 Fuente de verdad: el repositorio https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -50,8 +50,27 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-12, con la v2.2.1: el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.3.0 (autos, destrucción y granadas en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.4.0 (el retén en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
+- 2026-10-12, con la v2.5.0 (Plaza del Congreso y Plaza Mariano Moreno): entran en `HITOS` el Monumento a Mariano Moreno, El Pensador y el Km 0 (con su planta, como monumentos menores) y la nota del Monumento a los Dos Congresos. El mapa sigue dibujando las dos plazas como plaza verde: el cambio a plaza seca lo hace el juego al armar la sección B (`PLAZAS.prep`), no en los datos. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.5.0 — 2026-10-12
+- **Plaza del Congreso y Plaza Mariano Moreno nuevas**, a partir de `claude/plaza-congreso-concepto.html` (aprobado por Facu). Módulo nuevo `PLAZAS` (como `TORREPAT`), con luz horneada por vértice y sin luces reales nuevas. Facu eligió: estado con mutación, El Pensador y el Km 0 en su lugar real, el campamento de protesta y el agua estancada.
+- **Escala real**: todo va sobre las coordenadas del juego. Los contornos de las plazas, los canteros, el pie del monumento y los lóbulos de los pedestales salen de los datos OSM que ya usaba la sección B.
+- **Plazas secas**: la Plaza del Congreso y la Mariano Moreno dejan de ser pasto entero. El juego las marca como plaza seca al armar la sección B (`PLAZAS.prep`): el pasto queda solo en los canteros reales del mapa, con su borde, y el resto lleva baldosa anaranjada de 48 × 40 cm (material nuevo `naranja` en `PISO`, con su mugre). Los cordones siguen saliendo del generador de calles. La Plaza Lorea no cambia.
+- **Monumento a los Dos Congresos** (reemplaza el bloque simplificado y su sólido de OSM): plataforma de piedra clara con ábside al oeste y tres escalones alrededor (1,2 m); terraza a 4,35 m con barandal de balaustres; tercer cuerpo con relieves en las cuatro caras y la dedicatoria; pedestal y la República de bronce con el laurel en alto y el manto al viento (unos 23 m). Escalinatas de ocho alzadas a los dos lados de una cascada de tres piletas con mascarones, que cae al estanque semicircular del este. Alegorías sentadas de la Asamblea del Año XIII (norte) y del Congreso de Tucumán (sur) sobre sus pedestales redondos; grupos de los ríos Paraná y Uruguay con caballos encabritados dentro del estanque; picos secos de los surtidores; dos LED de la fuente que siguen prendidos. Dos palmeras butiá en los canteros del oeste.
+- **Reja de 2006** alrededor del monumento: barrotes con punta, zócalo de granito y parantes; portones al este y al oeste, cada uno con una hoja abierta. Candelabros de cinco globos en las esquinas de la plataforma (uno apagado, uno titila) y seis reflectores contra la República y la cascada (uno quemado, uno titila).
+- **Plaza Mariano Moreno**: el Monumento a Mariano Moreno (escalones, pedestal de granito rosado, Moreno de bronce mirando al este y la alegoría sentada al frente, con placa); **El Pensador** sobre su pedestal alto con aro de hierro; el **Km 0** sobre Virrey Cevallos con su placa de bronce; la fuente chica del círculo central, con el borde partido.
+- **El Pensador y el Km 0 se mudan**: el juego los tenía en la explanada de Entre Ríos, frente al Palacio; en la realidad están en la Plaza Mariano Moreno. Se sacan de `CONGRESO` (modelo y colisión).
+- **Faroles de plaza** (columna de hierro y farol de cuatro caras), mitad prendidos, algunos titilando y otros apagados, con su mancha de luz en el piso. Bancos de listones, cestos y pasto crecido en los canteros.
+- **Abandono**: campamento de protesta vacío sobre la explanada norte (carpas, lona azul, colchones, cartones y un tacho con fuego), fila de vallas antidisturbios sobre Entre Ríos y otras tiradas, carteles en la reja («¿DÓNDE ESTÁN TODOS?», «NO TOMEN EL AGUA», «NOS DEJARON ACÁ»), pintadas en el monumento («EL CONGRESO RESPIRA», «NO SE ACERQUEN»), un farol caído, un cesto volcado, papeles y bolsas.
+- **Mutación**: tentáculos que vienen del Congreso, cruzan Entre Ríos y trepan el monumento hasta la República; masa de carne en las piernas de la estatua; bolsas colgando de la terraza y de la reja; raíces que laten sobre la baldosa; la cascada corre sangre y el estanque está teñido; un tentáculo enroscado en el pedestal de Moreno; cuatro luces rojas que laten (canal horneado nuevo).
+- **Colisiones y piso**: la plataforma, los escalones, las escalinatas, la terraza y los pedestales redondos suben al jugador y a los bichos (`FLOORFN`). La terraza frena desde abajo (4,35 m) y su barandal no deja caerse; las piletas de la cascada se suben de a una. El tercer cuerpo y el pedestal son macizos y frenan los tiros. La reja, el borde del estanque, la fuente chica y el aro del Pensador van con círculos (se camina de los dos lados); bancos, vallas, carpas, pedestales y el Km 0 son obstáculos con altura (lo bajo se trepa). No se entra al agua.
+- **Árboles**: los del juego no se plantan adentro de la reja, alrededor de los monumentos, de la fuente chica ni sobre el campamento (`PLAZAS.noTree`). En los canteros siguen los del juego.
+- **Costo**: unos 160 mil triángulos y unas 35 llamadas de dibujo (una por material, los destellos en tres lotes de puntos). Se dibuja a menos de 560 m del centro de las plazas. En la prueba sin placa de video el módulo tarda unos 0,6 s en armarse (geometría y luz horneada).
+- Aproximado, como en el concepto: las alturas de cada cuerpo del monumento, la cascada y la composición de los bronces salen de fotos y descripciones, no de planos. Las estatuas son figuras simplificadas.
+- No entró del concepto: los edificios y la silueta del Palacio (el juego ya tiene los suyos), los árboles propios (quedan los del juego) y el modo de día del visor.
+- Probado sin placa de video: carga y armado de la sección B sin errores, partida iniciada con la sección armada sin errores; capturas desde el este del monumento, la fuente, Entre Ríos, el campamento, Moreno, El Pensador, el Km 0 y desde arriba; alturas del piso en la plataforma (1,2), escalinata (1,57 a 4,2), terraza (4,35), pedestales (0,7) y escalones de Moreno (0,6). No se jugó una oleada adentro de la plaza: falta probar el recorrido y medir los FPS en la PC de Facu (F4).
 
 ### v2.4.0 — 2026-10-12
 - **Cooperativo, última parte: el retén y su botín.** Con esto todo lo que hay jugando solo también está jugando de a varios.

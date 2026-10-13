@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Obelisco Mutante v2.4.0</title>
+<title>Obelisco Mutante v2.5.0</title>
 <meta name="game-version" content="1.0.0">
 </head><body style="margin:0">
 
@@ -311,7 +311,7 @@ body:not(.playing) .coop-tag{display:none}
 </style>
 
 <div id="game"></div>
-<div id="ver">v2.4.0</div>
+<div id="ver">v2.5.0</div>
 <div id="coopHud" hidden></div>
 <div id="fps" aria-live="off"><b>--</b> FPS · <span>--</span> ms · peor <i>--</i> ms<u id="fpsA"></u></div>
 
@@ -538,7 +538,7 @@ body:not(.playing) .coop-tag{display:none}
     isBrowserSupported:${this.isBrowserSupported()}
     isUnifiedPlanSupported:${this.isUnifiedPlanSupported()}`}constructor(){this.isIOS="undefined"!=typeof navigator&&["iPad","iPhone","iPod"].includes(navigator.platform),this.supportedBrowsers=["firefox","chrome","safari"],this.minFirefoxVersion=59,this.minChromeVersion=72,this.minSafariVersion=605}},el=e=>!e||/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/.test(e),eh=()=>Math.random().toString(36).slice(2),eu={iceServers:[{urls:"stun:stun.l.google.com:19302"},{urls:["turn:eu-0.turn.peerjs.com:3478","turn:us-0.turn.peerjs.com:3478"],username:"peerjs",credential:"peerjsp"}],sdpSemantics:"unified-plan"},ef=new class extends n{noop(){}blobToArrayBuffer(e,t){let n=new FileReader;return n.onload=function(e){e.target&&t(e.target.result)},n.readAsArrayBuffer(e),n}binaryStringToArrayBuffer(e){let t=new Uint8Array(e.length);for(let n=0;n<e.length;n++)t[n]=255&e.charCodeAt(n);return t.buffer}isSecure(){return"https:"===location.protocol}constructor(...e){super(...e),this.CLOUD_HOST="0.peerjs.com",this.CLOUD_PORT=443,this.chunkedBrowsers={Chrome:1,chrome:1},this.defaultConfig=eu,this.browser=ed.getBrowser(),this.browserVersion=ed.getVersion(),this.pack=s,this.unpack=i,this.supports=function(){let e,t={browser:ed.isBrowserSupported(),webRTC:ed.isWebRTCSupported(),audioVideo:!1,data:!1,binaryBlob:!1,reliable:!1};if(!t.webRTC)return t;try{let n;e=new RTCPeerConnection(eu),t.audioVideo=!0;try{n=e.createDataChannel("_PEERJSTEST",{ordered:!0}),t.data=!0,t.reliable=!!n.ordered;try{n.binaryType="blob",t.binaryBlob=!ed.isIOS}catch(e){}}catch(e){}finally{n&&n.close()}}catch(e){}finally{e&&e.close()}return t}(),this.validateId=el,this.randomToken=eh}};"use strict";var em=new class{get logLevel(){return this._logLevel}set logLevel(e){this._logLevel=e}log(...e){this._logLevel>=3&&this._print(3,...e)}warn(...e){this._logLevel>=2&&this._print(2,...e)}error(...e){this._logLevel>=1&&this._print(1,...e)}setLogFunction(e){this._print=e}_print(e,...t){let n=["PeerJS: ",...t];for(let e in n)n[e]instanceof Error&&(n[e]="("+n[e].name+") "+n[e].message);e>=3?console.log(...n):e>=2?console.warn("WARNING",...n):e>=1&&console.error("ERROR",...n)}constructor(){this._logLevel=0}},e_={},eg=Object.prototype.hasOwnProperty,ey="~";function eC(){}function ev(e,t,n){this.fn=e,this.context=t,this.once=n||!1}function eb(e,t,n,r,i){if("function"!=typeof n)throw TypeError("The listener must be a function");var s=new ev(n,r||e,i),o=ey?ey+t:t;return e._events[o]?e._events[o].fn?e._events[o]=[e._events[o],s]:e._events[o].push(s):(e._events[o]=s,e._eventsCount++),e}function eT(e,t){0==--e._eventsCount?e._events=new eC:delete e._events[t]}function eS(){this._events=new eC,this._eventsCount=0}Object.create&&(eC.prototype=Object.create(null),new eC().__proto__||(ey=!1)),eS.prototype.eventNames=function(){var e,t,n=[];if(0===this._eventsCount)return n;for(t in e=this._events)eg.call(e,t)&&n.push(ey?t.slice(1):t);return Object.getOwnPropertySymbols?n.concat(Object.getOwnPropertySymbols(e)):n},eS.prototype.listeners=function(e){var t=ey?ey+e:e,n=this._events[t];if(!n)return[];if(n.fn)return[n.fn];for(var r=0,i=n.length,s=Array(i);r<i;r++)s[r]=n[r].fn;return s},eS.prototype.listenerCount=function(e){var t=ey?ey+e:e,n=this._events[t];return n?n.fn?1:n.length:0},eS.prototype.emit=function(e,t,n,r,i,s){var o=ey?ey+e:e;if(!this._events[o])return!1;var a,c,p=this._events[o],d=arguments.length;if(p.fn){switch(p.once&&this.removeListener(e,p.fn,void 0,!0),d){case 1:return p.fn.call(p.context),!0;case 2:return p.fn.call(p.context,t),!0;case 3:return p.fn.call(p.context,t,n),!0;case 4:return p.fn.call(p.context,t,n,r),!0;case 5:return p.fn.call(p.context,t,n,r,i),!0;case 6:return p.fn.call(p.context,t,n,r,i,s),!0}for(c=1,a=Array(d-1);c<d;c++)a[c-1]=arguments[c];p.fn.apply(p.context,a)}else{var l,h=p.length;for(c=0;c<h;c++)switch(p[c].once&&this.removeListener(e,p[c].fn,void 0,!0),d){case 1:p[c].fn.call(p[c].context);break;case 2:p[c].fn.call(p[c].context,t);break;case 3:p[c].fn.call(p[c].context,t,n);break;case 4:p[c].fn.call(p[c].context,t,n,r);break;default:if(!a)for(l=1,a=Array(d-1);l<d;l++)a[l-1]=arguments[l];p[c].fn.apply(p[c].context,a)}}return!0},eS.prototype.on=function(e,t,n){return eb(this,e,t,n,!1)},eS.prototype.once=function(e,t,n){return eb(this,e,t,n,!0)},eS.prototype.removeListener=function(e,t,n,r){var i=ey?ey+e:e;if(!this._events[i])return this;if(!t)return eT(this,i),this;var s=this._events[i];if(s.fn)s.fn!==t||r&&!s.once||n&&s.context!==n||eT(this,i);else{for(var o=0,a=[],c=s.length;o<c;o++)(s[o].fn!==t||r&&!s[o].once||n&&s[o].context!==n)&&a.push(s[o]);a.length?this._events[i]=1===a.length?a[0]:a:eT(this,i)}return this},eS.prototype.removeAllListeners=function(e){var t;return e?(t=ey?ey+e:e,this._events[t]&&eT(this,t)):(this._events=new eC,this._eventsCount=0),this},eS.prototype.off=eS.prototype.removeListener,eS.prototype.addListener=eS.prototype.on,eS.prefixed=ey,eS.EventEmitter=eS,e_=eS;var ek=function(e){return e.Data="data",e.Media="media",e}({}),eR=function(e){return e.BrowserIncompatible="browser-incompatible",e.Disconnected="disconnected",e.InvalidID="invalid-id",e.InvalidKey="invalid-key",e.Network="network",e.PeerUnavailable="peer-unavailable",e.SslUnavailable="ssl-unavailable",e.ServerError="server-error",e.SocketError="socket-error",e.SocketClosed="socket-closed",e.UnavailableID="unavailable-id",e.WebRTC="webrtc",e}({}),eP=function(e){return e.NegotiationFailed="negotiation-failed",e.ConnectionClosed="connection-closed",e}({}),ew=function(e){return e.NotOpenYet="not-open-yet",e.MessageToBig="message-too-big",e}({}),eE=function(e){return e.Binary="binary",e.BinaryUTF8="binary-utf8",e.JSON="json",e.None="raw",e}({}),ex=function(e){return e.Message="message",e.Disconnected="disconnected",e.Error="error",e.Close="close",e}({}),eD=function(e){return e.Heartbeat="HEARTBEAT",e.Candidate="CANDIDATE",e.Offer="OFFER",e.Answer="ANSWER",e.Open="OPEN",e.Error="ERROR",e.IdTaken="ID-TAKEN",e.InvalidKey="INVALID-KEY",e.Leave="LEAVE",e.Expire="EXPIRE",e}({});let eI="1.5.5";class eM extends e_.EventEmitter{start(e,t){this._id=e;let n=`${this._baseUrl}&id=${e}&token=${t}`;!this._socket&&this._disconnected&&(this._socket=new WebSocket(n+"&version="+eI),this._disconnected=!1,this._socket.onmessage=e=>{let t;try{t=JSON.parse(e.data),em.log("Server message received:",t)}catch(t){em.log("Invalid server message",e.data);return}this.emit(ex.Message,t)},this._socket.onclose=e=>{this._disconnected||(em.log("Socket closed.",e),this._cleanup(),this._disconnected=!0,this.emit(ex.Disconnected))},this._socket.onopen=()=>{this._disconnected||(this._sendQueuedMessages(),em.log("Socket open"),this._scheduleHeartbeat())})}_scheduleHeartbeat(){this._wsPingTimer=setTimeout(()=>{this._sendHeartbeat()},this.pingInterval)}_sendHeartbeat(){if(!this._wsOpen())return void em.log("Cannot send heartbeat, because socket closed");let e=JSON.stringify({type:eD.Heartbeat});this._socket.send(e),this._scheduleHeartbeat()}_wsOpen(){return!!this._socket&&1===this._socket.readyState}_sendQueuedMessages(){let e=[...this._messagesQueue];for(let t of(this._messagesQueue=[],e))this.send(t)}send(e){if(this._disconnected)return;if(!this._id)return void this._messagesQueue.push(e);if(!e.type)return void this.emit(ex.Error,"Invalid message");if(!this._wsOpen())return;let t=JSON.stringify(e);this._socket.send(t)}close(){this._disconnected||(this._cleanup(),this._disconnected=!0)}_cleanup(){this._socket&&(this._socket.onopen=this._socket.onmessage=this._socket.onclose=null,this._socket.close(),this._socket=void 0),clearTimeout(this._wsPingTimer)}constructor(e,t,n,r,i,s=5e3){super(),this.pingInterval=s,this._disconnected=!0,this._messagesQueue=[],this._baseUrl=(e?"wss://":"ws://")+t+":"+n+r+"peerjs?key="+i}}class eO{startConnection(e){let t=this._startPeerConnection();if(this.connection.peerConnection=t,this.connection.type===ek.Media&&e._stream&&this._addTracksToConnection(e._stream,t),e.originator){let n=this.connection,r={ordered:!!e.reliable},i=t.createDataChannel(n.label,r);n._initializeDataChannel(i),this._makeOffer()}else this.handleSDP("OFFER",e.sdp)}_startPeerConnection(){em.log("Creating RTCPeerConnection.");let e=new RTCPeerConnection(this.connection.provider.options.config);return this._setupListeners(e),e}_setupListeners(e){let t=this.connection.peer,n=this.connection.connectionId,r=this.connection.type,i=this.connection.provider;em.log("Listening for ICE candidates."),e.onicecandidate=e=>{e.candidate&&e.candidate.candidate&&(em.log(`Received ICE candidates for ${t}:`,e.candidate),i.socket.send({type:eD.Candidate,payload:{candidate:e.candidate,type:r,connectionId:n},dst:t}))},e.oniceconnectionstatechange=()=>{switch(e.iceConnectionState){case"failed":em.log("iceConnectionState is failed, closing connections to "+t),this.connection.emitError(eP.NegotiationFailed,"Negotiation of connection to "+t+" failed."),this.connection.close();break;case"closed":em.log("iceConnectionState is closed, closing connections to "+t),this.connection.emitError(eP.ConnectionClosed,"Connection to "+t+" closed."),this.connection.close();break;case"disconnected":em.log("iceConnectionState changed to disconnected on the connection with "+t);break;case"completed":e.onicecandidate=()=>{}}this.connection.emit("iceStateChanged",e.iceConnectionState)},em.log("Listening for data channel"),e.ondatachannel=e=>{em.log("Received data channel");let r=e.channel;i.getConnection(t,n)._initializeDataChannel(r)},em.log("Listening for remote stream"),e.ontrack=e=>{em.log("Received remote stream");let r=e.streams[0],s=i.getConnection(t,n);s.type===ek.Media&&this._addStreamToMediaConnection(r,s)}}cleanup(){em.log("Cleaning up PeerConnection to "+this.connection.peer);let e=this.connection.peerConnection;if(!e)return;this.connection.peerConnection=null,e.onicecandidate=e.oniceconnectionstatechange=e.ondatachannel=e.ontrack=()=>{};let t="closed"!==e.signalingState,n=!1,r=this.connection.dataChannel;r&&(n=!!r.readyState&&"closed"!==r.readyState),(t||n)&&e.close()}async _makeOffer(){let e=this.connection.peerConnection,t=this.connection.provider;try{let n=await e.createOffer(this.connection.options.constraints);em.log("Created offer."),this.connection.options.sdpTransform&&"function"==typeof this.connection.options.sdpTransform&&(n.sdp=this.connection.options.sdpTransform(n.sdp)||n.sdp);try{await e.setLocalDescription(n),em.log("Set localDescription:",n,`for:${this.connection.peer}`);let r={sdp:n,type:this.connection.type,connectionId:this.connection.connectionId,metadata:this.connection.metadata};if(this.connection.type===ek.Data){let e=this.connection;r={...r,label:e.label,reliable:e.reliable,serialization:e.serialization}}t.socket.send({type:eD.Offer,payload:r,dst:this.connection.peer})}catch(e){"OperationError: Failed to set local offer sdp: Called in wrong state: kHaveRemoteOffer"!=e&&(t.emitError(eR.WebRTC,e),em.log("Failed to setLocalDescription, ",e))}}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to createOffer, ",e)}}async _makeAnswer(){let e=this.connection.peerConnection,t=this.connection.provider;try{let n=await e.createAnswer();em.log("Created answer."),this.connection.options.sdpTransform&&"function"==typeof this.connection.options.sdpTransform&&(n.sdp=this.connection.options.sdpTransform(n.sdp)||n.sdp);try{await e.setLocalDescription(n),em.log("Set localDescription:",n,`for:${this.connection.peer}`),t.socket.send({type:eD.Answer,payload:{sdp:n,type:this.connection.type,connectionId:this.connection.connectionId},dst:this.connection.peer})}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to setLocalDescription, ",e)}}catch(e){t.emitError(eR.WebRTC,e),em.log("Failed to create answer, ",e)}}async handleSDP(e,t){t=new RTCSessionDescription(t);let n=this.connection.peerConnection,r=this.connection.provider;em.log("Setting remote description",t);try{await n.setRemoteDescription(t),em.log(`Set remoteDescription:${e} for:${this.connection.peer}`),"OFFER"===e&&await this._makeAnswer()}catch(e){r.emitError(eR.WebRTC,e),em.log("Failed to setRemoteDescription, ",e)}}async handleCandidate(e){em.log("handleCandidate:",e);try{await this.connection.peerConnection.addIceCandidate(e),em.log(`Added ICE candidate for:${this.connection.peer}`)}catch(e){this.connection.provider.emitError(eR.WebRTC,e),em.log("Failed to handleCandidate, ",e)}}_addTracksToConnection(e,t){if(em.log(`add tracks from stream ${e.id} to peer connection`),!t.addTrack)return em.error("Your browser does't support RTCPeerConnection#addTrack. Ignored.");e.getTracks().forEach(n=>{t.addTrack(n,e)})}_addStreamToMediaConnection(e,t){em.log(`add stream ${e.id} to media connection ${t.connectionId}`),t.addStream(e)}constructor(e){this.connection=e}}class eL extends e_.EventEmitter{emitError(e,t){em.error("Error:",t),this.emit("error",new eA(`${e}`,t))}}class eA extends Error{constructor(e,t){"string"==typeof t?super(t):(super(),Object.assign(this,t)),this.type=e}}class ej extends eL{get open(){return this._open}constructor(e,t,n){super(),this.peer=e,this.provider=t,this.options=n,this._open=!1,this.metadata=n.metadata}}class eB extends ej{get type(){return ek.Media}get localStream(){return this._localStream}get remoteStream(){return this._remoteStream}_initializeDataChannel(e){this.dataChannel=e,this.dataChannel.onopen=()=>{em.log(`DC#${this.connectionId} dc connection success`),this.emit("willCloseOnRemote")},this.dataChannel.onclose=()=>{em.log(`DC#${this.connectionId} dc closed for:`,this.peer),this.close()}}addStream(e){em.log("Receiving stream",e),this._remoteStream=e,super.emit("stream",e)}handleMessage(e){let t=e.type,n=e.payload;switch(e.type){case eD.Answer:this._negotiator.handleSDP(t,n.sdp),this._open=!0;break;case eD.Candidate:this._negotiator.handleCandidate(n.candidate);break;default:em.warn(`Unrecognized message type:${t} from peer:${this.peer}`)}}answer(e,t={}){if(this._localStream)return void em.warn("Local stream already exists on this MediaConnection. Are you answering a call twice?");for(let n of(this._localStream=e,t&&t.sdpTransform&&(this.options.sdpTransform=t.sdpTransform),this._negotiator.startConnection({...this.options._payload,_stream:e}),this.provider._getMessages(this.connectionId)))this.handleMessage(n);this._open=!0}close(){this._negotiator&&(this._negotiator.cleanup(),this._negotiator=null),this._localStream=null,this._remoteStream=null,this.provider&&(this.provider._removeConnection(this),this.provider=null),this.options&&this.options._stream&&(this.options._stream=null),this.open&&(this._open=!1,super.emit("close"))}constructor(e,t,n){super(e,t,n),this._localStream=this.options._stream,this.connectionId=this.options.connectionId||eB.ID_PREFIX+ef.randomToken(),this._negotiator=new eO(this),this._localStream&&this._negotiator.startConnection({_stream:this._localStream,originator:!0})}}eB.ID_PREFIX="mc_";class eU{_buildRequest(e){let t=this._options.secure?"https":"http",{host:n,port:r,path:i,key:s}=this._options,o=new URL(`${t}://${n}:${r}${i}${s}/${e}`);return o.searchParams.set("ts",`${Date.now()}${Math.random()}`),o.searchParams.set("version",eI),fetch(o.href,{referrerPolicy:this._options.referrerPolicy})}async retrieveId(){try{let e=await this._buildRequest("id");if(200!==e.status)throw Error(`Error. Status:${e.status}`);return e.text()}catch(t){em.error("Error retrieving ID",t);let e="";throw"/"===this._options.path&&this._options.host!==ef.CLOUD_HOST&&(e=" If you passed in a `path` to your self-hosted PeerServer, you'll also need to pass in that same path when creating a new Peer."),Error("Could not get an ID from the server."+e)}}async listAllPeers(){try{let e=await this._buildRequest("peers");if(200!==e.status){if(401===e.status){let e="";throw e=this._options.host===ef.CLOUD_HOST?"It looks like you're using the cloud server. You can email team@peerjs.com to enable peer listing for your API key.":"You need to enable `allow_discovery` on your self-hosted PeerServer to use this feature.",Error("It doesn't look like you have permission to list peers IDs. "+e)}throw Error(`Error. Status:${e.status}`)}return e.json()}catch(e){throw em.error("Error retrieving list peers",e),Error("Could not get list peers from the server."+e)}}constructor(e){this._options=e}}class eF extends ej{get type(){return ek.Data}_initializeDataChannel(e){this.dataChannel=e,this.dataChannel.onopen=()=>{em.log(`DC#${this.connectionId} dc connection success`),this._open=!0,this.emit("open")},this.dataChannel.onmessage=e=>{em.log(`DC#${this.connectionId} dc onmessage:`,e.data)},this.dataChannel.onclose=()=>{em.log(`DC#${this.connectionId} dc closed for:`,this.peer),this.close()}}close(e){if(e?.flush)return void this.send({__peerData:{type:"close"}});this._negotiator&&(this._negotiator.cleanup(),this._negotiator=null),this.provider&&(this.provider._removeConnection(this),this.provider=null),this.dataChannel&&(this.dataChannel.onopen=null,this.dataChannel.onmessage=null,this.dataChannel.onclose=null,this.dataChannel=null),this.open&&(this._open=!1,super.emit("close"))}send(e,t=!1){return this.open?this._send(e,t):void this.emitError(ew.NotOpenYet,"Connection is not open. You should listen for the `open` event before sending messages.")}async handleMessage(e){let t=e.payload;switch(e.type){case eD.Answer:await this._negotiator.handleSDP(e.type,t.sdp);break;case eD.Candidate:await this._negotiator.handleCandidate(t.candidate);break;default:em.warn("Unrecognized message type:",e.type,"from peer:",this.peer)}}constructor(e,t,n){super(e,t,n),this.connectionId=this.options.connectionId||eF.ID_PREFIX+eh(),this.label=this.options.label||this.connectionId,this.reliable=!!this.options.reliable,this._negotiator=new eO(this),this._negotiator.startConnection(this.options._payload||{originator:!0,reliable:this.reliable})}}eF.ID_PREFIX="dc_",eF.MAX_BUFFERED_AMOUNT=8388608;class eN extends eF{get bufferSize(){return this._bufferSize}_initializeDataChannel(e){super._initializeDataChannel(e),this.dataChannel.binaryType="arraybuffer",this.dataChannel.addEventListener("message",e=>this._handleDataMessage(e))}_bufferedSend(e){(this._buffering||!this._trySend(e))&&(this._buffer.push(e),this._bufferSize=this._buffer.length)}_trySend(e){if(!this.open)return!1;if(this.dataChannel.bufferedAmount>eF.MAX_BUFFERED_AMOUNT)return this._buffering=!0,setTimeout(()=>{this._buffering=!1,this._tryBuffer()},50),!1;try{this.dataChannel.send(e)}catch(e){return em.error(`DC#:${this.connectionId} Error when sending:`,e),this._buffering=!0,this.close(),!1}return!0}_tryBuffer(){if(!this.open||0===this._buffer.length)return;let e=this._buffer[0];this._trySend(e)&&(this._buffer.shift(),this._bufferSize=this._buffer.length,this._tryBuffer())}close(e){if(e?.flush)return void this.send({__peerData:{type:"close"}});this._buffer=[],this._bufferSize=0,super.close()}constructor(...e){super(...e),this._buffer=[],this._bufferSize=0,this._buffering=!1}}class ez extends eN{close(e){super.close(e),this._chunkedData={}}_handleDataMessage({data:e}){let t=i(e),n=t.__peerData;if(n)return"close"===n.type?void this.close():void this._handleChunk(t);this.emit("data",t)}_handleChunk(e){let t=e.__peerData,n=this._chunkedData[t]||{data:[],count:0,total:e.total};if(n.data[e.n]=new Uint8Array(e.data),n.count++,this._chunkedData[t]=n,n.total===n.count){delete this._chunkedData[t];let e=function(e){let t=0;for(let n of e)t+=n.byteLength;let n=new Uint8Array(t),r=0;for(let t of e)n.set(t,r),r+=t.byteLength;return n}(n.data);this._handleDataMessage({data:e})}}_send(e,t){let n=s(e);return n instanceof Promise?this._send_blob(n):!t&&n.byteLength>this.chunker.chunkedMTU?void this._sendChunks(n):void this._bufferedSend(n)}async _send_blob(e){let t=await e;if(t.byteLength>this.chunker.chunkedMTU)return void this._sendChunks(t);this._bufferedSend(t)}_sendChunks(e){let t=this.chunker.chunk(e);for(let e of(em.log(`DC#${this.connectionId} Try to send ${t.length} chunks...`),t))this.send(e,!0)}constructor(e,t,r){super(e,t,r),this.chunker=new n,this.serialization=eE.Binary,this._chunkedData={}}}class e$ extends eN{_handleDataMessage({data:e}){super.emit("data",e)}_send(e,t){this._bufferedSend(e)}constructor(...e){super(...e),this.serialization=eE.None}}class eV extends eN{_handleDataMessage({data:e}){let t=this.parse(this.decoder.decode(e)),n=t.__peerData;if(n&&"close"===n.type)return void this.close();this.emit("data",t)}_send(e,t){let n=this.encoder.encode(this.stringify(e));if(n.byteLength>=ef.chunkedMTU)return void this.emitError(ew.MessageToBig,"Message too big for JSON channel");this._bufferedSend(n)}constructor(...e){super(...e),this.serialization=eE.JSON,this.encoder=new TextEncoder,this.decoder=new TextDecoder,this.stringify=JSON.stringify,this.parse=JSON.parse}}class eG extends eL{get id(){return this._id}get options(){return this._options}get open(){return this._open}get socket(){return this._socket}get connections(){let e=Object.create(null);for(let[t,n]of this._connections)e[t]=n;return e}get destroyed(){return this._destroyed}get disconnected(){return this._disconnected}_createServerConnection(){let e=new eM(this._options.secure,this._options.host,this._options.port,this._options.path,this._options.key,this._options.pingInterval);return e.on(ex.Message,e=>{this._handleMessage(e)}),e.on(ex.Error,e=>{this._abort(eR.SocketError,e)}),e.on(ex.Disconnected,()=>{this.disconnected||(this.emitError(eR.Network,"Lost connection to server."),this.disconnect())}),e.on(ex.Close,()=>{this.disconnected||this._abort(eR.SocketClosed,"Underlying socket is already closed.")}),e}_initialize(e){this._id=e,this.socket.start(e,this._options.token)}_handleMessage(e){let t=e.type,n=e.payload,r=e.src;switch(t){case eD.Open:this._lastServerId=this.id,this._open=!0,this.emit("open",this.id);break;case eD.Error:this._abort(eR.ServerError,n.msg);break;case eD.IdTaken:this._abort(eR.UnavailableID,`ID "${this.id}" is taken`);break;case eD.InvalidKey:this._abort(eR.InvalidKey,`API KEY "${this._options.key}" is invalid`);break;case eD.Leave:em.log(`Received leave message from ${r}`),this._cleanupPeer(r),this._connections.delete(r);break;case eD.Expire:this.emitError(eR.PeerUnavailable,`Could not connect to peer ${r}`);break;case eD.Offer:{let e=n.connectionId,t=this.getConnection(r,e);if(t&&(t.close(),em.warn(`Offer received for existing Connection ID:${e}`)),n.type===ek.Media){let i=new eB(r,this,{connectionId:e,_payload:n,metadata:n.metadata});t=i,this._addConnection(r,t),this.emit("call",i)}else{if(n.type!==ek.Data)return void em.warn(`Received malformed connection type:${n.type}`);let i=new this._serializers[n.serialization](r,this,{connectionId:e,_payload:n,metadata:n.metadata,label:n.label,serialization:n.serialization,reliable:n.reliable});t=i,this._addConnection(r,t),this.emit("connection",i)}for(let n of this._getMessages(e))t.handleMessage(n);break}default:{if(!n)return void em.warn(`You received a malformed message from ${r} of type ${t}`);let i=n.connectionId,s=this.getConnection(r,i);s&&s.peerConnection?s.handleMessage(e):i?this._storeMessage(i,e):em.warn("You received an unrecognized message:",e)}}}_storeMessage(e,t){this._lostMessages.has(e)||this._lostMessages.set(e,[]),this._lostMessages.get(e).push(t)}_getMessages(e){let t=this._lostMessages.get(e);return t?(this._lostMessages.delete(e),t):[]}connect(e,t={}){if(t={serialization:"default",...t},this.disconnected){em.warn("You cannot connect to a new Peer because you called .disconnect() on this Peer and ended your connection with the server. You can create a new Peer to reconnect, or call reconnect on this peer if you believe its ID to still be available."),this.emitError(eR.Disconnected,"Cannot connect to new Peer after disconnecting from server.");return}let n=new this._serializers[t.serialization](e,this,t);return this._addConnection(e,n),n}call(e,t,n={}){if(this.disconnected){em.warn("You cannot connect to a new Peer because you called .disconnect() on this Peer and ended your connection with the server. You can create a new Peer to reconnect."),this.emitError(eR.Disconnected,"Cannot connect to new Peer after disconnecting from server.");return}if(!t)return void em.error("To call a peer, you must provide a stream from your browser's `getUserMedia`.");let r=new eB(e,this,{...n,_stream:t});return this._addConnection(e,r),r}_addConnection(e,t){em.log(`add connection ${t.type}:${t.connectionId} to peerId:${e}`),this._connections.has(e)||this._connections.set(e,[]),this._connections.get(e).push(t)}_removeConnection(e){let t=this._connections.get(e.peer);if(t){let n=t.indexOf(e);-1!==n&&t.splice(n,1)}this._lostMessages.delete(e.connectionId)}getConnection(e,t){let n=this._connections.get(e);if(!n)return null;for(let e of n)if(e.connectionId===t)return e;return null}_delayedAbort(e,t){setTimeout(()=>{this._abort(e,t)},0)}_abort(e,t){em.error("Aborting!"),this.emitError(e,t),this._lastServerId?this.disconnect():this.destroy()}destroy(){this.destroyed||(em.log(`Destroy peer with ID:${this.id}`),this.disconnect(),this._cleanup(),this._destroyed=!0,this.emit("close"))}_cleanup(){for(let e of this._connections.keys())this._cleanupPeer(e),this._connections.delete(e);this.socket.removeAllListeners()}_cleanupPeer(e){let t=this._connections.get(e);if(t)for(let e of t)e.close()}disconnect(){if(this.disconnected)return;let e=this.id;em.log(`Disconnect peer with ID:${e}`),this._disconnected=!0,this._open=!1,this.socket.close(),this._lastServerId=e,this._id=null,this.emit("disconnected",e)}reconnect(){if(this.disconnected&&!this.destroyed)em.log(`Attempting reconnection to server with ID ${this._lastServerId}`),this._disconnected=!1,this._initialize(this._lastServerId);else if(this.destroyed)throw Error("This peer cannot reconnect to the server. It has already been destroyed.");else if(this.disconnected||this.open)throw Error(`Peer ${this.id} cannot reconnect because it is not disconnected from the server!`);else em.error("In a hurry? We're still trying to make the initial connection!")}listAllPeers(e=e=>{}){this._api.listAllPeers().then(t=>e(t)).catch(e=>this._abort(eR.ServerError,e))}constructor(e,t){let n;if(super(),this._serializers={raw:e$,json:eV,binary:ez,"binary-utf8":ez,default:ez},this._id=null,this._lastServerId=null,this._destroyed=!1,this._disconnected=!1,this._open=!1,this._connections=new Map,this._lostMessages=new Map,e&&e.constructor==Object?t=e:e&&(n=e.toString()),t={debug:0,host:ef.CLOUD_HOST,port:ef.CLOUD_PORT,path:"/",key:eG.DEFAULT_KEY,token:ef.randomToken(),config:ef.defaultConfig,referrerPolicy:"strict-origin-when-cross-origin",serializers:{},...t},this._options=t,this._serializers={...this._serializers,...this.options.serializers},"/"===this._options.host&&(this._options.host=window.location.hostname),this._options.path&&("/"!==this._options.path[0]&&(this._options.path="/"+this._options.path),"/"!==this._options.path[this._options.path.length-1]&&(this._options.path+="/")),void 0===this._options.secure&&this._options.host!==ef.CLOUD_HOST?this._options.secure=ef.isSecure():this._options.host==ef.CLOUD_HOST&&(this._options.secure=!0),this._options.logFunction&&em.setLogFunction(this._options.logFunction),em.logLevel=this._options.debug||0,this._api=new eU(t),this._socket=this._createServerConnection(),!ef.supports.audioVideo&&!ef.supports.data)return void this._delayedAbort(eR.BrowserIncompatible,"The current browser does not support WebRTC");if(n&&!ef.validateId(n))return void this._delayedAbort(eR.InvalidID,`ID "${n}" is invalid`);n?this._initialize(n):this._api.retrieveId().then(e=>this._initialize(e)).catch(e=>this._abort(eR.ServerError,e))}}eG.DEFAULT_KEY="peerjs",window.peerjs={Peer:eG,util:ef},window.Peer=eG})();
 </script>
-<script>const GAME_VERSION="2.4.0";
+<script>const GAME_VERSION="2.5.0";
 /* v1.22.0 · opciones del jugador (pantalla Opciones). Se guardan en este navegador. */
 const OPC_DEF={sens:1,invY:false,vGen:1,vMus:1,vFx:1,res:'alta',nombre:''};
 const OPC=Object.assign({},OPC_DEF);
@@ -2274,7 +2274,7 @@ const SECDEF={
   B:{rect:[-1300,ZS,1300,1200],c:[0,620],sub:(x,z)=>x>-1120&&x<1100&&z>ZS+20&&z<1070,
      line:(x,z)=>{let b=null,d=1e9;for(const s of STN){const e=Math.hypot(s[1]-x,s[2]-z);if(e<d){d=e;b=s;}}if(!b||d>160)return 'A';const n=b[0];return /Avenida de Mayo/.test(n)?'C':/Catedral/.test(n)?'D':/Bol|Belgrano/.test(n)?'E':'A';},
      tree:(x,z)=>(Math.abs(z-610)<170&&x>-1150&&x<1130)||(Math.abs(x)<150&&z>ZS&&z<1080),lamp:(x,z)=>!CHACABUCO.libre(x,z)&&x>-1150&&x<1130&&z>ZS&&z<1080&&!(x>-16&&x<-10.5&&Math.abs(z-937.55)<7.5),sema:(x,z)=>x>-1100&&x<1100&&z>ZS+10&&z<1060,
-     ps:1.7,noTree:(x,z)=>CHACABUCO.libre(x,z)||(x>-1000&&x<-815&&Math.abs(z-628)<26)||(x>712&&x<980&&z>500&&z<606)||(Math.abs(x+409)<6.5&&z>604&&z<623)||(Math.abs(x+407.2)<6.5&&z>661&&z<676)||(x>-16&&x<-10.5&&Math.abs(z-937.55)<7.5)||(Math.abs(x+30.7)<4&&z>908&&z<914),mb:(x0,z0,x1,z1)=>z1>ZS,car:(x,z)=>x>-1100&&x<1080&&z>ZS+30&&z<1060}};
+     ps:1.7,noTree:(x,z)=>CHACABUCO.libre(x,z)||(x>-1000&&x<-926&&Math.abs(z-628)<26)||PLAZAS.noTree(x,z)||(x>712&&x<980&&z>500&&z<606)||(Math.abs(x+409)<6.5&&z>604&&z<623)||(Math.abs(x+407.2)<6.5&&z>661&&z<676)||(x>-16&&x<-10.5&&Math.abs(z-937.55)<7.5)||(Math.abs(x+30.7)<4&&z>908&&z<914),mb:(x0,z0,x1,z1)=>z1>ZS,car:(x,z)=>x>-1100&&x<1080&&z>ZS+30&&z<1060}};
 let SEC_CUR=SECDEF.A,SR=[],SP=[],SS=[];
 /* ---------- grilla: qué hay en cada metro (0 vereda, 1 calle, 2 edificio, 3 plaza/pasto, 4 bloqueado) ---------- */
 const GX0=-1300,GZ0=-540,GW=2600,GH=1760;
@@ -2552,7 +2552,12 @@ const PISO=(()=>{const K=window.CALLES,H=K.DEF.H,GS={A:null,B:null},ST={};let TX
             B.quadN([a[0],ya,a[1],0,0,...c],[b[0],yb,b[1],l/.8,0,...c],[b[0],0,b[1],l/.8,.2,...c],[a[0],0,a[1],0,.2,...c],nx,0,nz);}}}
       BT.forEach((b,i)=>b.mesh(M.tile[i],-10));
       /* el granito: los pedazos de todos los frentes se sueldan (se cierra la junta entre frentes) y van al mismo nivel que las baldosas */
-      if(enGr.length){const Bg=new Buf();fillPolys(Bg,K.treePolys(K.cDiff(K.cOff(K.cOff(K.cUnion(enGr),.013),-.013),[],true)),0,uvWorld(1),W1);Bg.mesh(M.granito,-10);}}
+      const PZ=G===GS.B?K.cUnion(PLAZAS.anillos().map(r=>K.cPos(K.toC(r)))):null;
+      if(enGr.length){let Ug=K.cOff(K.cOff(K.cUnion(enGr),.013),-.013);if(PZ)Ug=K.cDiff(Ug,PZ);
+        const Bg=new Buf();fillPolys(Bg,K.treePolys(K.cDiff(Ug,[],true)),0,uvWorld(1),W1);Bg.mesh(M.granito,-10);}
+      /* v2.5.0: la Plaza del Congreso y la Mariano Moreno, de baldosa anaranjada en todo lo que no es cantero (el pasto queda encima, a 5 cm) */
+      if(PZ){const nar=K.treePolys(K.cDiff(K.cInter(K.pathsOf(G.base),PZ),K.pathsOf(G.grass),true));
+        if(nar.length){if(!M.naranja)M.naranja=wet(grime(new THREE.MeshStandardMaterial({map:PLAZAS.texPave(),roughness:.72,metalness:0,vertexColors:true}),.78,1.15,.05));const Bn=new Buf();fillPolys(Bn,nar,.002,uvWorld(2.4),W1);Bn.mesh(M.naranja,-10);}}}
     /* cordón: cara superior y cara a la calle; baja en vados y cocheras; amarillo donde corresponde */
     {const BG=new Buf(),BY=new Buf(),cw=o.curbW;
       for(const c of G.curbs){const P=c.path,L=c.L;const cuts=new Set([0,L]);for(let i=0;i<P.p.length;i++)cuts.add(P.s[i]);
@@ -5345,8 +5350,7 @@ const CONGRESO=(()=>{const PI=Math.PI,V3=THREE.Vector3;
     const fr=(x0,z0,x1,z1)=>wring(rectL(Math.min(x0,x1)-.45,Math.min(z0,z1)-.45,Math.max(x0,x1)+.45,Math.max(z0,z1)+.45),3.4);
     fr(RX,-RZN,RX,0);fr(RX,5.9,RX,RZS);fr(RB,-RZN,-49,-RZN);fr(-31,-RZN,RX,-RZN);fr(RB,RZS,-49,RZS);fr(-31,RZS,RX,RZS);fr(RB,-RZN,RB,RZS);
     for(const [x0,z0,x1,z1] of [[RB,-RZN,-49,-RZN],[-31,-RZN,RX,-RZN],[RB,RZS,-49,RZS],[-31,RZS,RX,RZS],[RB,-RZN,RB,RZS],[RX,-RZN,RX,0],[RX,5.9,RX,RZS]])fillL(rectL(Math.min(x0,x1)-.4,Math.min(z0,z1)-.4,Math.max(x0,x1)+.4,Math.max(z0,z1)+.4),2,3);
-    /* El Pensador y el Km 0 sobre la explanada de Entre Ríos */
-    wring(rectL(54.6,-34.2,57.4,-30.8),2.6);wring(rectL(54.9,28.4,57.1,30.6),4.2);fillL(rectL(54.6,-34.2,57.4,-30.8),2,3);fillL(rectL(54.9,28.4,57.1,30.6),2,4);
+    /* El Pensador y el Km 0 se mudaron a la Plaza Mariano Moreno, donde están en la realidad (v2.5.0: ver PLAZAS) */
     FLOORFN.push(floorFn);}
   function floorFn(x,z){const lx=x-CG_O[0],lz=z-CG_O[1];if(lx<-81||lx>17.2||lz<-55||lz>55)return 0;
     if(lx<=0&&lx>-80&&Math.abs(lz)<FZ){
@@ -5794,11 +5798,7 @@ const CONGRESO=(()=>{const PI=Math.PI,V3=THREE.Vector3;
   /* adornos de cresta y lucarnas */
   {const O=bt(mStoneW);ORN.forEach(([x,y,z,s])=>{O.geo(cylG(.2*s,.12*s,6),mtx(x,y+.18*s,z,0,1,.36*s,1));O.geo(new THREE.ConeGeometry(.16*s,.55*s,6),mtx(x,y+.62*s,z));});
     const Z=bt(mZinc);DORM.forEach(([x,y,z,ry])=>{const n=[Math.sin(ry),Math.cos(ry)];O.geo(BOX,mtx(x,y+.5,z,ry,1.5,2.2,2.2));Z.geo(BOX,mtx(x,y+1.75,z,ry,1.9,.3,2.6));bt(mDark).geo(BOX,mtx(x+n[0]*1.11,y+.45,z+n[1]*1.11,ry,.8,1.3,.02));});}
-  /* El Pensador y el Km 0, sobre la explanada de Entre Ríos frente al Palacio */
-  {const Gr=bt(mGranite),Bz=bt(mBronze);
-    const px=56,pz=-32.5;box(Gr,px-1.2,0,pz-1.5,px+1.2,2.3,pz+1.5);box(Gr,px-1.4,2.3,pz-1.7,px+1.4,2.55,pz+1.7);thinker(bt(mBronzeG),px,2.55,pz,0);anchor(px+3.5,.6,pz,0xffe2b8,.9,9,'steady',0);
-    const kx=56,kz=29.5;floorQ(bt(mRose),kx-4,kz-4,kx+4,kz+4,.22,8);box(Gr,kx-1.1,.1,kz-1.1,kx+1.1,.5,kz+1.1);Gr.geo(new THREE.CylinderGeometry(.5,.72,3.2,4),mtx(kx,2.1,kz,PI/4));
-    Bz.geo(new THREE.ConeGeometry(.55,.7,4),mtx(kx,4.05,kz,PI/4));bt(mKm).quad([kx-.53,1.1,kz-.5],[kx-.53,1.1,kz+.5],[kx-.47,2.3,kz+.45],[kx-.47,2.3,kz-.45],[0,0],[1,0],[1,1],[0,1]);anchor(kx-3,.5,kz,0xffe2b8,.8,7,'steady',0);}
+  /* El Pensador y el Km 0 se mudaron a la Plaza Mariano Moreno, donde están en la realidad (v2.5.0: ver PLAZAS) */
   function thinker(B,x,y,z,ry){const s=1.05,c=Math.cos(ry),sn=Math.sin(ry);const P=(a,b,d)=>[x+(a*c+d*sn)*s,y+b*s,z+(-a*sn+d*c)*s];const E=(p,sx,sy,sz,rz=0)=>B.geo(SPH,mtx(p[0],p[1],p[2],ry,sx*s,sy*s,sz*s,0,rz));
     B.geo(BOX,mtx(...P(-.05,.5,0),ry,1.1*s,1*s,1.1*s));E(P(0,1.1,0),.24,.2,.3);seg(B,P(0,1.15,0),P(.32,1.7,0),.22*s,.24*s);E(P(.3,1.62,0),.28,.27,.3,-.5);E(P(.52,1.86,.02),.13,.14,.12);
     for(const d of [.16,-.16]){seg(B,P(.02,1.08,d),P(.56,1.14,d*1.3),.12*s,.1*s);seg(B,P(.56,1.14,d*1.3),P(.6,.12,d*1.35),.09*s,.07*s);B.geo(BOX,mtx(...P(.68,.06,d*1.35),ry,.28*s,.1*s,.12*s));}
@@ -10016,6 +10016,482 @@ function update(dt){if(!BUILT)return;tt+=dt;const f=flick(tt),f2=(tt%1.1)<.55?1:
 return {build,grid,update,floor,keep,tecla,libre,get tris(){return TRIS_;},get ms(){return MS_;},EL,toG,toL,LV,DY,call:elCall,inCab};})();
 
 
+/* ---------- Plaza del Congreso y Plaza Mariano Moreno (v2.5.0), a partir de claude/plaza-congreso-concepto.html (aprobado por Facu).
+   Monumento a los Dos Congresos a escala (plataforma, cascada, estanque, terraza, tercer cuerpo, pedestal y la República a ~23 m),
+   reja de 2006, Monumento a Mariano Moreno, El Pensador y el Km 0 en su lugar real, fuente chica, faroles, bancos, campamento de protesta
+   abandonado y la mutación que viene del Congreso. Las plazas pasan a ser «plazas secas» de baldosa anaranjada con canteros de pasto
+   (los canteros reales del mapa): el piso y los cordones los sigue armando PISO.
+   Coordenadas del juego directas (el modelo está armado con la vereda a 0,15 como en el concepto y el grupo baja 15 cm).
+   Luz horneada por vértice (x fija cálida, y cálida que titila, z roja que late); sin luces reales nuevas ---------- */
+const PLAZAS=(()=>{const PI=Math.PI,V3=THREE.Vector3;
+  const BAT={};let CUR='base';function bat(g,key){return BAT[key]||(BAT[key]={key,P:[],N:[],U:[],C:[]});}
+  const MATS={};let EXT=null,TRIS=0,tt=0,BUILT=false;
+  const OBSL=[],CIRL=[];const OBS=(x0,z0,x1,z1,y1)=>OBSL.push([Math.min(x0,x1),Math.min(z0,z1),Math.max(x0,x1),Math.max(z0,z1),y1]);const CIR=(x,z,r)=>CIRL.push([x,z,r]);
+  const LTS=[],SPR=[],POOL=[];
+  let _tm=0;function texMat(t,o={}){const k='t'+(_tm++);MATS[k]=std(Object.assign({map:t,alphaTest:o.alpha===false?0:.45,side:THREE.DoubleSide},o.alpha===false?{side:THREE.FrontSide}:{}));return k;}
+  function std(o,ts){const m=new THREE.MeshStandardMaterial(Object.assign({roughness:.85,metalness:0,vertexColors:true},o));if(m.map){m.map.encoding=THREE.sRGBEncoding;m.map.anisotropy=MAXANI;m.map.needsUpdate=true;}if(ts)m.userData.ts=ts;return m;}
+let SEED=1234567;const rnd=()=>{SEED=(SEED*16807)%2147483647;return (SEED-1)/2147483646;};
+const R=(a,b)=>a+(b-a)*rnd();const pick=a=>a[(rnd()*a.length)|0];
+const pairs=a=>{const o=[];for(let i=0;i<a.length;i+=2)o.push([a[i],a[i+1]]);return o;};
+function inPoly(x,z,p){let c=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const [xi,zi]=p[i],[xj,zj]=p[j];if((zi>z)!==(zj>z)&&x<(xj-xi)*(z-zi)/(zj-zi)+xi)c=!c;}return c;}
+function area2(p){let a=0;for(let i=0;i<p.length;i++){const q=p[i],r=p[(i+1)%p.length];a+=q[0]*r[1]-r[0]*q[1];}return a;}
+function canvasTex(w,h,fn,rep=true){const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');fn(g,w,h);const t=new THREE.CanvasTexture(c);
+  if(rep){t.wrapS=t.wrapT=THREE.RepeatWrapping;}t.anisotropy=8;return t;}
+function noise(g,w,h,n,a,lo=0,hi=255,sz=2){for(let i=0;i<n;i++){const v=(lo+Math.random()*(hi-lo))|0;g.fillStyle=`rgba(${v},${v},${v},${a})`;g.fillRect(Math.random()*w,Math.random()*h,sz*Math.random()+1,sz*Math.random()+1);}}
+const TX={};
+TX.pave=canvasTex(512,512,(g,w,h)=>{g.fillStyle='#6b4a3c';g.fillRect(0,0,w,h);const cw=w/4,ch=h/6;
+  for(let r=0;r<6;r++)for(let c=0;c<5;c++){const off=r%2?cw/2:0,x=c*cw-off,y=r*ch,v=Math.random()*26-13;
+    g.fillStyle=`rgb(${196+v|0},${142+v*.8|0},${112+v*.6|0})`;g.fillRect(x+2,y+2,cw-4,ch-4);}
+  noise(g,w,h,26000,.22,40,230,2);for(let i=0;i<40;i++){g.strokeStyle='rgba(30,20,15,.35)';g.lineWidth=1;g.beginPath();let x=Math.random()*w,y=Math.random()*h;g.moveTo(x,y);for(let k=0;k<5;k++){x+=Math.random()*30-15;y+=Math.random()*30-15;g.lineTo(x,y);}g.stroke();}
+  for(let i=0;i<14;i++){g.fillStyle='rgba(20,22,18,.25)';g.beginPath();g.ellipse(Math.random()*w,Math.random()*h,10+Math.random()*30,6+Math.random()*16,Math.random()*3,0,7);g.fill();}});
+TX.stone=canvasTex(512,512,(g,w,h)=>{g.fillStyle='#8f8670';g.fillRect(0,0,w,h);const bw=w/3,bh=h/6;
+  for(let r=0;r<6;r++)for(let c=0;c<4;c++){const x=c*bw-(r%2?bw/2:0),y=r*bh,v=Math.random()*20-10;g.fillStyle=`rgb(${205+v|0},${195+v|0},${172+v|0})`;g.fillRect(x+2,y+2,bw-4,bh-4);}
+  noise(g,w,h,30000,.18,60,240,2);for(let i=0;i<30;i++){const x=Math.random()*w;const gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'rgba(40,40,30,0)');gr.addColorStop(1,'rgba(40,40,30,.35)');g.fillStyle=gr;g.fillRect(x,Math.random()*h*.5,3+Math.random()*6,h);}});
+TX.granite=canvasTex(256,256,(g,w,h)=>{g.fillStyle='#77746e';g.fillRect(0,0,w,h);noise(g,w,h,22000,.5,50,200,1.5);g.fillStyle='rgba(0,0,0,.4)';g.fillRect(0,h/2-1,w,2);g.fillRect(w/2-1,0,2,h);});
+TX.bark=canvasTex(128,256,(g,w,h)=>{g.fillStyle='#5a5246';g.fillRect(0,0,w,h);for(let i=0;i<40;i++){g.fillStyle=Math.random()<.5?'rgba(190,180,150,.45)':'rgba(70,75,55,.5)';g.beginPath();g.ellipse(Math.random()*w,Math.random()*h,6+Math.random()*16,10+Math.random()*30,0,0,7);g.fill();}noise(g,w,h,5000,.3,20,200,1.5);});
+TX.bronze=canvasTex(256,256,(g,w,h)=>{g.fillStyle='#7a6a52';g.fillRect(0,0,w,h);noise(g,w,h,9000,.35,40,200,2);for(let i=0;i<40;i++){g.fillStyle='rgba(90,170,140,.30)';g.fillRect(Math.random()*w,Math.random()*h*.4,2+Math.random()*4,30+Math.random()*120);}});
+TX.flesh=canvasTex(256,256,(g,w,h)=>{g.fillStyle='#7a2a2c';g.fillRect(0,0,w,h);for(let i=0;i<70;i++){g.strokeStyle=Math.random()<.5?'rgba(40,10,30,.6)':'rgba(220,120,110,.35)';g.lineWidth=1+Math.random()*3;g.beginPath();let x=Math.random()*w,y=Math.random()*h;g.moveTo(x,y);for(let k=0;k<6;k++){x+=Math.random()*40-20;y+=Math.random()*40-20;g.lineTo(x,y);}g.stroke();}noise(g,w,h,6000,.25,60,255,2);});
+TX.frond=canvasTex(64,256,(g,w,h)=>{g.clearRect(0,0,w,h);g.strokeStyle='#5d6a3a';g.lineWidth=3;g.beginPath();g.moveTo(w/2,0);g.lineTo(w/2,h);g.stroke();g.lineWidth=2;for(let y=4;y<h;y+=5){const L=(w/2-2)*(1-y/h*.5);g.strokeStyle=Math.random()<.5?'#7d8b52':'#68774a';
+  g.beginPath();g.moveTo(w/2,y);g.lineTo(w/2-L,y+9);g.moveTo(w/2,y);g.lineTo(w/2+L,y+9);g.stroke();}},false);
+TX.tuft=canvasTex(128,128,(g,w,h)=>{g.clearRect(0,0,w,h);for(let i=0;i<70;i++){const x=w*.15+Math.random()*w*.7;g.strokeStyle=pick2(['#5d7a2c','#47621f','#8a8a48','#6e8c37']);g.lineWidth=1.5+Math.random()*1.5;g.beginPath();g.moveTo(x,h);g.quadraticCurveTo(x+(Math.random()-.5)*20,h*.5,x+(Math.random()-.5)*40,h*(.05+Math.random()*.4));g.stroke();}},false);
+function pick2(a){return a[(Math.random()*a.length)|0];}
+function textTex(lines,o={}){const W=o.w||512,H=o.h||256;return canvasTex(W,H,(g,w,h)=>{if(o.bg){g.fillStyle=o.bg;g.fillRect(0,0,w,h);if(o.dirty)noise(g,w,h,4000,.2,60,200,3);}else g.clearRect(0,0,w,h);
+  g.fillStyle=o.col||'#111';g.textAlign='center';g.textBaseline='middle';const fs=o.fs||70;g.font=`${o.wt||700} ${fs}px ${o.font||'Impact, Arial Black, sans-serif'}`;
+  lines.forEach((t,i)=>{g.save();g.translate(w/2,h/2+(i-(lines.length-1)/2)*fs*1.1);if(o.skew)g.rotate(o.skew);g.fillText(t,0,0);g.restore();});
+  if(o.drip){g.fillStyle=o.col;for(let i=0;i<14;i++){const x=w*.1+Math.random()*w*.8;g.fillRect(x,h*.55,2+Math.random()*2,Math.random()*h*.35);}}},false);}
+const _ni=new WeakMap();const _v=new V3(),_n=new V3(),_m3=new THREE.Matrix3();
+function nonIdx(g){let r=_ni.get(g);if(!r){r=g.index?g.toNonIndexed():g;_ni.set(g,r);}return r;}
+function add(key,geo,m,col,grp){const b=bat(grp||CUR,key);const g=nonIdx(geo);const p=g.attributes.position,n=g.attributes.normal,uv=g.attributes.uv;_m3.getNormalMatrix(m);
+  const cf=typeof col==='function';for(let i=0;i<p.count;i++){_v.fromBufferAttribute(p,i).applyMatrix4(m);b.P.push(_v.x,_v.y,_v.z);_n.fromBufferAttribute(n,i).applyMatrix3(_m3).normalize();b.N.push(_n.x,_n.y,_n.z);
+    if(uv)b.U.push(uv.getX(i),uv.getY(i));else b.U.push(0,0);const c=cf?col(_v.x,_v.y,_v.z):col;b.C.push(c[0],c[1],c[2]);}}
+function tri(key,a,b2,c,n,col,uvs,grp){const b=bat(grp||CUR,key);[a,b2,c].forEach((p,i)=>{b.P.push(p[0],p[1],p[2]);b.N.push(n[0],n[1],n[2]);b.U.push(uvs?uvs[i][0]:0,uvs?uvs[i][1]:0);b.C.push(col[0],col[1],col[2]);});}
+function quad(key,a,b2,c,d,col,uvs,grp,nrm){/* a-b-c-d en sentido antihorario visto desde el frente */
+  const n=nrm||new V3().subVectors(new V3(...b2),new V3(...a)).cross(new V3().subVectors(new V3(...d),new V3(...a))).normalize().toArray();
+  tri(key,a,b2,c,n,col,uvs&&[uvs[0],uvs[1],uvs[2]],grp);tri(key,a,c,d,n,col,uvs&&[uvs[0],uvs[2],uvs[3]],grp);}
+const _e=new THREE.Euler(),_q=new THREE.Quaternion(),_s=new V3(),_p=new V3();
+function mtx(x,y,z,ry=0,sx=1,sy=1,sz=1,rx=0,rz=0){_e.set(rx,ry,rz,'YXZ');_q.setFromEuler(_e);return new THREE.Matrix4().compose(_p.set(x,y,z),_q,_s.set(sx,sy,sz));}
+const GEO={box:new THREE.BoxGeometry(1,1,1),cyl:new THREE.CylinderGeometry(.5,.5,1,12),cyl6:new THREE.CylinderGeometry(.5,.5,1,6),cyl20:new THREE.CylinderGeometry(.5,.5,1,24),sph:new THREE.SphereGeometry(.5,14,10),sph6:new THREE.SphereGeometry(.5,7,5),cone:new THREE.ConeGeometry(.5,1,8),cone4:new THREE.ConeGeometry(.5,1,4),plane:new THREE.PlaneGeometry(1,1)};
+const box=(k,x,y,z,sx,sy,sz,col,ry=0,rx=0,rz=0)=>add(k,GEO.box,mtx(x,y,z,ry,sx,sy,sz,rx,rz),col);
+const cyl=(k,x,y,z,r,h,col,seg='cyl',ry=0,rx=0,rz=0,r2)=>add(k,GEO[seg],mtx(x,y,z,ry,r*2,h,(r2||r)*2,rx,rz),col);
+/* cilindro entre dos puntos */
+function rod(k,a,b,r,col,seg='cyl6'){const A=new V3(...a),B=new V3(...b),d=new V3().subVectors(B,A),L=d.length();const q=new THREE.Quaternion().setFromUnitVectors(new V3(0,1,0),d.clone().normalize());
+  const m=new THREE.Matrix4().compose(A.clone().addScaledVector(d,.5),q,new V3(r*2,L,r*2));add(k,GEO[seg],m,col);}
+/* prisma sobre un anillo [[x,z]…]: costados con material kSide y tapa con kTop */
+function slab(kTop,kSide,ring,y0,y1,cTop,cSide){let r=ring;if(area2(r)>0)r=[...r].reverse();
+  if(kSide)for(let i=0;i<r.length;i++){const p=r[i],q=r[(i+1)%r.length];const L=Math.hypot(q[0]-p[0],q[1]-p[1]);if(L<.01)continue;
+    quad(kSide,[p[0],y0,p[1]],[q[0],y0,q[1]],[q[0],y1,q[1]],[p[0],y1,p[1]],cSide);}
+  if(kTop){const tr=THREE.ShapeUtils.triangulateShape(r.map(p=>new THREE.Vector2(p[0],p[1])),[]);for(const f of tr){const a=r[f[0]],b=r[f[1]],c=r[f[2]];const cr=(b[1]-a[1])*(c[0]-a[0])-(b[0]-a[0])*(c[1]-a[1]);const T=cr>0?[a,b,c]:[a,c,b];
+    tri(kTop,[T[0][0],y1,T[0][1]],[T[1][0],y1,T[1][1]],[T[2][0],y1,T[2][1]],[0,1,0],cTop);}}}
+function circleRing(cx,cz,r,n=32,a0=0,a1=2*PI){const o=[];const full=Math.abs(a1-a0-2*PI)<1e-6;for(let i=0;i<(full?n:n+1);i++){const a=a0+(a1-a0)*i/n;o.push([cx+Math.cos(a)*r,cz+Math.sin(a)*r]);}return o;}
+function rectRing(x0,z0,x1,z1){return [[x0,z0],[x1,z0],[x1,z1],[x0,z1]];}
+function roundRect(x0,z0,x1,z1,r,n=6){const o=[];const cs=[[x1-r,z1-r,0],[x0+r,z1-r,PI/2],[x0+r,z0+r,PI],[x1-r,z0+r,1.5*PI]];for(const [cx,cz,a] of cs)for(let i=0;i<=n;i++){const t=a+i/n*PI/2;o.push([cx+Math.cos(t)*r,cz+Math.sin(t)*r]);}return o;}
+/* desplaza un anillo convexo-ish hacia afuera (+) o adentro (−) */
+function offsetRing(r,d){let p=r;if(area2(p)>0)p=[...p].reverse();const n=p.length,o=[];for(let i=0;i<n;i++){const a=p[(i-1+n)%n],b=p[i],c=p[(i+1)%n];
+  const n1=norm2([b[1]-a[1],-(b[0]-a[0])]),n2=norm2([c[1]-b[1],-(c[0]-b[0])]);let m=norm2([n1[0]+n2[0],n1[1]+n2[1]]);const k=1/Math.max(.3,m[0]*n1[0]+m[1]*n1[1]);o.push([b[0]-m[0]*d*k,b[1]-m[1]*d*k]);}return o;}
+function norm2(v){const l=Math.hypot(v[0],v[1])||1;return [v[0]/l,v[1]/l];}
+/* tubo que se afina, a lo largo de una curva (raíces, tentáculos, ramas) */
+function taperTube(k,pts,r0,r1,col,seg=8,steps=24){const cv=new THREE.CatmullRomCurve3(pts.map(p=>new V3(...p)));const fr=cv.computeFrenetFrames(steps,false);const b=bat(CUR,k);
+  const ring=i=>{const t=i/steps,p=cv.getPointAt(t),r=r0+(r1-r0)*t;const o=[];for(let j=0;j<=seg;j++){const a=j/seg*2*PI;const n=fr.normals[i].clone().multiplyScalar(Math.cos(a)).add(fr.binormals[i].clone().multiplyScalar(Math.sin(a)));
+    o.push([p.clone().addScaledVector(n,r*(1+.12*Math.sin(t*23+j))),n]);}return o;};
+  let prev=ring(0);for(let i=1;i<=steps;i++){const cur=ring(i);for(let j=0;j<seg;j++){const A=prev[j],B=prev[j+1],C=cur[j+1],D=cur[j];
+    for(const [P,N] of [A,C,B,A,D,C]){b.P.push(P.x,P.y,P.z);b.N.push(N.x,N.y,N.z);b.U.push(j/seg,i/steps);const c=typeof col==='function'?col(P.x,P.y,P.z):col;b.C.push(c[0],c[1],c[2]);}}prev=cur;}}
+/* objetos 3D armados con jerarquía (estatuas): se vuelcan al lote con su matriz de mundo */
+function flush(k,grp,col){grp.updateMatrixWorld(true);grp.traverse(o=>{if(o.isMesh)add(o.userData.k||k,o.geometry,o.matrixWorld,o.userData.col||col);});}
+/* ================= datos del juego (SEC.B.osm, v1.14.0) ================= */
+const OSM_CONG=pairs([-718.7,591.8,-720.2,580.2,-721.1,577.2,-722.5,575.6,-725.5,574.5,-738,574.5,-741.3,580.3,-752.7,577.8,-835.8,579.2,-904.6,582.3,-912.2,584.9,-918.4,589.2,-923.1,594.9,-924.4,600.9,-921.8,655.4,-917.1,663.1,-898.1,674.4,-890.7,676.7,-857.1,676.7,-852.1,675.9,-848.5,674.1,-832.2,668.8,-831.5,674.8,-719.1,669.7,-716.5,667.8,-714.9,663.8]);
+const OSM_MOR=pairs([-711.1,587.6,-711.4,606.6,-707.9,663.7,-706.1,668.7,-576.7,664.8,-567.5,660.2,-559.8,655.1,-552.8,643.9,-552.3,621.9,-567.9,621.8,-585.7,618,-597,612,-626.8,584.8,-645.5,576,-660.8,572.8,-681.8,572.4,-696.4,574.3,-703.9,573.4,-709.1,576.7]);
+const OSM_LOR=pairs([-623.1,569.4,-601.9,588.3,-579.5,602.3,-556,602.3,-553.3,598.4,-555.7,572.8,-562.4,564.6,-567.2,561.9,-577.7,560.4,-625.3,561.3,-630,565.1]);
+const OSM_PED=pairs([-959.8,586.4,-958.7,594.4,-955.1,603.6,-952,658.6,-956.1,673.9,-955.8,676.9,-937.5,672.2,-934.5,671.4,-933.9,669.9,-939.4,657.7,-941.5,603.1,-941.7,595.1,-937.2,585.4,-938.1,582.8,-957.6,582]);
+const OSM_GRASS=[[-628.7,661.6,-627.6,660.6,-627.6,659.1,-636.8,653.2,-686.5,655.1,-692,656.3,-699.9,664,-698.9,664.5],
+[-700.5,621.5,-710.6,622.1,-707.8,662.2,-703.8,661.3,-697.5,655.1,-696.2,649.2,-695.8,638.7,-693.5,622.3,-693.7,613.8,-697.5,597.7,-697.7,590.7,-700,586.1,-702.4,585.5,-705,586.4,-705.1,589.9,-702.4,595],
+[-664.7,649.5,-644.6,648.9,-641.5,646.5,-640.8,641.6,-641.5,634.6,-637.5,622.7,-646.5,622.9,-647.7,628.3,-649.9,631.7,-654.6,636,-665.3,639.5],
+[-684.3,605.2,-680.6,601.9,-674.5,598.2,-671.4,585.3,-685.4,584.7,-690,586,-692.6,589.9,-692.5,599.4,-689.4,608.5,-689.1,613],
+[-620.4,599,-633.9,587.4,-638.5,587.7,-638.4,597.7,-632.9,608.5,-632.9,610.5,-609.4,609.5],
+[-672.7,603.7,-677.4,607,-681,611.4,-682.8,617.3,-682,622.8,-678.8,628,-673.9,631.7,-668.5,632.9,-662.4,632.2,-657.8,629.4,-654.1,624.5,-652.3,619.1,-653.1,613.1,-656.4,607.9,-660.7,604.8,-666.7,603],
+[-865.9,637.4,-867.5,638.8,-867.6,641.8,-868.6,641.7,-868.8,646.2,-871.8,646.6,-871.8,657.6,-823.2,655.7,-823.1,654.2,-821.1,654.3,-820.5,652.3,-817.9,650.9,-816.8,647.5,-816.3,647.5,-817.7,599.5,-820,594.9,-821.9,593.3,-826.9,592.1,-826.8,590.1,-874,592.1,-873.5,603.6,-870.5,603.7,-870.1,606.7,-869.1,606.8,-868.7,608.8,-866.7,610.4,-864.3,611,-863.9,613,-847.8,612.2,-847.8,611.2,-846.8,611.2,-845.1,607.8,-842.6,606.9,-840.6,607.5,-839.1,608.1,-833.4,615.8,-831.2,621.4,-830.8,623.9,-832.1,630.3,-835.3,635.2,-835.4,637.2,-836.9,637.1,-838,639.6,-839,640.5,-841,640.9,-844.5,640.3,-846.4,637.7,-847.4,637.7,-847.3,636.2,-863.9,636.5],
+[-676.2,638.1,-683,633.8,-688.3,628,-690.8,640.4,-688.2,649,-685.3,650.6,-669.2,649.8,-669.7,639.3],
+[-631.2,617,-608.2,616.5,-608,611.5,-631,612],
+[-667.4,597.5,-655,600.5,-651.2,604.2,-647.4,609.8,-636.9,610.3,-642.4,597.1,-643,588.5,-644.4,586.5,-646.8,584.4,-668.9,584.9,-671.9,597.8],
+[-634,645.4,-635.2,639.3,-634.5,635.4,-632.4,632,-628.8,629.6,-625.2,628.3,-621.2,627.9,-614.3,630.2,-604.3,630.2,-604.5,623.7,-605.5,623.6,-607.4,621,-608.9,621,-608.3,620,-631.9,620.5,-636.4,631.8,-636.4,644.8,-636,646.8,-634.5,645.8],
+[-612.9,632.3,-610.7,638.9,-610.8,642.9,-612.5,646.8,-615.1,649.7,-618.7,652,-622.8,652.8,-627.3,652.1,-631.7,651,-621.1,660.4,-616.2,661.6,-604.1,661.1,-603.9,632.2],
+[-601.1,625.3,-600.7,662.3,-585.6,661.4,-578,660.3,-578.3,655.8,-582.2,651.6,-582.5,647.6,-581.3,643.6,-578.2,641.3,-578.5,624.8,-590.3,620.8,-598.4,620.9],
+[-573.2,640.5,-570.7,641.6,-567.8,643.7,-567.5,649.2,-569.2,653.2,-572.8,655.5,-572.5,658.5,-563.7,652.4,-558.3,643.1,-558.6,627.6,-573.6,626.5],
+[-725.2,636.4,-723.7,636.5,-723.3,650,-724.3,650.5,-724.1,656.5,-720.3,661.1,-715.3,661.8,-717.1,622.3,-725.6,622.4],
+[-741.8,637.7,-743.7,602.2,-807.5,605.4,-806,640.4],
+[-829,584,-826.6,584.6,-803,584.1,-800.5,583.3,-798.8,579.8,-757.7,578.6,-757.8,579.6,-754.4,581.8,-754.9,583.2,-742.4,582.8,-741.3,580.3,-752.7,577.8,-831.3,579.4],
+[-908.8,587.1,-901.3,587.4,-901.3,588.4,-855.7,586.9,-855.6,585.4,-853.6,585,-853,582.5,-852,582.5,-852.4,580,-904.6,582.3,-912.2,584.9],
+[-898.1,674.4,-890.7,676.7,-857.1,676.7,-850,675,-848.5,674.1,-847.9,671.1,-848.6,664.1,-849,663.1,-852,662.4,-851.9,661.4,-898.6,663.4,-898.7,664.9,-906.2,666.1,-908.3,667.5,-908.3,668.5],
+[-751.7,658.8,-819.9,660.8,-821.4,661.3,-823,663.7,-822.2,668.2,-802.7,667.6,-802.3,670.6,-821.8,671.2,-821.5,674.2,-725.2,669.9,-726.5,665.8,-728.3,662.8,-734.2,659,-740.2,658.8,-740.1,657.3,-751.6,657.3],
+[-893.9,614.2,-894.5,604.2,-891,604.3,-891.5,592.3,-901,592.9,-901.1,594.4,-908.1,595.1,-911.2,597,-912.4,600.4,-912.1,606.4,-913.6,606.8,-914,614.8],
+[-914,638.8,-912.5,648.8,-911,648.9,-910.7,653.4,-909.3,656.5,-905.4,658.1,-899.3,657.4,-898.9,659.4,-888.9,658.8,-889.4,647.3,-892.9,647.2,-893.5,638.2]].map(pairs);
+const OSM_DOS=pairs([-893.4,636.2,-892.9,647.2,-887.9,646.9,-887.1,651.4,-885.5,651,-883.6,652.1,-881.1,652.2,-878.1,651.8,-876.5,650.9,-874.5,651,-874.3,646.5,-868.8,646.2,-868.6,641.7,-867.6,641.8,-867.5,638.8,-865.9,637.4,-863.9,636.5,-861.4,636.1,-847.3,636.2,-847.4,637.7,-846.4,637.7,-845.5,639.2,-844.5,640.3,-843,640.8,-841,640.9,-839,640.5,-838,639.6,-836.9,638.6,-836.9,637.1,-835.4,637.2,-835.3,635.2,-833.7,632.8,-832.1,630.3,-831.4,626.4,-830.8,623.9,-831.2,621.4,-832.1,618.8,-833.4,615.8,-834.8,613.7,-836.8,612.2,-836.7,611.2,-837.7,611.1,-839.1,608.1,-840.6,607.5,-842.6,606.9,-845.1,607.8,-846.7,609.7,-846.8,611.2,-847.8,611.2,-847.8,612.2,-863.9,613,-864.3,611,-866.7,610.4,-868.7,608.8,-869.1,606.8,-870.1,606.7,-870.5,603.7,-876,603.5,-876.3,600,-881.3,598.8,-883.3,598.7,-885.3,599.1,-886.3,600,-888.8,600.4,-889,603.9,-894.5,604.2,-894.1,617.7,-895.6,617.6,-896,615.1,-902,615.8,-901.6,618.3,-902.7,620.8,-903.4,623.3,-903.5,625.8,-903.1,628.8,-902.2,632.3,-900.8,634.4,-900.9,636.4]);
+const OSM_TREES=[[-591,658.7],[-795.1,586],[-766.5,596.2],[-763.6,644.3],[-789.9,651.1],[-554.1,594.4],[-556.7,585.3],[-567.2,571.8],[-578.7,561.4],[-582.8,586.2],[-591.5,577.8],[-849.1,654.6],[-861.9,648],[-856.5,593.3]];
+const RIV=[[-1000,567],[-972.6,569.3],[-922.7,574],[-913.7,573.9],[-844,571.4],[-761.8,568.4],[-717.6,565.4],[-667.5,564.5],[-633.6,555.5],[-573.8,551.1],[-558.6,547.7],[-450.2,541.4]];
+const YRI=[[-1000,697],[-971,693.3],[-951.2,687.1],[-934.6,684.3],[-903.5,684.2],[-836.3,681.1],[-702.4,675.9],[-616.6,672.1],[-575,670.9],[-561.6,673],[-451.9,671.7]];
+const AVM=[[-547.4,612.6],[-570,613.7],[-579.9,611.7],[-585.3,609.5],[-597.6,603.5],[-628.4,575.7],[-644.7,569],[-657,565.5],[-667.5,564.5]];
+const ENTRE=[[-913.7,573.9],[-923.6,583.4],[-927.4,588.3],[-931.8,598.6],[-932.5,603],[-932.4,623.5],[-930.7,653],[-926.1,663.7],[-921.9,670.4],[-914.2,677.7],[-903.5,684.2]];
+const CEV=[[-717.6,565.4],[-712.9,663.4],[-711.4,676]];
+/* la calle Virrey Cevallos pasa entre las dos plazas: se recortan 3 a 4 m de cada polígono para que entre la calzada */
+const clampX=(r,lo,hi)=>r.map(([x,z])=>[Math.min(hi,Math.max(lo,x)),z]);
+const PL_CONG=clampX(OSM_CONG,-2000,-722.5),PL_MOR=clampX(OSM_MOR,-707,0);
+const GRASS=OSM_GRASS.map(g=>g[0][0]<-714?clampX(g,-2000,-723.6):clampX(g,-706,0));
+const MX=-866,MZ=625;/* origen local del monumento: u hacia el este (x), v hacia el sur (z) */
+const MON=(u,v)=>[MX+u,MZ+v];
+const MOR_C=[-575.5,648],PEN_C=[-622,640],KM0=[-706.6,612],FMOR=[-667.5,618];
+const C={stone:[.95,.91,.82],stone2:[.84,.8,.71],gran:[.62,.6,.57],granR:[.66,.56,.52],granD:[.36,.35,.34],bronze:[.42,.36,.27],iron:[.09,.095,.1],wood:[.38,.28,.18],white:[.9,.9,.88],
+  pave:[1,1,1],grass:[1,1,1],vereda:[1,1,1],asph:[1,1,1],curb:[.7,.69,.66],flesh:[1,1,1],dark:[.12,.12,.13]};
+/* ================= monumento a los Dos Congresos ================= */
+function wallRing(k,ring,y0,y1,col,inward){let r=ring;const ccw=area2(r)>0;if(inward!==ccw)r=[...r].reverse();for(let i=0;i<r.length;i++){const p=r[i],q=r[(i+1)%r.length];quad(k,[p[0],y0,p[1]],[q[0],y0,q[1]],[q[0],y1,q[1]],[p[0],y1,p[1]],col);}}
+function ringTop(k,outer,inner,y,col){/* corona entre dos anillos de igual cantidad de puntos */for(let i=0;i<outer.length;i++){const j=(i+1)%outer.length;const a=outer[i],b=outer[j],c=inner[j],d=inner[i];
+  const t1=[[a[0],y,a[1]],[b[0],y,b[1]],[c[0],y,c[1]]];const cr=(b[1]-a[1])*(c[0]-a[0])-(b[0]-a[0])*(c[1]-a[1]);if(cr>0){tri(k,...t1,[0,1,0],col);tri(k,[a[0],y,a[1]],[c[0],y,c[1]],[d[0],y,d[1]],[0,1,0],col);}else{tri(k,[a[0],y,a[1]],[c[0],y,c[1]],[b[0],y,b[1]],[0,1,0],col);tri(k,[a[0],y,a[1]],[d[0],y,d[1]],[c[0],y,c[1]],[0,1,0],col);}}}
+const lb=(u0,v0,u1,v1,y0,y1,col=C.stone,k='stone')=>{const [x0,z0]=MON(u0,v0),[x1,z1]=MON(u1,v1);box(k,(x0+x1)/2,(y0+y1)/2,(z0+z1)/2,Math.abs(x1-x0),y1-y0,Math.abs(z1-z0),col);};
+function balustrade(a,b,y,h=1.0){/* barandal de balaustres entre dos puntos locales */const [ax,az]=MON(...a),[bx,bz]=MON(...b);const L=Math.hypot(bx-ax,bz-az),ang=Math.atan2(-(bz-az),bx-ax);const ux=(bx-ax)/L,uz=(bz-az)/L;
+  box('stone',(ax+bx)/2,y+.09,(az+bz)/2,L,.18,.5,C.stone2,ang);box('stone',(ax+bx)/2,y+h-.08,(az+bz)/2,L+.1,.16,.56,C.stone,ang);
+  for(let s=.3;s<L-.2;s+=.34){const x=ax+ux*s,z=az+uz*s;add('stone',BAL,mtx(x,y+.18,z,0,1,h-.34,1),C.stone);}
+  for(let s=0;s<=L+.01;s+=Math.max(2.5,L/Math.ceil(L/3.2))){box('stone',ax+ux*s,y+h/2,az+uz*s,.42,h,.42,C.stone2,ang);}}
+const BAL=(()=>{const pts=[[0,0],[.07,0],[.07,.05],[.05,.12],[.09,.38],[.05,.58],[.04,.62],[.07,.66],[.07,.7],[0,.7]].map(p=>new THREE.Vector2(p[0],p[1]));const g=new THREE.LatheGeometry(pts,8);g.scale(1,1/.7,1);return g;})();
+
+function bMonument(){CUR='base';
+  /* 1 · plataforma con ábside oeste y tres escalones alrededor (1,2 m) */
+  const plat=[[5,-21.5],[-28,-21.5],[-28,-10]];for(let i=1;i<16;i++){const a=-PI/2-i/16*PI;plat.push([-28+Math.cos(a)*10.5,Math.sin(a)*10.5]);}plat.push([-28,10],[-28,21.5],[5,21.5]);
+  const W=r=>r.map(p=>MON(p[0],p[1]));
+  slab('stone','stone',W(offsetRing(plat,1.3)),.15,.55,C.stone2,C.stone2);slab('stone','stone',W(offsetRing(plat,.65)),.55,.95,C.stone2,C.stone2);slab('stone','stone',W(plat),.95,1.35,C.stone,C.stone);
+  /* pedestales laterales (Asamblea del Año XIII al norte, Congreso de Tucumán al sur) */
+  for(const sg of [-1,1]){const [x,z]=MON(-15,25*sg);cyl('stone',x,.325,z,6.2,.35,C.stone2,'cyl20');cyl('stone',x,.675,z,4.6,.35,C.stone2,'cyl20');cyl('stone',x,1.85,z,3.1,2.0,C.stone,'cyl20');cyl('stone',x,3.0,z,3.5,.3,C.stone2,'cyl20');
+    const g=seated({book:sg<0,tablet:sg>0});g.position.set(x,3.15,z);g.rotation.y=sg<0?PI:0;g.scale.setScalar(2.4);flush('bronze',g,C.bronze);}
+  /* 2 · fuente: estanque semicircular hacia el este, borde de 0,8 m */
+  const outer=[[5,-16]];for(let i=0;i<=24;i++){const a=-PI/2+i/24*PI;outer.push([19+Math.cos(a)*16,Math.sin(a)*16]);}outer.push([5,16]);
+  const inner=outer.map(([u,v])=>[u===5?5.6:19+(u-19)*(15.3/16),v*(15.3/16)]);
+  wallRing('stone',W(outer),.15,.95,C.stone2,false);wallRing('stone',W(inner),.15,.95,C.stone2,true);ringTop('stone',W(outer),W(inner),.95,C.stone);
+  slab('granite',null,W(inner),0,.2,[.3,.32,.3],null);slab('water',null,W(inner),0,.72,[1,1,1],null);
+  /* 3 · cascada: tres piletas escalonadas entre las escaleras */
+  const T=[[-6,-3,3.75],[-3,0,3.0],[0,5,2.25]];
+  T.forEach(([u0,u1,y],i)=>{lb(u0,-5,u1,5,.15,y);lb(u0,-5,u1,-4.6,y,y+.35,C.stone2);lb(u0,4.6,u1,5,y,y+.35,C.stone2);lb(u1-.35,-4.6,u1,4.6,y,y+.3,C.stone2);
+    const [x0,z0]=MON(u0,-4.6),[x1,z1]=MON(u1-.35,4.6);quad('water',[x0,y+.24,z1],[x1,y+.24,z1],[x1,y+.24,z0],[x0,y+.24,z0],[1,1,1],null,'base',[0,1,0]);
+    /* mascarones de bronce en el borde de cada pileta */
+    for(const v of [-2.6,0,2.6]){const [x,z]=MON(u1+.05,v);add('bronze',GEO.sph6,mtx(x,y,z,0,.35,.45,.45),C.bronze);}});
+  /* 4 · escalinatas a los dos lados de la cascada, 8 alzadas de 0,375 m */
+  for(const sg of [-1,1])for(let i=0;i<8;i++){const y=1.35+.375*(i+1),u1=3-i*1.125,e=.003*i;lb(-6,sg>0?5.5+e:-14+e,u1,sg>0?14-e:-5.5-e,1.35,y);}
+  for(const sg of [-1,1])for(let i=0;i<8;i++){const y=1.35+.375*(i+1),u1=3-i*1.125;lb(u1-1.125,sg>0?14:-14.7,u1,sg>0?14.7:-14,1.35,y+.95,C.stone2);}
+  /* 5 · segundo cuerpo (terraza) a 4,35 m con barandal */
+  lb(-26,-15,-6,15,1.35,4.35,C.stone2);lb(-26.4,-15.4,-5.6,15.4,4.2,4.5,C.stone);
+  balustrade([-26,-15],[-6,-15],4.5);balustrade([-26,15],[-6,15],4.5);balustrade([-26,-15],[-26,15],4.5);balustrade([-6,-15],[-6,-14.2],4.5);balustrade([-6,15],[-6,14.2],4.5);
+  /* 6 · tercer cuerpo con relieves y la dedicatoria */
+  lb(-22,-8,-10,8,4.5,10.0);lb(-22.5,-8.5,-9.5,8.5,10.0,10.6,C.stone2);lb(-22.3,-8.3,-9.7,8.3,4.5,5.2,C.stone2);
+  for(const [u,v,ry] of [[-9.98,0,PI/2],[-22.02,0,-PI/2],[-16,-8.02,PI],[-16,8.02,0]]){const [x,z]=MON(u,v);const k=RELIEF;add(k,GEO.plane,mtx(x,7.6,z,ry,Math.abs(Math.sin(ry))>.5?14:10,3.2,1),[1,1,1]);}
+  /* 7 · pedestal y estatua de la República */
+  lb(-19,-4,-13,4,10.6,18.0);lb(-19.5,-4.5,-12.5,4.5,17.9,18.6,C.stone2);lb(-19.3,-4.3,-12.7,4.3,10.6,11.2,C.stone2);
+  for(const sg of [-1,1]){lb(-18.6,sg*4-.25,-13.4,sg*4+.25,11.2,17.9,C.stone2);}
+  const [rx,rz]=MON(-16,0);add('bronze',GEO.sph,mtx(rx,18.9,rz,0,4.4,1.6,3.6),C.bronze);
+  const rep=republic();rep.position.set(rx,19.4,rz);rep.rotation.y=PI/2;rep.scale.setScalar(3.5);flush('bronze',rep,C.bronze);
+  /* 8 · grupo de bronce al pie del tercer cuerpo: las dos figuras con la corona de laurel */
+  for(const sg of [-1,1]){const g=figure({arm:[[-1.2,.3,-.6],[-.4,.1,-.3]],robe:true});const [x,z]=MON(-8.6,sg*2.2);g.position.set(x,4.5,z);g.rotation.y=PI/2+sg*.25;g.scale.setScalar(2.2);flush('bronze',g,C.bronze);}
+  {const [x,z]=MON(-7.4,0);add('bronze',new THREE.TorusGeometry(.75,.14,6,20),mtx(x,7.6,z,PI/2),C.bronze);}
+  /* 9 · grupos de los ríos (Paraná y Uruguay) dentro del estanque */
+  for(const sg of [-1,1]){const [x,z]=MON(24,sg*11.5);add('granite',GEO.sph6,mtx(x,.5,z,R(0,3),5.2,2.4,4.2),[.5,.49,.46]);
+    const h=horse();h.position.set(x-.4,1.55,z);h.rotation.y=PI/2+sg*.35;h.scale.setScalar(1.7);flush('bronze',h,C.bronze);
+    const rg=reclining();rg.position.set(x+1.4,1.6,z-sg*1.2);rg.rotation.y=PI/2-sg*.5;rg.scale.setScalar(1.6);flush('bronze',rg,C.bronze);}
+  /* picos de los surtidores (secos) */
+  for(let i=0;i<9;i++){const a=-PI/2+(i+.5)/9*PI;const [x,z]=MON(19+Math.cos(a)*13,Math.sin(a)*13);cyl('bronze',x,.8,z,.09,.25,C.bronze);}
+  /* 10 · candelabros de cinco globos en las cuatro esquinas de la plataforma */
+  for(const [u,v] of [[1.6,19.6],[1.6,-19.6],[-27,19.6],[-27,-19.6]]){const [x,z]=MON(u,v);candelabra(x,1.35,z,u>0&&v<0?'dead':u<0&&v>0?'flk':'on');}
+  /* reflectores contra la República y la cascada */
+  for(const [u,v,m] of [[38,-26,'on'],[38,26,'flk'],[-40,-27,'on'],[-40,27,'dead'],[13,-9,'on'],[13,9,'on']]){const [x,z]=MON(u,v);flood(x,z,[rx,u===13?13:21,rz],m,18);}}
+let RELIEF=null;/* se crea en init */
+const reliefTex=canvasTex(1024,224,(g,w,h)=>{g.fillStyle='#b8ae96';g.fillRect(0,0,w,h);noise(g,w,h,9000,.2,60,230,2);g.strokeStyle='#8c8470';g.lineWidth=8;g.strokeRect(6,6,w-12,h-12);
+  for(let i=0;i<14;i++){const x=60+i*68+Math.random()*10,y=h*.25;const sh=(ox,oy,rx,ry)=>{g.fillStyle='rgba(60,55,45,.45)';g.beginPath();g.ellipse(x+ox+5,y+oy+5,rx,ry,0,0,7);g.fill();g.fillStyle='#d8cfb6';g.beginPath();g.ellipse(x+ox,y+oy,rx,ry,0,0,7);g.fill();};
+    sh(0,0,11,13);sh(0,48,20,34);sh(-6,110,14,32);sh(10,108,12,30);sh(18,40,6,26);}},false);
+
+/* ================= estatuas (figuras simplificadas, escala 1 ≈ 1,8 m) ================= */
+const LATHE=(pts,seg=12)=>new THREE.LatheGeometry(pts.map(p=>new THREE.Vector2(p[0],p[1])),seg);
+const G_ROBE=LATHE([[0,0],[.34,0],[.33,.08],[.27,.5],[.21,.95],[.18,1.08],[0,1.08]]);
+const G_TORSO=LATHE([[0,0],[.17,0],[.2,.18],[.21,.32],[.15,.44],[0,.44]],10);
+const G_HEAD=new THREE.SphereGeometry(.11,10,8),G_LIMB=new THREE.CylinderGeometry(.055,.045,1,7),G_HAND=new THREE.SphereGeometry(.05,6,5);
+function mk(parent,geo,x,y,z,rx=0,ry=0,rz=0,sx=1,sy=1,sz=1){const m=new THREE.Mesh(geo);m.position.set(x,y,z);m.rotation.set(rx,ry,rz);m.scale.set(sx,sy,sz);parent.add(m);return m;}
+function arm(parent,side,pitch,roll,elbow,len=1){const s=new THREE.Group();s.position.set(side*.22,1.42,0);s.rotation.set(pitch,0,roll*side);parent.add(s);
+  mk(s,G_LIMB,0,-.15*len,0,0,0,0,1.05,.3*len,1.05);const e=new THREE.Group();e.position.y=-.3*len;e.rotation.x=elbow;s.add(e);mk(e,G_LIMB,0,-.14*len,0,0,0,0,.9,.28*len,.9);mk(e,G_HAND,0,-.3*len,0);return e;}
+function figure(o={}){const g=new THREE.Group();if(o.robe!==false)mk(g,G_ROBE,0,0,0,0,0,0,1,1,.78);mk(g,G_TORSO,0,1.02,0,0,0,0,1,1,.72);mk(g,G_LIMB,0,1.5,0,0,0,0,1,.12,1);mk(g,G_HEAD,0,1.66,.01,0,0,0,.9,1.1,1);
+  mk(g,new THREE.SphereGeometry(.09,8,6),0,1.7,-.07);/* rodete del pelo */const A=o.arm||[[.1,.15,0],[.1,.15,0]];arm(g,1,A[0][0],A[0][1],A[0][2]);arm(g,-1,A[1][0],A[1][1],A[1][2]);return g;}
+function republic(){const g=figure({arm:[[-2.75,.25,-.15],[-.7,.35,-.2]]});
+  /* rama de laurel en alto */const br=new THREE.Group();br.position.set(.28,2.36,.05);g.add(br);mk(br,G_LIMB,0,.25,0,0,0,.2,.35,.6,.35);for(let i=0;i<10;i++)mk(br,new THREE.SphereGeometry(.05,5,4),.05*Math.sin(i*2.1)+.03,.1+i*.05,.04*Math.cos(i*2.1),0,0,0,.6,1.4,.4);
+  /* manto al viento */const cape=new THREE.PlaneGeometry(.7,1.2,6,8);const p=cape.attributes.position;for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i);p.setZ(i,-.25-.18*Math.sin((x+.35)*3)-(.6-y)*.12);}cape.computeVertexNormals();
+  const c=mk(g,cape,-.05,1.0,-.05,0,0,.12);c.userData.k='bronze';
+  /* escudo en la izquierda */mk(g,new THREE.CylinderGeometry(.24,.24,.04,14),-.42,.95,.25,PI/2,0,.3);return g;}
+function seated(o={}){const g=new THREE.Group();mk(g,GEO.box,0,.22,-.05,0,0,0,.6,.44,.6);/* asiento */
+  mk(g,LATHE([[0,0],[.3,0],[.3,.3],[.2,.55],[0,.55]],10),0,.44,-.1,0,0,0,1,1,.8);mk(g,G_TORSO,0,.75,-.12,-.08,0,0,1,1,.72);mk(g,G_LIMB,0,1.23,-.14,0,0,0,1,.12,1);mk(g,G_HEAD,0,1.39,-.12,0,0,0,.9,1.1,1);
+  /* falda sobre las rodillas */mk(g,GEO.box,0,.42,.22,-.1,0,0,.55,.18,.55);mk(g,GEO.box,0,.2,.45,0,0,0,.52,.42,.12);
+  const s=new THREE.Group();s.position.y=-.27;g.add(s);arm(s,1,-.5,.15,-.9);arm(s,-1,-.3,.1,-1.2);
+  if(o.book)mk(g,GEO.box,.12,.62,.3,-.6,0,.2,.26,.04,.2);if(o.tablet)mk(g,GEO.box,-.32,.7,.15,0,0,.15,.05,.5,.36);return g;}
+function horse(){/* caballo encabritado */const g=new THREE.Group();const b=new THREE.Group();b.rotation.x=-.55;g.add(b);
+  mk(b,new THREE.SphereGeometry(.5,12,9),0,0,0,0,0,0,.62,.6,1.25);mk(b,new THREE.CylinderGeometry(.16,.24,.75,8),0,.42,.55,-.45);mk(b,new THREE.CylinderGeometry(.09,.15,.48,8),0,.68,.92,-1.25,0,0,1,1,1);
+  mk(b,GEO.box,0,.9,.82,.25,0,0,.06,.5,.18);/* crin */for(const s of [-1,1]){mk(b,GEO.cone,s*.07,.86,.72,-.3,0,0,.06,.14,.06);/* orejas */}
+  const leg=(x,z,a1,a2,y=-.2)=>{const l=new THREE.Group();l.position.set(x,y,z);l.rotation.x=a1;b.add(l);mk(l,G_LIMB,0,-.25,0,0,0,0,1.6,.5,1.6);const k=new THREE.Group();k.position.y=-.5;k.rotation.x=a2;l.add(k);mk(k,G_LIMB,0,-.24,0,0,0,0,1.1,.48,1.1);mk(k,G_HAND,0,-.5,0,0,0,0,1.6,1,1.6);};
+  leg(.17,.45,-1.1,1.6);leg(-.17,.45,-.8,1.9);leg(.17,-.45,.55,-.1,-.15);leg(-.17,-.45,.35,0,-.15);
+  mk(b,new THREE.CylinderGeometry(.03,.1,.7,6),0,-.05,-.78,.9);return g;}
+function reclining(){/* dios fluvial recostado con su ánfora */const g=new THREE.Group();const t=new THREE.Group();t.rotation.x=-1.05;g.add(t);mk(t,G_TORSO,0,0,0,0,0,0,1.1,1.1,.8);mk(t,G_HEAD,0,.62,.04,.4,0,0,1,1.1,1);mk(t,new THREE.SphereGeometry(.12,8,6),0,.6,.08);/* barba */
+  for(const s of [-1,1]){const l=new THREE.Group();l.position.set(s*.11,0,0);l.rotation.set(-PI/2+.3*s,0,.1*s);g.add(l);mk(l,G_LIMB,0,-.25,0,0,0,0,1.8,.5,1.8);mk(l,G_LIMB,0,-.7,.1,-.2,0,0,1.3,.45,1.3);}
+  mk(g,LATHE([[0,0],[.12,0],[.2,.15],[.18,.3],[.08,.38],[.1,.44],[0,.44]],10),.45,.1,.3,PI/2.3,0,-.4);arm(t,1,-.4,.6,-.4,.9);arm(t,-1,.4,.3,-.8,.9);return g;}
+function thinker(){/* El Pensador: sentado, codo derecho sobre la rodilla izquierda */const g=new THREE.Group();mk(g,GEO.box,0,.22,-.05,0,0,0,.7,.44,.62);
+  for(const s of [-1,1]){mk(g,G_LIMB,s*.12,.5,.15,PI/2,0,0,2,.48,2);mk(g,G_LIMB,s*.12,.25,.4,.15,0,0,1.6,.5,1.6);}
+  const t=new THREE.Group();t.position.set(0,.5,-.08);t.rotation.set(.62,0,-.08);g.add(t);mk(t,G_TORSO,0,0,0,0,0,0,1.15,1.1,.85);mk(t,G_LIMB,0,.5,.02,0,0,0,1.2,.14,1.2);mk(t,G_HEAD,0,.62,.08,.55,0,0,.9,1.05,1);
+  const s=new THREE.Group();s.position.y=-.92;t.add(s);arm(s,1,-1.05,-.35,-2.2,1.1);arm(s,-1,-.75,.2,-.9,1.1);return g;}
+
+/* ================= reja perimetral del monumento (2006) ================= */
+function bFence(){CUR='base';const ring=roundRect(-44,-32,40,32,8,6).map(p=>MON(p[0],p[1]));const gates=[[MX+40,MZ,2.6],[MX-44,MZ,2.6]];
+  const bar=new THREE.BoxGeometry(.028,1,.028),tip=new THREE.ConeGeometry(.04,.16,4);const H=2.3;
+  for(let i=0;i<ring.length;i++){const p=ring[i],q=ring[(i+1)%ring.length];const L=Math.hypot(q[0]-p[0],q[1]-p[1]);if(L<.01)continue;const ang=Math.atan2(-(q[1]-p[1]),q[0]-p[0]);const ux=(q[0]-p[0])/L,uz=(q[1]-p[1])/L;
+    const cuts=[];gates.forEach(([gx,gz,w])=>{const t=(gx-p[0])*ux+(gz-p[1])*uz;const d=Math.abs(-(gx-p[0])*uz+(gz-p[1])*ux);if(d<1&&t>-w&&t<L+w)cuts.push([t-w,t+w]);});
+    const cut=s=>cuts.some(([c0,c1])=>s>c0&&s<c1);
+    for(let s=0;s<=L;s+=.13){if(cut(s))continue;const x=p[0]+ux*s,z=p[1]+uz*s;add('iron',bar,mtx(x,.15+H/2,z,0,1,H,1),C.iron);add('iron',tip,mtx(x,.15+H+.08,z),C.iron);}
+    const segRun=(a,b)=>{const xa=p[0]+ux*a,za=p[1]+uz*a,xb=p[0]+ux*b,zb=p[1]+uz*b,l=b-a;if(l<.05)return;box('iron',(xa+xb)/2,.6,(za+zb)/2,l,.05,.05,C.iron,ang);box('iron',(xa+xb)/2,H-.05,(za+zb)/2,l,.05,.05,C.iron,ang);box('granite',(xa+xb)/2,.3,(za+zb)/2,l,.3,.34,C.gran,ang);};
+    let a=0;cuts.sort((x,y)=>x[0]-y[0]).forEach(([c0,c1])=>{segRun(a,Math.max(a,Math.min(L,c0)));a=Math.max(a,c1);});segRun(Math.min(a,L),L);
+    for(let s=0;s<L;s+=2.6){if(cut(s))continue;cyl('iron',p[0]+ux*s,.15+(H+.2)/2,p[1]+uz*s,.05,H+.2,C.iron,'cyl6');}}
+  for(const [gx,gz,w] of gates){const sg=gx>MX?1:-1;for(const s of [-1,1])cyl('iron',gx,1.4,gz+s*w,.09,2.7,C.iron,'cyl6');
+    const leaf=(cx,cz,ang)=>{for(let k=0;k<20;k++){const t=-1.25+k*.13;add('iron',bar,mtx(cx+Math.cos(ang)*t,.15+1.2,cz-Math.sin(ang)*t,0,1,2.4,1),C.iron);}box('iron',cx,1.2,cz,2.6,.05,.05,C.iron,ang);box('iron',cx,2.4,cz,2.6,.05,.05,C.iron,ang);};
+    leaf(gx,gz-w/2,PI/2);leaf(gx+sg*1.0,gz+w-.5,sg>0?.75:PI-.75);}}
+
+/* ================= Plaza Mariano Moreno ================= */
+function bMoreno(){CUR='base';const [x,z]=MOR_C;
+  cyl('granite',x,.25,z,4.6,.2,C.granR,'cyl20');cyl('granite',x,.45,z,4.0,.2,C.granR,'cyl20');cyl('granite',x,.65,z,3.4,.2,C.granR,'cyl20');
+  box('granite',x,1.0,z,3.1,.5,3.1,C.granR);box('granite',x,3.2,z,2.5,4.0,2.5,C.granR);box('granite',x,5.35,z,3.0,.35,3.0,C.granR);box('granite',x,5.65,z,2.6,.25,2.6,C.granR);
+  box('bronze',x+1.27,4.2,z,.06,.5,1.7,C.bronze);/* placa */add(textKey(['MARIANO MORENO','1778 – 1811'],{col:'#d8c48a',fs:60,font:'Georgia, serif',wt:400}),GEO.plane,mtx(x+1.31,4.2,z,PI/2,1.6,.48,1),[1,1,1]);
+  const m=figure({arm:[[-.45,.2,-1.9],[.05,.12,-.3]],robe:true});m.position.set(x,5.78,z);m.rotation.y=PI/2;m.scale.setScalar(1.8);flush('bronze',m,C.bronze);
+  add('bronze',GEO.box,mtx(x+.25,5.78+1.15*1.8*.5,z-.5,0,.1,.5,.3,0,.3),C.bronze);/* rollo en la izquierda */
+  const al=seated({book:true});al.position.set(x+2.05,.75,z);al.rotation.y=PI/2;al.scale.setScalar(1.55);flush('bronze',al,C.bronze);box('granite',x+2.0,.95,z,1.3,.4,1.6,C.granR);
+  flood(x+9,z-6,[x,6.5,z],'on',12);flood(x+9,z+6,[x,6.5,z],'flk',12);
+  /* El Pensador (fundición original de Rodin) sobre pedestal alto */
+  {const [px,pz]=PEN_C;box('granite',px,.35,pz,2.4,.4,1.8,C.granD);box('granite',px,1.85,pz,1.7,2.6,1.25,C.granD);box('granite',px,3.25,pz,1.95,.22,1.45,C.granD);
+    const t=thinker();t.position.set(px,3.36,pz);t.rotation.y=-PI/2;t.scale.setScalar(1.6);flush('bronze',t,C.bronze);
+    for(let i=0;i<28;i++){const a=i/28*2*PI;cyl('iron',px+Math.cos(a)*3.4,.65,pz+Math.sin(a)*3.4,.025,1.0,C.iron,'cyl6');}add('iron',new THREE.TorusGeometry(3.4,.03,4,40),mtx(px,1.12,pz,0,1,1,1,PI/2),C.iron);
+    flood(px-7,pz+3,[px,4,pz],'on',9);flood(px+6,pz-4,[px,4,pz],'on',9);}
+  {const [kx,kz]=KM0;flood(kx+3.5,kz+3.5,[kx,1.8,kz],'flk',7);}
+  /* Kilómetro Cero (hermanos Fioravanti, 1935), sobre Virrey Cevallos */
+  {const [kx,kz]=KM0;box('granite',kx,.3,kz,1.3,.3,2.6,C.granD);box('granite',kx,1.75,kz,.7,2.6,1.7,[.55,.53,.5]);box('granite',kx,3.1,kz,.8,.12,1.85,[.5,.48,.45]);
+    box('bronze',kx-.36,2.05,kz,.05,1.5,1.2,C.bronze);add(textKey(['KM','0'],{col:'#fff0b8',fs:110,font:'Georgia, serif',wt:700}),GEO.plane,mtx(kx-.39,2.2,kz,-PI/2,.9,.6,1),[1,1,1]);
+    add(textKey(['RUTAS NACIONALES'],{col:'#fff0b8',fs:44,font:'Georgia, serif',wt:400,w:512,h:96}),GEO.plane,mtx(kx-.39,1.55,kz,-PI/2,1.0,.19,1),[1,1,1]);}
+  /* fuente chica del círculo central (dañada por la vibración del subte) */
+  {const [fx,fz]=FMOR;const o=circleRing(fx,fz,4.4,28),i2=circleRing(fx,fz,4.0,28);wallRing('stone',o,.28,.85,C.stone2,false);wallRing('stone',i2,.28,.85,C.stone2,true);ringTop('stone',o,i2,.85,C.stone);
+    slab('water',null,i2,0,.45,[1,1,1],null);cyl('stone',fx,1.1,fz,.4,1.6,C.stone,'cyl');add('stone',LATHE([[0,0],[.3,0],[1.3,.25],[1.35,.38],[0,.32]],18),mtx(fx,1.75,fz),C.stone);
+    box('stone',fx+3.2,.9,fz+2.1,1.4,.3,.4,C.stone2,.6,0,.4);/* borde partido */}}
+
+
+function palm(x,z){CUR='base';CIR(x,z,.45);const h=R(3.2,4);add('bark',GEO.cyl,mtx(x,.2+h/2,z,0,.75,h,.75),[.8,.75,.68]);for(let i=0;i<10;i++)cyl('bark',x,.6+i*h/10,z,.42,.12,[.6,.55,.5],'cyl6',i);
+  const b=bat('base','frond');for(let f=0;f<22;f++){const a=f/22*2*PI+R(0,.2),el=R(.2,1.1);let p=new V3(x,.2+h,z);let dir=new V3(Math.cos(a)*Math.cos(el),Math.sin(el),Math.sin(a)*Math.cos(el));const side=new V3(-Math.sin(a),0,Math.cos(a)).multiplyScalar(.35);
+    for(let s=0;s<6;s++){const q=p.clone().addScaledVector(dir,.55);dir.y-=.22;dir.normalize();const v0=s/6,v1=(s+1)/6,w0=1-s/8,w1=1-(s+1)/8;
+      const P=[p.clone().addScaledVector(side,-w0),p.clone().addScaledVector(side,w0),q.clone().addScaledVector(side,w1),q.clone().addScaledVector(side,-w1)];const UV=[[0,v0],[1,v0],[1,v1],[0,v1]];
+      for(const k of [0,1,2,0,2,3]){b.P.push(P[k].x,P[k].y,P[k].z);b.N.push(0,1,0);b.U.push(...UV[k]);b.C.push(1,1,1);}p=q;}}}
+
+function farol(x,z,mode,grp='base'){CUR=grp;CIR(x,z,.24);cyl('iron',x,.45,z,.2,.6,C.iron,'cyl');cyl('iron',x,2.3,z,.075,3.4,C.iron,'cyl6');cyl('iron',x,.9,z,.13,.25,C.iron,'cyl6');cyl('iron',x,3.95,z,.14,.12,C.iron,'cyl6');
+  const k=mode==='on'?'lampOn':mode==='flk'?'lampFlk':'glassDark';add(k,new THREE.CylinderGeometry(.27,.17,.6,4),mtx(x,4.35,z,PI/4),mode==='dead'?C.dark:[1,1,1]);add('iron',GEO.cone4,mtx(x,4.78,z,PI/4,.66,.28,.66),C.iron);cyl('iron',x,4.98,z,.04,.2,C.iron,'cyl6');
+  if(mode!=='dead')lamp(x,4.35,z,0xffc77a,2.3,8.5,{mode,sz:1.3,group:grp});}
+function candelabra(x,y,z,mode){CUR='base';OBS(x-.46,z-.46,x+.46,z+.46,y-.15+5);box('stone',x,y+.4,z,.9,.8,.9,C.stone2);cyl('iron',x,y+2.5,z,.1,3.4,C.iron,'cyl6');const k=mode==='on'?'lampOn':mode==='flk'?'lampFlk':'glassDark';
+  for(let i=0;i<4;i++){const a=i*PI/2+PI/4,ex=x+Math.cos(a)*.75,ez=z+Math.sin(a)*.75;rod('iron',[x,y+3.6,z],[ex,y+3.9,ez],.035,C.iron);add(k,GEO.sph,mtx(ex,y+4.15,ez,0,.44,.44,.44),mode==='dead'?C.dark:[1,1,1]);}
+  add(k,GEO.sph,mtx(x,y+4.55,z,0,.5,.5,.5),mode==='dead'?C.dark:[1,1,1]);if(mode!=='dead')lamp(x,y+4.2,z,0xfff0d8,3.2,11,{mode,sz:2.2});}
+
+function flood(x,z,target,mode,rad=14){CUR='base';const d=new V3(target[0]-x,target[1]-.6,target[2]-z).normalize();box('iron',x,.3,z,.5,.3,.4,C.iron);add(mode==='dead'?'glassDark':'lampOn',GEO.box,mtx(x,.55,z,Math.atan2(-d.z,d.x)+PI/2,.42,.32,.12,-.5),mode==='dead'?C.dark:[1,1,1]);
+  if(mode!=='dead')lamp(x,.7,z,0xfff1d6,9,rad,{dir:[d.x,d.y,d.z],cone:Math.cos(17*PI/180),mode,sz:.8});}
+
+/* ================= bancos, cestos y equipamiento ================= */
+function bench(x,z,ry){CUR='base';{const q=((ry%(PI/2))+PI/2)%(PI/2);if(q<.01||q>PI/2-.01){const al=Math.abs(Math.cos(ry))>.5;OBS(x-(al?1:.38),z-(al?.38:1),x+(al?1:.38),z+(al?.38:1),.86);}else{const c=Math.cos(ry),s=Math.sin(ry);CIR(x+c*.65,z-s*.65,.42);CIR(x-c*.65,z+s*.65,.42);}}const c=Math.cos(ry),s=Math.sin(ry);const P=(a,b)=>[x+c*a+s*b,z-s*a+c*b];
+  for(const a of [-.8,.8]){const [px,pz]=P(a,0);box('iron',px,.57,pz,.06,.84,.62,C.iron,ry);}
+  for(let i=0;i<4;i++){const [px,pz]=P(0,-.22+i*.13);box('wood',px,.61,pz,1.9,.04,.1,C.wood,ry);}
+  for(let i=0;i<3;i++){const [px,pz]=P(0,.3+i*.025);box('wood',px,.77+i*.14,pz,1.9,.1,.035,C.wood,ry,-.18);}}
+function bFurniture(){
+  for(let x=-806;x<=-746;x+=10){bench(x,589.5,0);bench(x,654,PI);}
+  for(let z=606;z<=638;z+=10){bench(-811.6,z,-PI/2);bench(-738,z,PI/2);}
+  for(let i=0;i<8;i++){const a=i/8*2*PI;bench(FMOR[0]+Math.cos(a)*16.2,FMOR[1]+Math.sin(a)*16.2,-a-PI/2);}
+  for(const [x,z,r] of [[-606,622,PI],[-640,652,0],[-588,618,PI],[-562,660,.6],[-700,640,-PI/2],[-690,575,PI]])bench(x,z,r);
+  /* cestos */for(const [x,z] of [[-800,588],[-760,656],[-678,600],[-600,621],[-915,598]]){CIR(x,z,.3);cyl('iron',x,.6,z,.28,.9,[.18,.3,.22],'cyl');}}
+
+/* ================= estado ABANDONO: campamento, vallas, carteles, basura ================= */
+let _tk={};function textKey(lines,o){const id=JSON.stringify([lines,o]);return _tk[id]||(_tk[id]=texMat(textTex(lines,o)));}
+function valla(x,z,ry,tip=0){const c=Math.cos(ry),s=Math.sin(ry);const P=(a,b,y)=>[x+c*a,y,z-s*a];const H=1.1,Lh=1.2;
+  const g=new THREE.Group();g.position.set(x,.15,z);g.rotation.set(0,ry,tip);
+  const k=m=>{m.userData.k='iron';m.userData.col=[.55,.57,.58];return m;};
+  k(mk(g,GEO.box,0,H,0,0,0,0,2.4,.05,.05));k(mk(g,GEO.box,0,.25,0,0,0,0,2.4,.05,.05));for(let i=0;i<=12;i++)k(mk(g,GEO.box,-1.2+i*.2,.62,0,0,0,0,.025,.8,.025));
+  for(const a of [-1.2,1.2]){k(mk(g,GEO.box,a,.6,0,0,0,0,.05,1.15,.05));k(mk(g,GEO.box,a,.05,0,0,0,0,.06,.06,.7));}flush('iron',g,[.55,.57,.58]);const ca=Math.abs(Math.cos(ry)),sa=Math.abs(Math.sin(ry)),ex=ca*1.25+sa*.35,ez=sa*1.25+ca*.35;OBS(x-ex,z-ez,x+ex,z+ez,tip?.5:1.1);}
+function tent(x,z,col,r=1.4){OBS(x-r*.85,z-r*.7,x+r*.85,z+r*.7,1.05);add('cloth',new THREE.SphereGeometry(1,12,6,0,2*PI,0,PI/2),mtx(x,.15,z,R(0,3),r,1.05,r*.8),col);for(const a of [0,PI/2])add('iron',new THREE.TorusGeometry(1,.012,3,16,PI),mtx(x,.15,z,a,r,1.05,r*.8),C.iron);}
+function bAbandon(){CUR='aban';
+  /* campamento de protesta abandonado, sobre la explanada norte del sector este */
+  tent(-792,594,[.2,.35,.6]);tent(-787.5,596.5,[.75,.45,.15],1.2);tent(-781,593.8,[.25,.5,.25],1.5);tent(-770,597,[.6,.15,.15],1.1);
+  /* lona azul sobre cuatro palos */const l=[[-778,590],[-772,590],[-772,598],[-778,598]];l.forEach(([x,z])=>CIR(x,z,.1));l.forEach(([x,z])=>cyl('wood',x,1.2,z,.04,2.2,C.wood,'cyl6'));
+  const lc=[.18,.32,.62];quad('cloth',[-778,2.3,590],[-772,2.1,590],[-772,1.7,598.3],[-778,1.9,598.3],lc);
+  box('cloth',-775,.22,594,1.9,.14,.9,[.5,.48,.45]);box('cloth',-773.6,.22,595.2,1.9,.12,.9,[.42,.4,.36],.5);/* colchones */
+  CIR(-768,592,.36);cyl('iron',-768,.55,592,.3,.8,[.25,.2,.17],'cyl');lamp(-768,1.35,592,0xff7a26,2.6,7,{mode:'flk',sz:1.5,group:'aban'});/* tacho con fuego */
+  for(let i=0;i<10;i++)box('plain',R(-794,-766),.19,R(589,600),R(.4,.9),.04,R(.3,.6),[.55,.45,.32],R(0,3));/* cartones */
+  /* carteles colgados de la reja */
+  const ban=(u,v,ang,lines,col,bg)=>{const [x,z]=MON(u,v);add(textKey(lines,{bg,col,fs:64,dirty:true,drip:true,skew:R(-.05,.05)}),GEO.plane,mtx(x,1.45,z,ang,3.6,1.6,1,0,R(-.06,.06)),[1,1,1]);};
+  ban(10,-32.12,PI,['¿DÓNDE ESTÁN','TODOS?'],'#1a1a1a','#e9e4d6');ban(-20,-32.12,PI,['NO TOMEN','EL AGUA'],'#8a0f14','#ddd6c4');ban(-4,32.12,0,['NOS DEJARON','ACÁ'],'#111','#e2dccb');
+  /* pintada en el tercer cuerpo del monumento */
+  {const [x,z]=MON(-16,-8.04);add(textKey(['EL CONGRESO','RESPIRA'],{col:'#b0121c',fs:92,drip:true,skew:-.04}),GEO.plane,mtx(x,6.4,z,PI,6.4,2.6,1),[1,1,1]);}
+  {const [x,z]=MON(-22.04,0);add(textKey(['NO SE ACERQUEN'],{col:'#d8d8d0',fs:78,drip:true,skew:.05}),GEO.plane,mtx(x,6,z,-PI/2,7,1.8,1),[1,1,1]);}
+  /* vallas antidisturbios: una fila sobre Entre Ríos y otras tiradas */
+  for(let z=598;z<=652;z+=2.6){const t=rnd()<.2?R(.8,1.5)*(rnd()<.5?-1:1):0;valla(-919.5+R(-.3,.3),z,PI/2+R(-.08,.08),t);}
+  for(const [x,z,r,t] of [[-735,600,.4,0],[-737,603,.6,1.5],[-702.5,590,0,0],[-702.5,593,.1,-1.4],[-845,662,.3,0],[-659,662,1.2,1.5],[-700,602,PI/2,0]])valla(x,z,r,t);
+  /* farol caído y cesto volcado */
+  CUR='aban';rod('iron',[-760,.3,656],[-757.2,.35,652.8],.075,C.iron);add('glassDark',new THREE.CylinderGeometry(.27,.17,.6,4),mtx(-757,.35,652.5,.8,1,1,1,0,PI/2),C.dark);
+  cyl('iron',-678.5,.4,601.5,.28,.9,[.18,.3,.22],'cyl',0,PI/2);
+  /* papeles y bolsas por todo el piso */
+  for(let i=0;i<520;i++){const x=R(-925,-555),z=R(575,676);if(!inPoly(x,z,PL_CONG)&&!inPoly(x,z,PL_MOR))continue;if(inPoly(x,z,OSM_DOS))continue;const g=GRASS.some(g=>inPoly(x,z,g));
+    box('plain',x,(g?.21:.16),z,R(.15,.32),.004,R(.2,.3),rnd()<.8?[.82,.8,.74]:[.3,.3,.32],R(0,3));}
+  for(let i=0;i<26;i++){const x=R(-920,-560),z=R(578,672);if(!inPoly(x,z,PL_CONG)&&!inPoly(x,z,PL_MOR))continue;add('cloth',GEO.sph6,mtx(x,.35,z,R(0,3),.6,.45,.5),[.08,.08,.09]);}
+  /* hojas y agua estancada en la fuente: espuma verde */
+  for(let i=0;i<60;i++){const a=R(-PI/2,PI/2),r=R(0,14);const [x,z]=MON(19+Math.cos(a)*r,Math.sin(a)*r);box('plain',x,.735,z,R(.3,1.2),.005,R(.2,.8),[.25,.32,.12],R(0,3));}}
+
+/* ================= estado MUTACIÓN ================= */
+function bMutation(){CUR='mut';const fc=(x,y,z)=>{const v=.75+.25*Math.sin(x*1.3+z*.7);return [v,v*.92,v*.95];};
+  /* tentáculos que vienen del Congreso (oeste), cruzan Entre Ríos y trepan el monumento */
+  const [rx,rz]=MON(-16,0);
+  const paths=[[[-960,.2,612],[-930,.6,616],[-905,.5,620],[-888,1.6,617],[-879,4.6,615],[-872,8.5,617],[rx+1,15,rz-2.5],[rx+.4,19.5,rz-.8]],
+    [[-962,.2,640],[-932,.5,636],[-908,.4,632],[-892,1.5,633],[-884,4.6,632],[-875,7.5,630],[rx+2,14,rz+3],[rx+.6,19,rz+1]],
+    [[-958,.2,600],[-925,.4,598],[-890,.4,596],[-868,.4,597],[-850,.4,600],[-838,.6,606]],
+    [[-955,.2,655],[-930,.4,662],[-900,.4,664],[-870,.5,661],[-842,.5,650],[-834,.7,640]],
+    [[-920,.3,626],[-900,1.5,626],[-891,4.6,624.5],[-884,8.9,625],[-878,12.5,625.5]]];
+  paths.forEach((p,i)=>taperTube('flesh',p,i<2?1.25:1.0,.18,fc,10,48));
+  /* raíces finas que laten sobre la baldosa */
+  for(let i=0;i<22;i++){let x=R(-916,-830),z=R(588,663);const pts=[[x,.2,z]];let a=R(0,2*PI);for(let k=0;k<6;k++){a+=R(-.6,.6);x+=Math.cos(a)*R(3,7);z+=Math.sin(a)*R(3,7);pts.push([x,.2+R(0,.08),z]);}if(pts.every(([px,,pz])=>inPoly(px,pz,OSM_CONG)))taperTube('vein',pts,R(.06,.12),.02,[.5,.1,.12],5,18);}
+  /* masa que sube por las piernas de la República y bolsas colgando de la terraza */
+  for(let i=0;i<16;i++){const a=R(0,2*PI),r=R(.6,2.6);add('flesh',GEO.sph,mtx(rx+Math.cos(a)*r,19+R(0,2.2),rz+Math.sin(a)*r*.8,R(0,3),R(1,2.2),R(.8,1.8),R(1,2)),fc);}
+  for(let i=0;i<9;i++){const [x,z]=MON(R(-26,-6),pick([-15.6,15.6]));add('flesh',GEO.sph,mtx(x,R(2.6,3.6),z,0,R(.6,.9),R(1.4,2.2),R(.6,.9)),fc);rod('vein',[x,4.4,z],[x,3.6,z],.05,[.5,.1,.12]);}
+  for(let i=0;i<10;i++){const p=roundRect(-44,-32,40,32,8,6);const q=pick(p);const [x,z]=MON(q[0],q[1]);add('flesh',GEO.sph,mtx(x,R(.8,1.8),z,0,R(.5,.8),R(.9,1.4),R(.5,.8)),fc);}
+  /* cascada de sangre */
+  const T=[[-6,-3,3.75],[-3,0,3.0],[0,5,2.25]];T.forEach(([u0,u1,y],i)=>{const nx=i<2?T[i+1][2]:.72;const [x,z0]=MON(u1+.06,-4.2),[,z1]=MON(u1+.06,4.2);quad('blood',[x,nx,z0],[x,nx,z1],[x,y+.25,z1],[x,y+.25,z0],[.5,.04,.06],null,'mut',[1,0,0]);});
+  /* Moreno: un tentáculo abraza el pedestal */
+  {const [x,z]=MOR_C;const p=[];for(let k=0;k<=14;k++){const a=k*.85,y=.3+k*.36;p.push([x+Math.cos(a)*(1.75-k*.02),y,z+Math.sin(a)*(1.75-k*.02)]);}p.unshift([x-9,.25,z+6]);taperTube('flesh',p,.55,.12,fc,8,60);}
+  /* luces rojas que laten */
+  [[-880,2,616],[-874,17,625],[-905,1,640],[-842,1.2,646]].forEach(([x,y,z])=>lamp(x,y,z,0xff1c2c,1.3,6,{mode:'pulse',group:'mut',sz:1.2}));}
+
+
+  /* ================= materiales ================= */
+  function mats(){if(MATS.stone)return;
+    Object.assign(MATS,{
+      stone:wet(std({map:TX.stone,roughness:.82},1/3.6)),granite:wet(std({map:TX.granite,roughness:.6},1/2)),
+      bronze:wet(std({map:TX.bronze,roughness:.42,metalness:.6},1/1.4)),iron:wet(std({roughness:.5,metalness:.5})),plain:std({}),paint:std({roughness:.7}),
+      wood:std({roughness:.8}),bark:std({map:TX.bark},1/1.4),frond:std({map:TX.frond,alphaTest:.45,side:THREE.DoubleSide}),tuft:std({map:TX.tuft,alphaTest:.45,side:THREE.DoubleSide}),
+      lampOn:std({emissive:0xffd9a0,emissiveIntensity:2.2,roughness:.3}),lampFlk:std({emissive:0xffd9a0,emissiveIntensity:2.2,roughness:.3}),glassDark:std({roughness:.15,metalness:.6}),
+      /* el estanque con la mutación: agua estancada teñida de sangre */
+      water:std({color:0x3a0a0c,roughness:.06,metalness:.45}),
+      flesh:std({map:TX.flesh,roughness:.32,metalness:.05,side:THREE.DoubleSide},1/2.2),vein:std({color:0x4a0c10,emissive:0x8a0c16,emissiveIntensity:.5,roughness:.3,side:THREE.DoubleSide}),
+      cloth:std({side:THREE.DoubleSide,roughness:.9}),blood:std({color:0x4a0507,emissive:0x1a0000,roughness:.05,metalness:.3,side:THREE.DoubleSide})});}
+
+  /* ================= focos horneados, destellos y manchas de luz en el piso ================= */
+  const UF={value:1},UPL={value:1};
+  function lamp(x,y,z,col,int,rad,o={}){const mode=o.mode||'on',ch=mode==='flk'?1:mode==='pulse'?2:0;
+    if(int>0){if(o.dir)LTS.push({p:new V3(x,y,z),D:new V3(...o.dir).normalize(),spot:true,i:int*.4,R:rad*2.6,co:o.cone,ci:Math.cos(Math.acos(o.cone)*.5),ch});
+      else LTS.push({p:new V3(x,y,z),i:int*.32,R:rad*2.1,ch});}
+    if(o.sprite!==false)SPR.push({x,y,z,col,mode,sz:o.sz||1.4});
+    if(!o.dir&&y<8&&int>0)POOL.push({x,z,R:rad*1.15,col,mode});}
+  const lampMode=()=>rnd()<.52?'on':rnd()<.55?'flk':'dead';
+  const _bv=new V3();
+  function bakeV(px,py,pz,nx,ny,nz,out){out[0]=out[1]=out[2]=0;for(const L of LTS){_bv.set(px-L.p.x,py-L.p.y,pz-L.p.z);const d=_bv.length();if(d>L.R||d<.01)continue;_bv.multiplyScalar(1/d);
+      const lam=-(_bv.x*nx+_bv.y*ny+_bv.z*nz);if(lam<=0)continue;let cone=1;if(L.spot){const c=_bv.dot(L.D);if(c<L.co)continue;cone=Math.min(1,(c-L.co)/(L.ci-L.co));cone*=cone;}
+      const at=1-d/L.R;out[L.ch]+=L.i*cone*(.35+.65*lam)*at*at;}}
+  function baked(m){if(m.userData.pz)return m;m.userData.pz=1;const ts=m.userData.ts||0;
+    m.onBeforeCompile=s=>{s.uniforms.uFlk=UF;s.uniforms.uPls=UPL;s.uniforms.uTS={value:ts};
+      s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nattribute vec3 aG;\nvarying vec3 vG;\nvarying vec3 vWP;\nvarying vec3 vWN;').replace('#include <begin_vertex>','#include <begin_vertex>\nvG=aG;')
+        .replace('#include <project_vertex>','#include <project_vertex>\nvWP=(modelMatrix*vec4(transformed,1.)).xyz;vWN=normalize(mat3(modelMatrix)*objectNormal);');
+      let f=s.fragmentShader.replace('#include <common>','#include <common>\nuniform float uFlk;\nuniform float uPls;\nuniform float uTS;\nvarying vec3 vG;\nvarying vec3 vWP;\nvarying vec3 vWN;');
+      /* piedra, granito, bronce y carne: textura proyectada desde los tres ejes, en metros (las cajas no traen UV a escala) */
+      if(ts)f=f.replace('#include <map_fragment>','{vec3 an=abs(vWN);vec2 q=an.y>max(an.x,an.z)?vWP.xz:(an.x>an.z?vWP.zy:vWP.xy);vec4 texelColor=texture2D(map,q*uTS);texelColor=mapTexelToLinear(texelColor);diffuseColor*=texelColor;}');
+      s.fragmentShader=f.replace('#include <emissivemap_fragment>','#include <emissivemap_fragment>\ntotalEmissiveRadiance+=diffuseColor.rgb*(vec3(1.,.82,.6)*(vG.x+vG.y*uFlk)+vec3(1.,.1,.07)*vG.z*uPls);');};
+    m.customProgramCacheKey=()=>'pzBaked'+ts;return m;}
+
+  /* ================= luminarias de las plazas ================= */
+  function bLights(){
+    for(let x=-898;x<=-748;x+=22){if(Math.abs(x-MX+2)<38)continue;farol(x,585.2,lampMode());farol(x,661.5,lampMode());}
+    for(const [x,z] of [[-740,592],[-740,650],[-812,592],[-812,650],[-916,592],[-916,654],[-728,620]])farol(x,z,lampMode());
+    for(let i=0;i<6;i++){const a=i/6*2*PI+.3;farol(FMOR[0]+Math.cos(a)*18.2,FMOR[1]+Math.sin(a)*18.2,lampMode());}
+    for(const [x,z] of [[-700,580],[-700,664],[-640,616],[-603,618],[-584,662],[-556,622],[-640,662],[-612,590]])farol(x,z,lampMode());
+    /* luces de la fuente (LED de 2017): quedan dos vivas, sin luz horneada */
+    [[8,-12,0x30d0ff,'flk'],[30,4,0xff3cc8,'on']].forEach(([u,v,c,m])=>{const [x,z]=MON(u,v);lamp(x,.6,z,c,0,6,{mode:m,sz:1.1});});}
+  /* pasto crecido en los canteros */
+  function bTufts(){const b=bat('base','tuft');const ring=roundRect(-46,-34,42,34,8,6).map(p=>MON(p[0],p[1]));
+    GRASS.forEach(g=>{const xs=g.map(p=>p[0]),zs=g.map(p=>p[1]);const A=Math.abs(area2(g))/2;const n=Math.min(700,A*.14|0);for(let k=0;k<n*3&&k<7000;k++){const x=R(Math.min(...xs),Math.max(...xs)),z=R(Math.min(...zs),Math.max(...zs));
+      if(!inPoly(x,z,g)||inPoly(x,z,OSM_DOS))continue;if(inPoly(x,z,ring)&&Math.abs(x-MX+12)<40&&Math.abs(z-MZ)<23)continue;const h=R(.18,.5),w=R(.3,.6),a=R(0,PI),t=R(1.1,1.5);
+      for(const aa of [a,a+PI/2]){const dx=Math.cos(aa)*w/2,dz=Math.sin(aa)*w/2;const P=[[x-dx,.2,z-dz],[x+dx,.2,z+dz],[x+dx,.2+h,z+dz],[x-dx,.2+h,z-dz]];const UV=[[0,0],[1,0],[1,1],[0,1]];
+        for(const k of [0,1,2,0,2,3]){b.P.push(...P[k]);b.N.push(0,1,0);b.U.push(...UV[k]);b.C.push(t,t,t);}}}});}
+
+  /* ================= armado (lo llama grid: la colisión y la geometría salen del mismo sorteo) ================= */
+  function construct(){if(BUILT)return;BUILT=true;SEED=1234567;mats();RELIEF=texMat(reliefTex,{alpha:false});
+    bMonument();bFence();bMoreno();palm(-905,598);palm(-904,650);bTufts();bLights();bFurniture();bAbandon();bMutation();}
+
+  /* ================= piso: plataforma, escalones, escalinatas, terraza y pedestales ================= */
+  const W=r=>r.map(p=>MON(p[0],p[1]));
+  let PLAT0=null,PLAT1=null,PLAT2=null;
+  function floorFn(x,z){
+    if(x>-912&&x<-826&&z>593&&z<657){const u=x-MX,v=z-MZ,av=Math.abs(v);
+      if(u>=-26&&u<=-6&&av<=15)return 4.35;
+      if(u>-6&&u<3&&av>=5.5&&av<=14){const i=Math.min(7,Math.max(0,Math.floor((3-u)/1.125)));return 1.2+.375*(i+1);}
+      if(pip(x,z,PLAT0))return 1.2;if(pip(x,z,PLAT1))return .8;if(pip(x,z,PLAT2))return .4;
+      for(const sg of [-1,1]){const d=Math.hypot(u+15,v-25*sg);if(d<4.6)return .7;if(d<6.2)return .35;}
+      return 0;}
+    if(Math.abs(x-MOR_C[0])<4.7&&Math.abs(z-MOR_C[1])<4.7){const d=Math.hypot(x-MOR_C[0],z-MOR_C[1]);return d<3.4?.6:d<4?.4:d<4.6?.2:0;}
+    return 0;}
+  /* ================= colisiones, grilla y piso ================= */
+  function grid(){construct();
+    const plat=[[5,-21.5],[-28,-21.5],[-28,-10]];for(let i=1;i<16;i++){const a=-PI/2-i/16*PI;plat.push([-28+Math.cos(a)*10.5,Math.sin(a)*10.5]);}plat.push([-28,10],[-28,21.5],[5,21.5]);
+    PLAT0=W(plat);PLAT1=W(offsetRing(plat,.65));PLAT2=W(offsetRing(plat,1.3));
+    const ob=(u0,v0,u1,v1,y1)=>{const a=MON(u0,v0),b=MON(u1,v1);OBS(a[0],a[1],b[0],b[1],y1);};
+    /* terraza (4,35 m) con su barandal; la cara este queda abierta a las escalinatas y a la cascada */
+    ob(-26.4,-15.4,-5.6,15.4,4.35);ob(-26.4,-15.4,-5.6,-14.8,5.35);ob(-26.4,14.8,-5.6,15.4,5.35);ob(-26.4,-15.4,-25.8,15.4,5.35);ob(-6.4,14.2,-5.6,15.4,5.35);ob(-6.4,-15.4,-5.6,-14.2,5.35);
+    /* cascada: tres piletas que bajan hacia el estanque; costados de las escalinatas */
+    ob(-6,-5,-3,5,3.95);ob(-3,-5,0,5,3.2);ob(0,-5,5,5,2.45);ob(-6,14,3,14.7,5.3);ob(-6,-14.7,3,-14,5.3);
+    /* tercer cuerpo y pedestal: macizos (frenan también los tiros) */
+    {const r=W(rectRing(-22.5,-8.5,-9.5,8.5));fillPoly(r,2,19);addWallRing(r,10.45);const p=W(rectRing(-19.5,-4.5,-12.5,4.5));addWallRing(p,23);}
+    /* pedestales de las alegorías y grupos de los ríos dentro del estanque */
+    for(const sg of [-1,1]){ob(-17.6,25*sg-2.6,-12.4,25*sg+2.6,6.5);ob(21.8,11.5*sg-2,26.2,11.5*sg+2,1.55);ob(22.4,11.5*sg-1.2,25.4,11.5*sg+1.2,3.6);}
+    /* borde del estanque (0,8 m): círculos a lo largo del arco y de los dos lados rectos (no se entra al agua) */
+    for(let i=0;i<=40;i++){const a=-PI/2+i/40*PI,[x,z]=MON(19+Math.cos(a)*15.65,Math.sin(a)*15.65);CIR(x,z,.42);}
+    for(const sg of [-1,1])for(let u=5.6;u<=19;u+=.8){const [x,z]=MON(u,15.65*sg);CIR(x,z,.42);}
+    /* reja: se camina de los dos lados, así que va con círculos; los dos portones quedan abiertos */
+    {const ring=roundRect(-44,-32,40,32,8,6).map(p=>MON(p[0],p[1]));const gates=[[MX+40,MZ],[MX-44,MZ]];
+      for(let i=0;i<ring.length;i++){const p=ring[i],q=ring[(i+1)%ring.length],L=Math.hypot(q[0]-p[0],q[1]-p[1]);for(let s=0;s<L;s+=.6){const x=p[0]+(q[0]-p[0])*s/L,z=p[1]+(q[1]-p[1])*s/L;if(gates.some(([gx,gz])=>Math.abs(x-gx)<1&&Math.abs(z-gz)<2.6))continue;CIR(x,z,.3);}}
+      for(const [gx,gz] of gates){const sg=gx>MX?1:-1;CIR(gx,gz-2.6,.15);CIR(gx,gz+2.6,.15);for(let t=-1.2;t<=1.2;t+=.6){CIR(gx+sg*1.0+Math.cos(sg>0?.75:PI-.75)*t,gz+2.1-Math.sin(sg>0?.75:PI-.75)*t,.2);}}}
+    /* Mariano Moreno, El Pensador, Km 0 y la fuente chica */
+    {const [x,z]=MOR_C;OBS(x-1.55,z-1.55,x+1.55,z+1.55,5.75);OBS(x+1.35,z-.8,x+2.65,z+.8,2.4);}
+    {const [px,pz]=PEN_C;OBS(px-1.2,pz-.9,px+1.2,pz+.9,4.9);for(let i=0;i<28;i++){const a=i/28*2*PI;CIR(px+Math.cos(a)*3.4,pz+Math.sin(a)*3.4,.12);}}
+    {const [kx,kz]=KM0;OBS(kx-.65,kz-1.3,kx+.65,kz+1.3,3.15);}
+    {const [fx,fz]=FMOR;for(let i=0;i<32;i++){const a=i/32*2*PI;CIR(fx+Math.cos(a)*4.2,fz+Math.sin(a)*4.2,.32);}CIR(fx,fz,.6);}
+    for(const [x0,z0,x1,z1,y1] of OBSL)obstacles.push({x0,x1,y0:0,y1,z0,z1,pz:1});
+    for(const [x,z,r] of CIRL)addCircle(x,z,r);
+    FLOORFN.push(floorFn);}
+
+  /* ================= mallas ================= */
+  function build(){construct();EXT=new THREE.Group();EXT.position.y=-.15;scene.add(EXT);
+    for(const k in BAT){const b=BAT[k];if(!b.P.length||!MATS[k])continue;const n=b.P.length/3,G=new Float32Array(n*3),o=[0,0,0];
+      for(let i=0;i<n;i++){bakeV(b.P[i*3],b.P[i*3+1],b.P[i*3+2],b.N[i*3],b.N[i*3+1],b.N[i*3+2],o);G[i*3]=o[0];G[i*3+1]=o[1];G[i*3+2]=o[2];}
+      const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(b.P,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(b.N,3));
+      g.setAttribute('uv',new THREE.Float32BufferAttribute(b.U,2));g.setAttribute('color',new THREE.Float32BufferAttribute(b.C,3));g.setAttribute('aG',new THREE.BufferAttribute(G,3));g.computeBoundingSphere();
+      EXT.add(new THREE.Mesh(g,baked(MATS[k])));TRIS+=n/3;b.P=b.N=b.U=b.C=[];}
+    /* destellos: los fijos, los que titilan y los rojos que laten (un lote de puntos por cada uno) */
+    for(const mode of ['on','flk','pulse']){const P=[],Cc=[],cc=new THREE.Color();for(const L of SPR){if(L.mode!==mode)continue;cc.setHex(L.col);P.push(L.x,L.y,L.z);Cc.push(cc.r,cc.g,cc.b);}
+      if(!P.length)continue;const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(P,3));g.setAttribute('color',new THREE.Float32BufferAttribute(Cc,3));
+      const m=new THREE.Points(g,new THREE.PointsMaterial({size:2.3,map:glowTex,vertexColors:true,transparent:true,opacity:.9,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));m.userData.mode=mode;EXT.add(m);SPRS.push(m);}
+    /* manchas de luz en el piso, como las de los faroles del juego */
+    for(const mode of ['on','flk','pulse']){const P=[],U=[],Cc=[],cc=new THREE.Color();for(const q of POOL){if(q.mode!==mode)continue;cc.setHex(q.col).multiplyScalar(.2);const R_=q.R,x=q.x,z=q.z;
+        const v=[[x-R_,z-R_,0,0],[x+R_,z-R_,1,0],[x+R_,z+R_,1,1],[x-R_,z+R_,0,1]];for(const k of [0,2,1,0,3,2]){P.push(v[k][0],.24,v[k][1]);U.push(v[k][2],v[k][3]);Cc.push(cc.r,cc.g,cc.b);}}
+      if(!P.length)continue;const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(P,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(U,2));g.setAttribute('color',new THREE.Float32BufferAttribute(Cc,3));
+      const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({map:poolTex,vertexColors:true,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));m.renderOrder=1;m.userData.mode=mode;EXT.add(m);PLS.push(m);}}
+  const SPRS=[],PLS=[];
+  function update(dt){if(!EXT)return;tt+=dt;const cp=camera.position,dx=cp.x+745,dz=cp.z-625;EXT.visible=dx*dx+dz*dz<560*560;if(!EXT.visible)return;
+    const n=Math.sin(tt*1.1+.3)+.6*Math.sin(tt*3.3+1.2);UF.value=n>.2?1:n<-.25?0:(Math.random()<.5?1:.08);UPL.value=.3+.7*Math.pow(.5+.5*Math.sin(tt*2.2),2);
+    MATS.lampFlk.emissiveIntensity=2.2*(.08+.92*UF.value);MATS.vein.emissiveIntensity=.15+.55*UPL.value;
+    for(const s of SPRS){const md=s.userData.mode;s.material.opacity=md==='flk'?.05+.9*UF.value:md==='pulse'?UPL.value:.9;}
+    for(const m of PLS){const md=m.userData.mode;m.material.opacity=md==='flk'?UF.value:md==='pulse'?UPL.value:1;}}
+
+  /* ================= lo que usan los demás ================= */
+  /* las dos plazas pasan a ser plazas secas: el piso pone baldosa en lo que no es cantero (los canteros son las áreas «grass» del mapa) */
+  function prep(osm){for(const a of osm.a)if(a[0]==='park'&&(a[1]==='Plaza del Congreso'||a[1]==='Plaza Mariano Moreno'))a[0]='square';}
+  /* el piso las cubre con la baldosa anaranjada en vez del granito gris */
+  const anillos=()=>[OSM_CONG,OSM_MOR];
+  let _tp=null;const texPave=()=>{if(!_tp){_tp=TX.pave;_tp.encoding=THREE.sRGBEncoding;_tp.anisotropy=MAXANI;}return _tp;};
+  /* sin árboles del juego adentro de la reja, alrededor de los monumentos, la fuente chica y el campamento */
+  function noTree(x,z){const u=x-MX,v=z-MZ;if(u>-47&&u<43&&Math.abs(v)<35)return true;
+    for(const [a,b,r] of [[...MOR_C,9],[...PEN_C,7],[...KM0,6.5],[...FMOR,18.5]])if(Math.hypot(x-a,z-b)<r)return true;
+    return x>-797&&x<-763&&z>587&&z<602;}
+  return {grid,build,update,prep,anillos,texPave,noTree,get tris(){return TRIS;}};})();
+
+
 /* ---------- edificios emblemáticos, modelados a mano sobre la planta real (OSM) ---------- */
 const LMK={beams:[],spin:[]};
 const LML=SEC.B.osm.L;
@@ -10023,7 +10499,7 @@ function lmSolid(ring,h){let r=ring;if(area2(r)<0)r=[...r].reverse();fillPoly(r,
 function landmarkGrid(){
   const P=k=>pairs(LML[k]);
   CONGRESO.grid();CASAROSADA.grid();CABILDO.grid();CATEDRAL.grid();BAROLO.grid();MINISTERIO.grid();TORREPAT.grid();CHACABUCO.grid();
-  lmSolid(P('dosCongresos'),3);}
+  PLAZAS.grid();/* v2.5.0: el Monumento a los Dos Congresos y las dos plazas (antes: el sólido de OSM del monumento) */}
 /* fachadas: textura procedural por edificio (un paño de 4 bahías x 2 pisos) */
 function facadeTex(o){const W=512,H=320;let sd=o.seed||1234;const rn=()=>{sd=(sd*1664525+1013904223)>>>0;return sd/4294967296;};return canvasTex(W,H,(g)=>{
   g.fillStyle=o.base;g.fillRect(0,0,W,H);
@@ -10072,15 +10548,8 @@ function buildLandmarks(){
   const copper=new THREE.MeshStandardMaterial({map:copperTex,roughness:.5,metalness:.35,emissive:0x0f2a20,emissiveMap:copperTex,emissiveIntensity:.5});
   /* ===== Palacio del Congreso (v1.3.0): ver CONGRESO ===== */
   CONGRESO.build();
-  /* ===== Monumento a los Dos Congresos ===== */
-  {const ring=P('dosCongresos');const G=lmGeo();const gm=wet(new THREE.MeshStandardMaterial({map:graniteTex,roughness:.7,vertexColors:true}));
-    lmExtrude(G,ring,0,1.2,6,6,false);let cx=0,cz=0;ring.forEach(p=>{cx+=p[0];cz+=p[1];});cx/=ring.length;cz/=ring.length;
-    lmExtrude(G,rectRing(cx-18,cz-9,cx+18,cz+9),1.2,3,6,6,false);lmExtrude(G,rectRing(cx-7,cz-5,cx+7,cz+5),3,11,6,6,false);lmExtrude(G,rectRing(cx-4.5,cz-3.5,cx+4.5,cz+3.5),11,15,6,6,false);lmMesh(G,gm);
-    const BZ=new Batch(bronze);BZ.add(new THREE.ConeGeometry(3.2,9,7),mtx(cx,19.5,cz));BZ.add(new THREE.SphereGeometry(2.3,10,8),mtx(cx+1,23.5,cz,0,1.4,1,1));
-    for(const [a,b] of [[-9,-5],[9,-5],[-9,5],[9,5]])lmStatue(BZ,cx+a,3,cz+b,2.4);
-    const wing=new THREE.BufferGeometry();wing.setAttribute('position',new THREE.Float32BufferAttribute([0,0,0,6,3,0,4,.5,0, 0,0,0,-6,3,0,-4,.5,0],3));wing.computeVertexNormals();wing.setAttribute('uv',new THREE.Float32BufferAttribute(new Array(12).fill(0),2));
-    BZ.add(wing,mtx(cx,24.5,cz,Math.PI/2));BZ.done();
-    for(const [a,b] of [[-20,-10],[20,-10],[-20,10],[20,10]])GL_MISC.add(cx+a,.8,cz+b,0xfff0d0);}
+  /* ===== Monumento a los Dos Congresos, Plaza del Congreso y Plaza Mariano Moreno (v2.5.0): ver PLAZAS ===== */
+  PLAZAS.build();
   /* ===== Palacio Barolo (v1.12.0): ver BAROLO ===== */
   BAROLO.build();
   /* ===== Ministerio de Capital Humano, ex MOP (v1.13.0): ver MINISTERIO ===== */
@@ -10096,7 +10565,7 @@ function buildLandmarks(){
   /* ===== Catedral, mausoleo y Curia (v1.9.0): ver CATEDRAL ===== */
   CATEDRAL.build();
 }
-function updateLandmarks(dt){for(const b of LMK.beams){b.rotation.y+=dt*.55;}CONGRESO.update(dt);CASAROSADA.update(dt);CABILDO.update(dt);CATEDRAL.update(dt);BAROLO.update(dt);MINISTERIO.update(dt);TORREPAT.update(dt);CHACABUCO.update(dt);}
+function updateLandmarks(dt){for(const b of LMK.beams){b.rotation.y+=dt*.55;}CONGRESO.update(dt);CASAROSADA.update(dt);CABILDO.update(dt);CATEDRAL.update(dt);BAROLO.update(dt);MINISTERIO.update(dt);TORREPAT.update(dt);CHACABUCO.update(dt);PLAZAS.update(dt);}
 
 /* ---------- de la 9 de Julio a Av. de Mayo: vallas que cortan el sur hasta que cae el primer Engendro ---------- */
 function buildGate(){const tex=canvasTex(128,32,(g,w,h)=>{for(let i=0;i<8;i++){g.fillStyle=i%2?'#f2f0ea':'#e8561c';g.fillRect(i*16,0,16,h);}});
@@ -10124,6 +10593,7 @@ const MH_B=[];
 function buildSectionB(){if(SECG.built)return;SECG.built=true;
   const t0=performance.now();
   _secT=SECG.B;SEC_CUR=SECDEF.B;OSM=SEC.B.osm;BLD_DET=SEC.B.det;BLD_OUT=SEC.B.out;
+  PLAZAS.prep(OSM);/* v2.5.0: la Plaza del Congreso y la Mariano Moreno pasan a ser plazas secas con canteros */
   OSM.n.filter(n=>n[0]==='station').forEach(n=>STN.push([n[1],n[2],n[3]]));
   loadBLD();newGlows();SEED=1198897049;/* valor que traía el sorteo al llegar acá en v1.14.0: las fachadas de esta sección quedan como estaban */
   bRoads();bParks();bBldGrid();SOLIDOS=[];landmarkGrid();const solidos=SOLIDOS;SOLIDOS=null;/* lo macizo de los edificios hechos a mano, para el piso */

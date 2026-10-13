@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.5.0**
+**Versión actual: v2.6.0**
 Fuente de verdad: el repositorio https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -27,6 +27,7 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - Las fuentes (Chakra Petch y Creepster) van dentro de la app y se cortan los pedidos a Google Fonts: se ve igual con o sin internet. Era lo único que el juego cargaba de afuera.
 - Los guardados del navegador (récord, opciones, FPS, semáforos) siguen funcionando, pero quedan dentro de la app y no se comparten con los del navegador.
 - Comprobado: la v2.1.0 arranca en la app con las fuentes locales (en un equipo sin placa de video).
+- 2026-10-13, con la v2.6.0: `main.js` y `preload.js` suman los modos de pantalla (ventana, pantalla completa y sin bordes). El juego los pide por `window.escritorio` desde Opciones > Video; F11 y Alt+Enter alternan y le avisan al juego. El último modo se guarda en `pantalla.json` (carpeta de datos de la app) para arrancar directo en él.
 - Comandos en `desktop/README.md`. El workflow es `.github/workflows/escritorio.yml`.
 - 2026-10-12: primera release publicada por GitHub Actions (v2.1.0). Desde ese día el repo de GitHub pasa a ser la fuente de verdad y Claude sube los cambios directo (reglas 1 a 4 y 9).
 
@@ -51,8 +52,18 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-12, con la v2.3.0 (autos, destrucción y granadas en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.4.0 (el retén en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.5.0 (Plaza del Congreso y Plaza Mariano Moreno): entran en `HITOS` el Monumento a Mariano Moreno, El Pensador y el Km 0 (con su planta, como monumentos menores) y la nota del Monumento a los Dos Congresos. El mapa sigue dibujando las dos plazas como plaza verde: el cambio a plaza seca lo hace el juego al armar la sección B (`PLAZAS.prep`), no en los datos. Copia de datos en esta versión, sin avisos.
+- 2026-10-13, con la v2.6.0 (modos de pantalla): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.6.0 — 2026-10-13
+- **Modo de pantalla en Opciones > Video**, a pedido de Facu: **Ventana**, **Pantalla completa** y **Pantalla completa sin bordes**. Se guarda con las demás opciones (`OPC.pantalla`, en `obelisco-opciones`) y «Valores de fábrica» vuelve a Ventana.
+- **Versión de escritorio**: Chromium (y por lo tanto Electron) no tiene pantalla completa exclusiva de verdad, que cambia la resolución del monitor. Los dos modos completos ocupan toda la pantalla sin bordes ni barra; la diferencia es qué pasa al cambiar de programa, que es lo que se nota jugando. **Pantalla completa**: al perder el foco (Alt+Tab, la tecla Windows, un clic en otro monitor) el juego se minimiza, como uno en pantalla completa exclusiva, y al volver recupera la pantalla completa. **Sin bordes**: queda a la vista detrás de lo otro (cómodo con dos monitores o para ir y volver rápido). **Ventana**: la ventana maximizada con su barra, como hasta ahora.
+- **F11 y Alt+Enter** (escritorio) pasan de ventana al último modo completo elegido y vuelven; el menú de Opciones se actualiza solo. La app arranca directo en el último modo (`pantalla.json` en la carpeta de datos de la app), sin pasar por la ventana.
+- **En el navegador** (GitHub Pages) usa la API de pantalla completa, que solo se puede pedir con un clic o una tecla: al elegirlo en el menú entra en el momento; al recargar la página entra con el primer clic o tecla. **Pantalla completa** además traba Esc (`navigator.keyboard.lock`, Chrome y Edge): Esc pausa el juego como siempre y para salir hay que mantener Esc apretado. **Sin bordes** no la traba: Esc sale de la pantalla completa. Si el jugador sale por su cuenta (Esc o F11 del navegador), la opción vuelve a Ventana y no se lo vuelve a meter con el próximo clic. Donde el navegador no tiene pantalla completa (iPhone) la fila no aparece.
+- **Cómo está hecho**: módulo `PANT` dentro de `MENU`, al lado de `video()`. En escritorio llama a `window.escritorio.pantalla(modo)` (puente nuevo en `desktop/preload.js`) y `desktop/main.js` lo aplica (`setFullScreen`, minimizar en `blur` solo en modo completo y volver a pantalla completa en `restore`). En Controles se suma F11 / Alt+Enter. No cambia nada del dibujo ni de la partida.
+- **Probado sin placa de video**, en el navegador: la fila aparece en Video; elegir Pantalla completa entra en pantalla completa, pasar a Sin bordes sigue en pantalla completa y se guarda; salir a mano vuelve la opción a Ventana; «Valores de fábrica» vuelve a Ventana; después se abre Un jugador sin errores. Con un puente de escritorio simulado: el juego le pasa cada modo elegido, no usa la pantalla completa del navegador y, si la ventana avisa un cambio (F11), el menú lo muestra.
+- **Falta probar en la PC de Facu** (versión de escritorio): los tres modos, Alt+Tab en Pantalla completa (se tiene que minimizar) y en Sin bordes (tiene que quedar a la vista), F11 y Alt+Enter, y que al reabrir la app arranque en el último modo.
 
 ### v2.5.0 — 2026-10-12
 - **Plaza del Congreso y Plaza Mariano Moreno nuevas**, a partir de `claude/plaza-congreso-concepto.html` (aprobado por Facu). Módulo nuevo `PLAZAS` (como `TORREPAT`), con luz horneada por vértice y sin luces reales nuevas. Facu eligió: estado con mutación, El Pensador y el Km 0 en su lugar real, el campamento de protesta y el agua estancada.

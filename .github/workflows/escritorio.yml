@@ -1,18 +1,55 @@
 # Arma la versión de escritorio de Windows en la nube de GitHub y la publica en Releases.
-# Se dispara solo al pushear un tag vX.Y.Z (el mismo que ya se hace en cada versión).
-# También se puede correr a mano desde la pestaña Actions ("Run workflow").
+# Se dispara solo cada vez que se sube a main un cambio del juego: lee GAME_VERSION de
+# obelisco-mutante.html y, si esa versión todavía no tiene release, crea el tag vX.Y.Z y la release.
+# Nadie tiene que crear tags a mano. También sirve pushear un tag vX.Y.Z o correrlo
+# desde la pestaña Actions ("Run workflow").
 name: Versión de escritorio
 
 on:
   push:
+    branches: [main]
+    paths:
+      - 'obelisco-mutante.html'
+      - 'desktop/**'
+      - '.github/workflows/escritorio.yml'
     tags: ['v*.*.*']
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: escritorio
+  cancel-in-progress: false
+
 jobs:
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.v.outputs.tag }}
+      falta: ${{ steps.v.outputs.falta }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: v
+        name: Leer la versión y ver si ya tiene release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VER=$(grep -oP 'GAME_VERSION\s*=\s*["\x27]\K[\d.]+' obelisco-mutante.html | head -1)
+          if [ -z "$VER" ]; then echo "No encontré GAME_VERSION"; exit 1; fi
+          TAG="v$VER"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "La release $TAG ya existe: no se arma de nuevo."
+            echo "falta=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "Hay que armar $TAG."
+            echo "falta=si" >> "$GITHUB_OUTPUT"
+          fi
+
   windows:
+    needs: version
+    if: needs.version.outputs.falta == 'si'
     runs-on: windows-latest
     defaults:
       run:
@@ -40,11 +77,12 @@ jobs:
             desktop/dist/*.exe
           if-no-files-found: error
 
-      - name: Publicar en Releases
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Publicar en Releases (crea el tag si no existe)
         uses: softprops/action-gh-release@v2
         with:
-          name: Obelisco Mutante ${{ github.ref_name }}
+          tag_name: ${{ needs.version.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: Obelisco Mutante ${{ needs.version.outputs.tag }}
           files: desktop/dist/*.exe
           body: |
             Versión de escritorio para Windows.

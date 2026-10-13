@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.7.0**
+**Versión actual: v2.8.0**
 Fuente de verdad: el repositorio https://github.com/facundofueyolaboral-max/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -29,6 +29,7 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - Comprobado: la v2.1.0 arranca en la app con las fuentes locales (en un equipo sin placa de video).
 - 2026-10-13, con la v2.7.0: el workflow `escritorio.yml` ya no espera un tag hecho a mano: se dispara con cada push a `main`, lee `GAME_VERSION` y crea el tag y la release solo. Motivo: los chats no pueden crear tags en GitHub.
 - 2026-10-13, con la v2.6.0: `main.js` y `preload.js` suman los modos de pantalla (ventana, pantalla completa y sin bordes). El juego los pide por `window.escritorio` desde Opciones > Video; F11 y Alt+Enter alternan y le avisan al juego. El último modo se guarda en `pantalla.json` (carpeta de datos de la app) para arrancar directo en él.
+- 2026-10-13, con la v2.8.0: `main.js` y `preload.js` suman `window.escritorio.salir()` (canal `salir` → `app.quit()`) para el botón «Salir del juego» del menú principal.
 - Comandos en `desktop/README.md`. El workflow es `.github/workflows/escritorio.yml`.
 - 2026-10-12: primera release publicada por GitHub Actions (v2.1.0). Desde ese día el repo de GitHub pasa a ser la fuente de verdad y Claude sube los cambios directo (reglas 1 a 4 y 9).
 
@@ -54,8 +55,17 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-12, con la v2.4.0 (el retén en co-op): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-12, con la v2.5.0 (Plaza del Congreso y Plaza Mariano Moreno): entran en `HITOS` el Monumento a Mariano Moreno, El Pensador y el Km 0 (con su planta, como monumentos menores) y la nota del Monumento a los Dos Congresos. El mapa sigue dibujando las dos plazas como plaza verde: el cambio a plaza seca lo hace el juego al armar la sección B (`PLAZAS.prep`), no en los datos. Copia de datos en esta versión, sin avisos.
 - 2026-10-13, con la v2.6.0 (modos de pantalla): el mapa no cambia. Copia de datos en esta versión, sin avisos.
+- 2026-10-13, con la v2.8.0 (pantalla de carga y botón Salir del juego): el mapa no cambia. El script principal del juego ahora arranca con `OM_CARGA.correr(()=>{` en vez de `(()=>{`; el lector no depende de eso. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.8.0 — 2026-10-13
+- **Pantalla de carga**, a pedido de Facu, porque el juego parecía trabarse. El motivo: al tocar «Bajar a la 9 de Julio» (o «Ir al retén», o al empezar el cooperativo) `startGame` armaba toda la sección B (`buildSectionB`) y compilaba los shaders y subía las texturas de las dos secciones (`prewarmSections`) de un tirón, con el menú congelado en pantalla. Medido sin placa de video: 30 s para abrir el juego y casi 2 minutos más al tocar el botón. Además, con una espera tan larga el navegador ya no tomaba el clic como gesto y podía no capturar el mouse.
+- **Ahora todo eso pasa al abrir el juego**, con una pantalla propia (`#scr-load`): título, etapa, porcentaje, barra y un tip al azar. Etapas: «Levantando la ciudad» (el script grande, la 9 de Julio), «Armando Av. de Mayo y el Congreso» (`buildSectionB`), «Acomodando la partida» (`resetGame`) y «Compilando luces, sombras y bichos» (`prewarmSections`). Después aparecen los bichos de adorno del menú (`idleMutants`) y la pantalla se desvanece. La partida arranca al instante: `startGame` las vuelve a llamar pero ya no hacen nada pesado. El tiempo total de carga es el mismo de antes, solo que ahora está todo junto al principio y a la vista.
+- **Cómo está hecho**: un controlador chico `OM_CARGA` en un `<script>` antes del juego (`paso`, `espera`, `correr`, `fin`). El script principal ahora arranca con `OM_CARGA.correr(()=>{…})` en vez de `(()=>{…})()`: espera un cuadro para que la pantalla de carga se dibuje antes de lo pesado. Al final del juego, un `async` corre las etapas con un cuadro de respiro entre una y otra (para actualizar el texto y la barra). La barra tiene un brillo que la recorre y un ojo verde que late, animados solo con `transform`/`opacity`: los mueve la placa de video y siguen andando aunque el juego esté ocupado. Mientras carga no pasa ninguna tecla ni clic al juego (se cortan en captura). Si una etapa falla, se anota en la consola y el menú aparece igual (la partida la arma `startGame` como antes).
+- **Botón «Salir del juego»** en el menú principal, debajo de Opciones: cierra el programa. Solo aparece en la versión de escritorio (`window.escritorio.salir()`, nuevo en `desktop/preload.js` y `desktop/main.js`): el navegador no deja que una página cierre su propia pestaña, así que en GitHub Pages no se muestra. Si había una sala del cooperativo abierta, la cierra antes de salir.
+- **Probado sin placa de video**, en el navegador simulando la versión de escritorio: la pantalla de carga se ve desde el principio y pasa por sus etapas; después aparece el menú con «Salir del juego» y el botón llama a cerrar el programa; «Bajar a la 9 de Julio» y «Ir al retén sin bichos» arrancan la partida al instante (con la sección B ya armada); sin errores en la consola.
+- **Falta probar en la PC de Facu** (versión de escritorio): cuánto tarda la carga con la GTX 1070, que el menú vaya fluido después de cargar y que «Salir del juego» cierre la app.
 
 ### v2.7.0 — 2026-10-13
 - **Motos**, a partir de `claude/motos-concepto.html` (aprobado por Facu). Ocho modelos abandonados: Clásica 350, Street 150, Street 150 de reparto (baúl, casco colgado, sangre en el asiento), Naked 300 (candado de disco), Scooter 125, Motoneta 110 de reparto (caja térmica), Enduro 250 y Moto policial (balizas). Generador nuevo `MOTO` (al lado de `VEH`, en versión liviana) y specs en `MOTO_SPECS`.

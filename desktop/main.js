@@ -1,7 +1,7 @@
 // Obelisco Mutante — envoltorio de escritorio (Electron).
 // Carga app/obelisco-mutante.html tal cual (lo copia preparar.js desde la raíz del repo).
-// No modifica el juego: solo le pone ventana propia, fuentes locales y los modos de pantalla
-// (el juego los pide desde Opciones > Video por window.escritorio, ver preload.js).
+// No modifica el juego: solo le pone ventana propia, fuentes locales, los modos de pantalla
+// (el juego los pide desde Opciones > Video por window.escritorio, ver preload.js) y el botón Salir del juego.
 const { app, BrowserWindow, session, Menu, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
@@ -56,6 +56,9 @@ function crearVentana() {
   }
   ipcMain.removeHandler('pantalla');
   ipcMain.handle('pantalla', (_e, m) => aplicar(m, false));
+  // Botón «Salir del juego» del menú principal (v2.8.0): cierra el programa.
+  ipcMain.removeHandler('salir');
+  ipcMain.handle('salir', () => app.quit());
   win.on('blur', () => { if (modo === 'completa' && win.isFullScreen()) win.minimize(); });
   win.on('restore', () => { if (modo !== 'ventana' && !win.isFullScreen()) win.setFullScreen(true); });
 

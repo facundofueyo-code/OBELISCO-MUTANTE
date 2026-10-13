@@ -1,7 +1,7 @@
 # Obelisco Mutante — Registro de versiones
 
 **Versión actual: v2.7.0**
-Fuente de verdad: el repositorio https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
+Fuente de verdad: el repositorio https://github.com/facundofueyolaboral-max/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
 
@@ -11,7 +11,7 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - **PARCHE**: arreglos y ajustes chicos → 1.1.0 a 1.1.1
 
 ## Reglas para cada chat
-1. Se trabaja sobre el repo de GitHub, no sobre la PC de Facu: el chat tiene que tener acceso de escritura a `facundofueyo-code/OBELISCO-MUTANTE`. Si no lo tiene, pedirlo antes de tocar el juego. Plan B, solo si no hay acceso al repo: trabajar sobre la carpeta `C:\Dev_Videogame` conectada y pasarle a Facu los comandos de commit, push y tag.
+1. Se trabaja sobre el repo de GitHub, no sobre la PC de Facu: el chat tiene que tener acceso de escritura a `facundofueyolaboral-max/OBELISCO-MUTANTE`. Si no lo tiene, pedirlo antes de tocar el juego. Plan B, solo si no hay acceso al repo: trabajar sobre la carpeta `C:\Dev_Videogame` conectada y pasarle a Facu los comandos de commit, push y tag.
 2. Al empezar: traer la última versión de `main` (clonar o `git pull`) y leer `obelisco-mutante.html` y este CHANGELOG.
 3. Al terminar un cambio: subir la versión en `<title>`, en `GAME_VERSION` y en `#ver` (esquina del HUD); agregar una entrada acá arriba; sobrescribir `obelisco-mutante.html` (siempre con ese nombre, así GitHub Pages lo sirve). No se crean copias `_vX.Y.Z`: las versiones viejas quedan en el historial de git.
 4. Claude hace el commit en `main` (mensaje `vX.Y.Z: <resumen>`) y lo sube. No hace falta crear tags (desde los chats no se puede): al llegar el commit a `main`, GitHub Pages publica la versión web y GitHub Actions lee `GAME_VERSION`, crea el tag `vX.Y.Z` y arma la versión de escritorio en Releases. Comprobar que el workflow terminó bien y pasarle a Facu el link de la release (`https://github.com/facundofueyolaboral-max/obelisco-mutante/releases/tag/vX.Y.Z`).

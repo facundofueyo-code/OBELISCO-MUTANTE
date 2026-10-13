@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.6.0**
+**Versión actual: v2.7.0**
 Fuente de verdad: el repositorio https://github.com/facundofueyo-code/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -55,6 +55,17 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-13, con la v2.6.0 (modos de pantalla): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.7.0 — 2026-10-13
+- **Motos**, a partir de `claude/motos-concepto.html` (aprobado por Facu). Ocho modelos abandonados: Clásica 350, Street 150, Street 150 de reparto (baúl, casco colgado, sangre en el asiento), Naked 300 (candado de disco), Scooter 125, Motoneta 110 de reparto (caja térmica), Enduro 250 y Moto policial (balizas). Generador nuevo `MOTO` (al lado de `VEH`, en versión liviana) y specs en `MOTO_SPECS`.
+- **Cantidad**: una moto cada diez autos, como pidió Facu. Se reparten después de los autos de cada sección (`MOTOS.armar()` detrás de `bCars`): 47 en la sección A y 80 en la B. Van estacionadas contra el cordón entre los autos, en diagonal o en paralelo, enteras sobre la calzada y lejos de bocas de subte, alcantarillas, vallas, árboles y postes. Una de cada cuatro está caída. Por sección: una policial con balizas (luz con sombra) y, a veces, una motoneta con el faro que titila.
+- **Tanque de nafta y explosión**: cada tiro al tanque deja un agujero; la nafta chorrea y arma un charco que crece. Al 4.º tiro al tanque se prende y explota en 2 o 3 segundos. Un tiro al charco lo prende y el fuego llega al tanque en 3 o 4 segundos. Tiros en cualquier otra parte: al 3.º la moto se cae para el lado contrario al tiro; al 12.º se prende. Cada tiro de más a una moto en llamas la hace explotar antes. En el scooter y la motoneta el tanque está bajo el asiento.
+- **La explosión** es más chica que la de un auto: lastima hasta 4,5 m (45 de daño al lado), golpea a los bichos, a los soldados (`UEB.explosion`), a los autos vecinos (pueden prenderse) y a las otras motos (reacción en cadena). Salen volando el tanque, el asiento, los espejos y pedazos chicos; queda la carcasa quemada acostada, ardiendo unos 30 segundos, con el piso chamuscado. El charco en llamas quema al que lo pisa. Las explosiones de autos y las granadas también golpean a las motos.
+- **Tiros**: la bala del jugador prueba contra la malla real de la moto (pasa entre los rayos y por debajo del asiento), después de los bichos y antes que los autos que estén detrás.
+- **Dibujo**: de cerca (32 m, 18 en táctil) instanciadas por modelo y material; a media distancia (hasta 120 m, 70 en táctil) una sola malla por modelo con color por vértice; más lejos no se dibujan. Una moto tocada o con luces pasa a tener su propia malla. Chocan con dos círculos bajos (se pueden trepar).
+- **Co-op**: los tiros a las motos los decide el host y los repite en todas las PC (mensaje `mh`); la explosión la manda el host (`mb`) y lastima a todos los jugadores cerca. El que entra tarde recibe todo por el registro.
+- **Todo se deshace al reiniciar** (`UNDO`).
+- **Probado sin placa de video**: carga sin errores; 47 motos en la A y 80 en la B; secuencia de tiros al tanque de una Naked 300 (dos agujeros con charco, se cae al 3.º, se prende al 4.º, explota y queda ardiendo); capturas de una estacionada en la 9 de Julio y de la de reparto en la sección B. No se probó el co-op ni se midieron los FPS: falta probar en la PC de Facu (F4), sobre todo en la 9 de Julio con muchas motos cerca.
 
 ### v2.6.0 — 2026-10-13
 - **Modo de pantalla en Opciones > Video**, a pedido de Facu: **Ventana**, **Pantalla completa** y **Pantalla completa sin bordes**. Se guarda con las demás opciones (`OPC.pantalla`, en `obelisco-opciones`) y «Valores de fábrica» vuelve a Ventana.

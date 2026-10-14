@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.10.0**
+**Versión actual: v2.10.1**
 Fuente de verdad: el repositorio https://github.com/facundofueyolaboral-max/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -58,8 +58,12 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-13, con la v2.8.0 (pantalla de carga y botón Salir del juego): el mapa no cambia. El script principal del juego ahora arranca con `OM_CARGA.correr(()=>{` en vez de `(()=>{`; el lector no depende de eso. Copia de datos en esta versión, sin avisos.
 - 2026-10-13, con la v2.9.0 (motos manejables y GN 125): el mapa no cambia (no dibuja motos). Copia de datos en esta versión, sin avisos.
 - 2026-10-14, con la v2.10.0 (todas las motos manejables con llave, sin retrovisor ni barra de aire): el mapa no cambia. Copia de datos en esta versión, sin avisos.
+- 2026-10-14, con la v2.10.1 (el cordón no saca vida): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.10.1 — 2026-10-14
+- **El cordón ya no saca vida**, a pedido de Facu. Subirlo rápido o de costado sigue sacudiendo la moto y frenándola (y se anuncia a la derecha, sin número), pero la vida no baja. Solo te caés si lo agarrás a mucha velocidad (más del doble de lo que aguanta cada moto sin golpe, o de costado a más de 60 km/h); esa caída sí lastima, como cualquier otra. Los aterrizajes duros siguen sacando un poco.
 
 ### v2.10.0 — 2026-10-14
 - **Todas las motos se pueden manejar, pero no todas arrancan**, a pedido de Facu, para que sea más realista: se suman el Scooter 125 y la Motoneta 110, y solo una de cada tres motos tiene la llave puesta (43 de las 127). La que tiene llave es siempre la misma (sale del número de la moto), así que en co-op coincide en todas las PC. Al lado de cualquier moto aparece «X · Subir a la …»; si no tiene llave, al probar sale «La … no tiene llave» y desde ahí la indicación lo avisa. Una moto que manejaste y dejaste en otro lado conserva la llave.

@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.9.0**
+**Versión actual: v2.10.0**
 Fuente de verdad: el repositorio https://github.com/facundofueyolaboral-max/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -57,8 +57,19 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-13, con la v2.6.0 (modos de pantalla): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-13, con la v2.8.0 (pantalla de carga y botón Salir del juego): el mapa no cambia. El script principal del juego ahora arranca con `OM_CARGA.correr(()=>{` en vez de `(()=>{`; el lector no depende de eso. Copia de datos en esta versión, sin avisos.
 - 2026-10-13, con la v2.9.0 (motos manejables y GN 125): el mapa no cambia (no dibuja motos). Copia de datos en esta versión, sin avisos.
+- 2026-10-14, con la v2.10.0 (todas las motos manejables con llave, sin retrovisor ni barra de aire): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.10.0 — 2026-10-14
+- **Todas las motos se pueden manejar, pero no todas arrancan**, a pedido de Facu, para que sea más realista: se suman el Scooter 125 y la Motoneta 110, y solo una de cada tres motos tiene la llave puesta (43 de las 127). La que tiene llave es siempre la misma (sale del número de la moto), así que en co-op coincide en todas las PC. Al lado de cualquier moto aparece «X · Subir a la …»; si no tiene llave, al probar sale «La … no tiene llave» y desde ahí la indicación lo avisa. Una moto que manejaste y dejaste en otro lado conserva la llave.
+- **Scooter 125**: automática (sube de vueltas y se queda, la marcha dice A), ruedas chicas: rápida para arrancar y doblar, sufre en cordones (sin golpe hasta 30 km/h) y saltos. Pies en el piso del scooter, espalda derecha, manubrio carenado que gira con el faro, y el caballete central se levanta al andar.
+- **Motoneta 110**: cuatro marchas, liviana y tranquila (88 km/h). Pies en las estriberas, manubrio carenado estilo Wave.
+- Por dentro: `geomOf` arma la geometría para manejar según el tipo de moto (calle, scooter o motoneta): eje de la dirección, centro del manubrio, puños, asiento, apoyo de los pies y faro. En el scooter y la motoneta giran con el manubrio la horquilla, el carenado del manubrio y el guardabarros delantero; el escudo y la espina quedan fijos.
+- **Sin retrovisor en el HUD**: se sacó el espejo del medio de la pantalla en primera persona (Facu: no tiene sentido en una moto). Quedan los dos espejos del manubrio.
+- **Espejos más baratos**: se refrescan a ritmo fijo, un espejo cada 1/16 s (cada uno 8 veces por segundo), sin importar los FPS. Sin el retrovisor, en primera persona se dibuja la escena una vez de más cada 4 cuadros a 60 FPS (antes, la mitad de los cuadros).
+- **Aire**: 30 % más para correr (`stamRun` de 8 a 10,4 s) y la barra de aire ya no se ve en el HUD. Sigue apareciendo «SIN AIRE» al lado de SALUD cuando te quedás sin aire.
+- **Probado sin placa de video**: carga sin errores; 43 de 127 motos con llave; subir a un scooter y a una motoneta con llave, andar, doblar y bajarse (capturas de los dos con el jinete sentado y el manubrio girado, y del scooter en primera persona sin retrovisor); una Street sin llave avisa y no arranca; la barra de aire no se ve y el aire dura 10,4 s corriendo. Falta probar en la PC de Facu cuánto cuesta ahora la primera persona (F4).
 
 ### v2.9.0 — 2026-10-13
 - **Motos manejables**, a partir de `moto-manejable-concepto.html` (la prueba de manejo que Facu fue ajustando) y con su aprobación. Se manejan todas las de calle: Street 150, Street 150 de reparto, Naked 300, Enduro 250, Clásica 350, Moto policial y la nueva **GN 125**. Scooter y motoneta todavía no. Arriba de la moto no se tira (decisión de Facu, por ahora).

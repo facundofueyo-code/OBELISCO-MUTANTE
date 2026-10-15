@@ -1,6 +1,6 @@
 # Obelisco Mutante — Registro de versiones
 
-**Versión actual: v2.11.0**
+**Versión actual: v2.11.1**
 Fuente de verdad: el repositorio https://github.com/facundofueyolaboral-max/OBELISCO-MUTANTE (rama `main`, publicado con GitHub Pages). El juego es `obelisco-mutante.html` en la raíz.
 Mapa del juego: `mapa.html` (página aparte, no es parte del juego; ver la regla 7)
 Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Releases del repo.
@@ -60,8 +60,18 @@ Versión de escritorio: `desktop/` (ver la regla 8). Descargas en la pestaña Re
 - 2026-10-14, con la v2.10.0 (todas las motos manejables con llave, sin retrovisor ni barra de aire): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-14, con la v2.10.1 (el cordón no saca vida): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 - 2026-10-14, con la v2.11.0 (modo «Hasta el amanecer»): el mapa no cambia (no dibuja bichos ni botín). Copia de datos en esta versión, sin avisos.
+- 2026-10-15, con la v2.11.1 (manos en la pistola): el mapa no cambia. Copia de datos en esta versión, sin avisos.
 
 ## Historial
+
+### v2.11.1 — 2026-10-15
+- **Manos en la pistola, de nuevo**, a pedido de Facu (pasó fotos de referencia de un agarre a dos manos con los pulgares adelante): «el índice va dentro del área del gatillo».
+- **Derecha**: alta en el lomo de la empuñadura, con el medio justo debajo del guardamonte y los otros dedos envolviendo el frente; el **índice entra al guardamonte** y apoya la yema en la cara del disparador; el pulgar va adelante por el costado izquierdo. Antes el índice iba estirado por afuera del armazón y la mano quedaba baja.
+- **Índice afuera cuando no se tira**: recargando, cambiando de arma o corriendo sin disparar, el índice sale del guardamonte y queda estirado por el costado del armazón (disciplina de gatillo). Al disparar o volver a empuñar entra de nuevo.
+- **Izquierda de apoyo**: el talón de la mano llena el costado izquierdo de la empuñadura, los dedos envuelven a los de la derecha por delante (el índice pegado abajo del guardamonte), el pulgar va adelante por el armazón debajo de la corredera y la muñeca queda quebrada hacia abajo, con el antebrazo que viene de abajo a la izquierda. Antes envolvía la mano derecha por detrás con los dedos sueltos.
+- **Cómo se hizo**: la posición de cada mano y la pose de cada dedo se ajustaron midiendo las articulaciones contra las piezas del arma (disparador, guardamonte, empuñadura, armazón, corredera) y sin atravesarlas, y se revisaron en capturas desde los dos costados, arriba, abajo, de frente y en primera persona, apuntando, desde la cadera y recargando. Poses nuevas `pisTrig`, `pisOff` y `pisSup`; la muñeca del agarre de pistola puede quebrarse un poco más (`LIM.pisR`, `LIM.pisL`) para que el brazo no corra la mano del lugar.
+- **Lo demás no cambia**: la Uzi y el fusil siguen con su mano derecha de antes (salen del agarre anterior, `HAND.pisR0`), igual que la escopeta; las recargas de la pistola usan el apoyo nuevo.
+- **Probado sin placa de video**: capturas de las manos apuntando, desde la cadera y en plena recarga, sin errores. Falta verlo en la PC de Facu en movimiento (correr, saltar, disparar seguido).
 
 ### v2.11.0 — 2026-10-14
 - **Modo nuevo: «Hasta el amanecer»**, survival horror sin oleadas, a pedido de Facu. Está en Un jugador (debajo de «Bajar a la 9 de Julio») y en la sala del cooperativo (Modo). Facu eligió: sobrevivir la noche en el mapa abierto, recursos escasos estilo clásico, más oscuro con la linterna como clave, bichos que oyen y ven, HUD mínimo, sustos armados y que ande también en co-op.
